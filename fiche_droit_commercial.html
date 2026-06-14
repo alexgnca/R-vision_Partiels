@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de révision — Droit Commercial</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+        :root {
+            --bg: #0d0f14;
+            --surface: #151820;
+            --surface2: #1c2030;
+            --border: #252a3a;
+            --accent: #4f7cff;
+            --accent2: #a78bfa;
+            --green: #22d3a0;
+            --yellow: #fbbf24;
+            --red: #f87171;
+            --orange: #fb923c;
+            --text: #e2e8f0;
+            --text-muted: #64748b;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 32px 24px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0d0f14 0%, #1a1030 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-badge {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent2);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .header-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .meta-pill {
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .pill-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .pill-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .pill-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-bottom: 16px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .icon-blue {
+            background: rgba(79, 124, 255, 0.15);
+        }
+
+        .icon-green {
+            background: rgba(34, 211, 160, 0.15);
+        }
+
+        .icon-purple {
+            background: rgba(167, 139, 250, 0.15);
+        }
+
+        .icon-yellow {
+            background: rgba(251, 191, 36, 0.15);
+        }
+
+        .icon-orange {
+            background: rgba(251, 146, 60, 0.15);
+        }
+
+        .icon-red {
+            background: rgba(248, 113, 113, 0.15);
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .card {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .card-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+        }
+
+        .card-title.blue {
+            color: var(--accent);
+        }
+
+        .card-title.green {
+            color: var(--green);
+        }
+
+        .card-title.purple {
+            color: var(--accent2);
+        }
+
+        .card-title.yellow {
+            color: var(--yellow);
+        }
+
+        .card-title.red {
+            color: var(--red);
+        }
+
+        ul.fiche-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        ul.fiche-list li {
+            font-size: 13px;
+            color: var(--text-dim);
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        ul.fiche-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent2);
+            font-weight: 700;
+        }
+
+        ul.fiche-list li strong {
+            color: var(--text);
+        }
+
+        .highlight-red {
+            background: rgba(248, 113, 113, 0.08);
+            border: 1px solid rgba(248, 113, 113, 0.25);
+            color: #fca5a5;
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-top: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .piege-box {
+            background: rgba(251, 191, 36, 0.06);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-top: 14px;
+        }
+
+        .piege-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--yellow);
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        .tag-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .tag-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .qcm-section {
+            background: linear-gradient(135deg, var(--surface), var(--surface2));
+            border: 1px solid var(--accent2);
+            border-radius: 14px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .qcm-header {
+            font-family: 'Syne', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .qcm-score-display {
+            margin-left: auto;
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .question-box {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-box:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .question-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 8px;
+        }
+
+        .option-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--text-dim);
+            font-size: 13px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .option-btn:hover {
+            border-color: var(--accent2);
+            color: #fff;
+        }
+
+        .option-btn.correct {
+            background: rgba(34, 211, 160, 0.15);
+            border-color: var(--green);
+            color: var(--green);
+            pointer-events: none;
+        }
+
+        .option-btn.wrong {
+            background: rgba(248, 113, 113, 0.15);
+            border-color: var(--red);
+            color: var(--red);
+            pointer-events: none;
+        }
+
+        .feedback-icon {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 16px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="javascript:history.back()"
+        style="display:inline-block; margin-bottom: 20px; color: var(--accent2); text-decoration: none; font-size: 13px; font-weight: 500;">←
+        Retour au tableau de bord</a>
+
+    <div class="header">
+        <div class="header-badge">Fiche de révision · INSEEC MSc</div>
+        <div class="header-title">Droit Commercial</div>
+        <div class="header-sub">Droit Français · Droit Européen de la Concurrence · Droit International · Cas
+            pratiques[cite: 13]</div>
+        <div class="header-meta">
+            <span class="meta-pill pill-purple">📅 Module 02</span>
+            <span class="meta-pill pill-green">🎯 QCM Interactif (10 questions)</span>
+            <span class="meta-pill pill-blue">Prof. Thierry Zobel</span>
+        </div>
+    </div>
+
+    <!-- 1. DROIT FRANÇAIS -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-blue">🇫🇷</div>
+            <div class="section-title">1. Fondamentaux du Droit Commercial Français</div>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title blue">Principes & Délais</div>
+                <ul class="fiche-list">
+                    <li><strong>Acte de commerce par nature :</strong> Achat de biens meubles pour les revendre (en
+                        l'état ou travaillés)[cite: 12].</li>
+                    <li><strong>Prescription :</strong> Le délai de droit commun entre commerçants est de <strong>5
+                            ans</strong>[cite: 12].</li>
+                    <li><strong>Solidarité :</strong> Elle est <strong>présumée</strong> entre codébiteurs pour une
+                        dette commerciale[cite: 12].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title blue">Fonds de commerce & Sociétés</div>
+                <ul class="fiche-list">
+                    <li><strong>Fonds de Commerce :</strong> Bien meuble incorporel. Condition "sine qua non" :
+                        <strong>clientèle réelle et certaine</strong>[cite: 12].</li>
+                    <li><strong>Sociétés :</strong> L'immatriculation au RCS confère la personnalité morale. En SARL,
+                        responsabilité limitée aux apports[cite: 12].</li>
+                    <li><strong>Tribunal :</strong> Litiges entre commerçants jugés par le <strong>Tribunal de
+                            Commerce</strong>[cite: 12].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. DROIT EUROPÉEN -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-purple">🇪🇺</div>
+            <div class="section-title">2. Droit Européen & Marché Unique</div>
+        </div>
+
+        <div class="piege-box"
+            style="margin-top: 0; margin-bottom: 12px; border-color: var(--accent2); background: rgba(167,139,250,0.06);">
+            <div class="piege-title" style="color: var(--accent2);">Normes Européennes</div>
+            <ul class="fiche-list" style="margin-top: 5px;">
+                <li><span class="tag tag-purple">Règlement</span> D'application immédiate et directe dans tous les
+                    États[cite: 12].</li>
+                <li><span class="tag tag-blue">Directive</span> Fixe un objectif à atteindre, doit être transposée dans
+                    le droit national[cite: 9, 12].</li>
+            </ul>
+        </div>
+
+        <div class="grid-2">
+            <div>
+                <div class="card-title purple" style="margin-bottom:8px">Institutions & Marché</div>
+                <ul class="fiche-list">
+                    <li><strong>TFUE :</strong> Traité de base pour le fonctionnement et la concurrence[cite: 12, 13].
+                    </li>
+                    <li><strong>Commission Européenne :</strong> Contrôle les fusions et concentrations[cite: 12, 13].
+                    </li>
+                    <li><strong>Reconnaissance mutuelle :</strong> Un produit légal dans un État est valable partout
+                        (Arrêt Cassis de Dijon)[cite: 12, 13].</li>
+                </ul>
+            </div>
+            <div>
+                <div class="card-title purple" style="margin-bottom:8px">Droit de la Concurrence (TRÈS IMPORTANT)</div>
+                <ul class="fiche-list">
+                    <li><strong>Art 101 TFUE :</strong> Interdit les <strong>ententes</strong> (ex: fixation de prix
+                        secrets, partage géographique)[cite: 6, 12].</li>
+                    <li><strong>Art 102 TFUE :</strong> Interdit l'<strong>abus de position dominante</strong> (imposer
+                        conditions déloyales)[cite: 6, 12].</li>
+                    <li><strong>Aides d'État :</strong> Interdites si elles faussent la concurrence[cite: 13].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. DROIT INTERNATIONAL -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-green">🌍</div>
+            <div class="section-title">3. Droit Commercial International</div>
+        </div>
+        <div class="grid-2">
+            <div>
+                <div class="card-title green" style="margin-bottom:8px">Conventions & Incoterms</div>
+                <ul class="fiche-list">
+                    <li><strong>CVIM (1980) :</strong> Convention de Vienne, harmonise les règles de vente
+                        internationale de marchandises[cite: 10, 12].</li>
+                    <li><strong>EXW (Ex Works) :</strong> Marchandise à dispo dans les locaux du vendeur[cite: 12].</li>
+                    <li><strong>DDP :</strong> Le vendeur livre la marchandise dédouanée à destination[cite: 12].</li>
+                </ul>
+            </div>
+            <div>
+                <div class="card-title green" style="margin-bottom:8px">Paiements & Litiges</div>
+                <ul class="fiche-list">
+                    <li><strong>Credoc :</strong> Crédit documentaire = paiement garanti par banque contre
+                        documents[cite: 12].</li>
+                    <li><strong>Clause compromissoire :</strong> Engagement à soumettre le litige à
+                        l'<strong>arbitrage</strong>[cite: 12].</li>
+                    <li><strong>Conflit de lois :</strong> Sans choix, on applique Rome I (Lieu d'exécution)[cite: 9,
+                        12].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. METHODOLOGIE CAS PRATIQUES -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-red">⚖️</div>
+            <div class="section-title">4. Méthodologie des Cas Pratiques</div>
+        </div>
+        <div class="highlight-red">
+            <div class="card-title red" style="margin-bottom:8px">Résolution des situations types de l'examen</div>
+            <ul class="fiche-list" style="margin-top: 5px; margin-bottom: 0;">
+                <li><strong style="color:var(--text);">Loi applicable / Contrat transfrontalier (Ex: France-Allemagne)
+                        :</strong> Si rien n'est écrit, c'est le <strong>Règlement Rome I (CE n° 593/2008)</strong> qui
+                    s'applique. Les modifications unilatérales sont interdites par principe de bonne foi[cite: 6, 7, 9].
+                </li>
+                <li><strong style="color:var(--text);">Retard ou Non-conformité :</strong> L'acheteur peut demander
+                    exécution, résolution ou dommages/intérêts[cite: 8]. La seule exonération possible est la
+                    <strong>Force majeure</strong> (événement imprévisible et irrésistible)[cite: 7, 10, 12].</li>
+                <li><strong style="color:var(--text);">Entente sur les prix (Cartel) :</strong> Un accord secret (même
+                    verbal) entre entreprises pour fixer des prix ou diviser des territoires viole <strong>l'Article 101
+                        du TFUE</strong>. Sanctions par la Commission européenne[cite: 6, 12].</li>
+                <li><strong style="color:var(--text);">Refus aux frontières (Ex: Belgique refuse un produit italien)
+                        :</strong> Violation flagrante de la <strong>libre circulation des marchandises</strong>
+                    (reconnaissance mutuelle), sauf risque prouvé pour la santé publique[cite: 6, 13].</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================= QCM INTERACTIF (10 QUESTIONS) ================= -->
+    <div class="qcm-section" id="qcm">
+        <div class="qcm-header">
+            🎯 QCM d'entraînement (Questions du partiel)
+            <span class="qcm-score-display" id="score-display">Score : 0/10</span>
+        </div>
+
+        <div class="question-box">
+            <div class="question-text">1. Quel est le délai de prescription de droit commun pour les obligations nées
+                entre commerçants en France ?[cite: 12]</div>
+            <div class="options-grid">
+                <button class="option-btn" onclick="handleAnswer(this, false, 1)"><span>A. 2 ans</span><span
+                        class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, true, 1)"><span>B. 5 ans</span><span
+                        class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, false, 1)"><span>C. 10 ans</span><span
+                        class="feedback-icon"></span></button>
+            </div>
+        </div>
+
+        <div class="question-box">
+            <div class="question-text">2. L'article 101 du TFUE (Droit européen de la concurrence) interdit
+                principalement :[cite: 12]</div>
+            <div class="options-grid">
+                <button class="option-btn" onclick="handleAnswer(this, false, 2)"><span>A. Les fusions
+                        d'entreprises</span><span class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, false, 2)"><span>B. Les aides d'État aux
+                        entreprises en difficulté</span><span class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, true, 2)"><span>C. Les ententes et pratiques
+                        concertées qui restreignent la concurrence</span><span class="feedback-icon"></span></button>
+            </div>
+        </div>
+
+        <div class="question-box">
+            <div class="question-text">3. Qu'est-ce qu'un Règlement européen par rapport à une Directive ?[cite: 12]
+            </div>
+            <div class="options-grid">
+                <button class="option-btn" onclick="handleAnswer(this, false, 3)"><span>A. Le règlement doit être
+                        transposé, la directive est d'application directe</span><span
+                        class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, true, 3)"><span>B. Le règlement est d'application
+                        immédiate et directe, la directive fixe un objectif à atteindre</span><span
+                        class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, false, 3)"><span>C. Le règlement est facultatif,
+                        la directive est obligatoire</span><span class="feedback-icon"></span></button>
+            </div>
+        </div>
+
+        <div class="question-box">
+            <div class="question-text">4. La Convention de Vienne (CVIM) de 1980 régit :[cite: 12]</div>
+            <div class="options-grid">
+                <button class="option-btn" onclick="handleAnswer(this, true, 4)"><span>A. Les contrats de vente
+                        internationale de marchandises</span><span class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, false, 4)"><span>B. Le transport aérien
+                        international</span><span class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, false, 4)"><span>C. Les modalités de paiement par
+                        lettre de change</span><span class="feedback-icon"></span></button>
+            </div>
+        </div>
+
+        <div class="question-box">
+            <div class="question-text">5. En cas de litige international, si aucune loi n'est choisie dans le contrat,
+                comment la détermine-t-on ?[cite: 12]</div>
+            <div class="options-grid">
+                <button class="option-btn" onclick="handleAnswer(this, false, 5)"><span>A. On annule purement et
+                        simplement le contrat</span><span class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, false, 5)"><span>B. On utilise toujours la loi
+                        américaine</span><span class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, true, 5)"><span>C. On utilise les règles de
+                        conflit de lois (ex: Règlement Rome I en UE)</span><span class="feedback-icon"></span></button>
+            </div>
+        </div>
+
+        <div class="question-box">
+            <div class="question-text">6. Quel élément est considéré comme la condition "sine qua non" de l'existence
+                d'un fonds de commerce ?[cite: 12]</div>
+            <div class="options-grid">
+                <button class="option-btn" onclick="handleAnswer(this, false, 6)"><span>A. Le droit au bail</span><span
+                        class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, true, 6)"><span>B. La clientèle réelle et
+                        certaine</span><span class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, false, 6)"><span>C. Les marchandises en
+                        stock</span><span class="feedback-icon"></span></button>
+            </div>
+        </div>
+
+        <div class="question-box">
+            <div class="question-text">7. L'article 102 du TFUE concerne l'interdiction de :[cite: 12]</div>
+            <div class="options-grid">
+                <button class="option-btn" onclick="handleAnswer(this, true, 7)"><span>A. L'abus de position
+                        dominante</span><span class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, false, 7)"><span>B. La vente de produits
+                        non-conformes</span><span class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, false, 7)"><span>C. La libre circulation des
+                        services</span><span class="feedback-icon"></span></button>
+            </div>
+        </div>
+
+        <div class="question-box">
+            <div class="question-text">8. Que signifie l'Incoterm "EXW" (Ex Works) ?[cite: 12]</div>
+            <div class="options-grid">
+                <button class="option-btn" onclick="handleAnswer(this, false, 8)"><span>A. Le vendeur paie le transport
+                        jusqu'au port de destination</span><span class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, true, 8)"><span>B. Le vendeur met la marchandise
+                        à disposition de l'acheteur dans ses propres locaux</span><span
+                        class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, false, 8)"><span>C. Le vendeur livre la
+                        marchandise dédouanée à destination</span><span class="feedback-icon"></span></button>
+            </div>
+        </div>
+
+        <div class="question-box">
+            <div class="question-text">9. Le bail commercial français a une durée minimale de :[cite: 12]</div>
+            <div class="options-grid">
+                <button class="option-btn" onclick="handleAnswer(this, false, 9)"><span>A. 3 ans</span><span
+                        class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, false, 9)"><span>B. 6 ans</span><span
+                        class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, true, 9)"><span>C. 9 ans</span><span
+                        class="feedback-icon"></span></button>
+            </div>
+        </div>
+
+        <div class="question-box">
+            <div class="question-text">10. Qu'est-ce qu'une "clause compromissoire" dans un contrat international
+                ?[cite: 12]</div>
+            <div class="options-grid">
+                <button class="option-btn" onclick="handleAnswer(this, true, 10)"><span>A. Une clause par laquelle les
+                        parties s'engagent à soumettre leur litige à l'arbitrage</span><span
+                        class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, false, 10)"><span>B. Une clause qui réduit le
+                        prix en cas de retard</span><span class="feedback-icon"></span></button>
+                <button class="option-btn" onclick="handleAnswer(this, false, 10)"><span>C. Une clause qui annule le
+                        contrat en cas de guerre</span><span class="feedback-icon"></span></button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const SUBJECT_ID = 's2'; // ID correspondant au Droit Commercial
+        const TOTAL_QUESTIONS = 10;
+        let score = 0;
+        let answeredQuestions = new Set();
+
+        function handleAnswer(btn, isCorrect, questionNumber) {
+            if (answeredQuestions.has(questionNumber)) return;
+            answeredQuestions.add(questionNumber);
+
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.option-btn').forEach(b => b.style.pointerEvents = 'none');
+
+            if (isCorrect) {
+                btn.classList.add('correct');
+                btn.querySelector('.feedback-icon').textContent = '✓';
+                score++;
+            } else {
+                btn.classList.add('wrong');
+                btn.querySelector('.feedback-icon').textContent = '✗';
+                parent.querySelectorAll('.option-btn').forEach(b => {
+                    if (b.getAttribute('onclick').includes('true')) {
+                        b.classList.add('correct');
+                        b.querySelector('.feedback-icon').textContent = '✓';
+                    }
+                });
+            }
+
+            document.getElementById('score-display').textContent = `Score : ${score}/${TOTAL_QUESTIONS}`;
+            updateDashboardScore(score);
+        }
+
+        function updateDashboardScore(newScore) {
+            try {
+                let state = JSON.parse(localStorage.getItem('revision_state')) || {};
+                if (!state[SUBJECT_ID]) { state[SUBJECT_ID] = { fiche: true, maitrise: -1, score: '', notes: '' }; }
+                state[SUBJECT_ID].score = newScore;
+                state[SUBJECT_ID].fiche = true;
+                localStorage.setItem('revision_state', JSON.stringify(state));
+            } catch (e) { console.error("Erreur de sauvegarde", e); }
+        }
+    </script>
+</body>
+
+</html>

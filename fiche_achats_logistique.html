@@ -248,28 +248,6 @@
             color: var(--text);
         }
 
-        .fiche-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 11px;
-        }
-
-        .fiche-table th {
-            background: var(--surface2);
-            color: var(--accent);
-            font-weight: 600;
-            padding: 8px 10px;
-            text-align: left;
-            text-transform: uppercase;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .fiche-table td {
-            padding: 7px 10px;
-            color: var(--text-dim);
-            border-bottom: 1px solid rgba(37, 42, 58, 0.5);
-        }
-
         .highlight {
             border-radius: 10px;
             padding: 12px 16px;
@@ -326,9 +304,9 @@
             color: var(--green);
         }
 
-        .tag-purple {
-            background: rgba(167, 139, 250, 0.15);
-            color: var(--accent2);
+        .tag-orange {
+            background: rgba(251, 146, 60, 0.15);
+            color: var(--orange);
         }
 
         .flow {
@@ -511,11 +489,12 @@
         <div class="header-sub">La logique des 3 flux · Supply Chain · Lean Management · Reverse Logistics · RSE</div>
         <div class="header-meta">
             <span class="meta-pill pill-blue">📅 Module 01</span>
-            <span class="meta-pill pill-green">🎯 QCM Interactif (10 questions)</span>
+            <span class="meta-pill pill-green">🎯 QCM Interactif Aléatoire</span>
             <span class="meta-pill pill-purple">Prof. Alain Chatenet</span>
         </div>
     </div>
 
+    <!-- 1. LES 3 FLUX = FONDAMENTAL -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon icon-blue">🔁</div>
@@ -567,6 +546,7 @@
         </div>
     </div>
 
+    <!-- 2. LES ACHATS -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon icon-yellow">🛒</div>
@@ -615,6 +595,7 @@
         </div>
     </div>
 
+    <!-- 3. LEAN MANAGEMENT -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon icon-orange">⚙️</div>
@@ -658,6 +639,7 @@
         </div>
     </div>
 
+    <!-- 4. REVERSE LOGISTICS -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon icon-blue">🔄</div>
@@ -689,6 +671,7 @@
         </div>
     </div>
 
+    <!-- PIÈGES QCM -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon icon-red">⚠️</div>
@@ -715,6 +698,7 @@
         </div>
     </div>
 
+    <!-- ================= QCM INTERACTIF ALÉATOIRE ================= -->
     <div class="qcm-section" id="qcm">
         <div class="qcm-header">
             🎯 QCM de Validation
@@ -723,6 +707,7 @@
         </div>
 
         <div id="qcm-questions-container">
+            <!-- Les 10 questions seront générées ici par JavaScript -->
         </div>
     </div>
 
@@ -732,38 +717,38 @@
         let score = 0;
         let answeredQuestions = new Set();
 
-        // BANQUE DE 30 QUESTIONS ACHATS & LOGISTIQUE
+        // NOUVELLE BANQUE DE 30 QUESTIONS STRICTEMENT BASÉE SUR LE TEXTE AFFICHÉ
         const questionPool = [
-            { q: "Quel flux circule de l'aval vers l'amont pour déclencher la production ?", options: ["Le flux physique", "Le flux d'informations", "Le flux financier"], correct: 1 },
-            { q: "Le 'Muri' dans le Lean Management correspond à :", options: ["Les gaspillages sans valeur ajoutée", "L'excès et la surcharge de travail", "La variabilité des flux"], correct: 1 },
-            { q: "Selon Kraljic, quelle stratégie adopter pour les 'Produits Leviers' (Materials management) ?", options: ["Exploiter le pouvoir d'achat", "Créer un stock de sûreté", "Automatiser les processus"], correct: 0 },
-            { q: "Que signifie le TCO (Total Cost of Ownership) ?", options: ["Prix d'achat + tous les coûts cachés", "Coût exclusif du transport", "Coût d'acquisition d'entreprise"], correct: 0 },
-            { q: "Quel modèle illustre une relation Achats intégrée entre toutes les fonctions de deux entreprises ?", options: ["Papillon", "Diamant", "Kaizen"], correct: 1 },
-            { q: "Quel est le pourcentage minimum du PCE pour qu'une entreprise soit Lean ?", options: ["10%", "25%", "50%"], correct: 1 },
-            { q: "Dans le Lean, que désigne spécifiquement le 'Muda' ?", options: ["Les 8 gaspillages", "La variabilité", "L'excès de production"], correct: 0 },
-            { q: "En Achats Responsables, quelle règle limite les impacts environnementaux ?", options: ["Les 3C", "Les 5R (Rethink, Reduce...)", "La méthode 5S"], correct: 1 },
-            { q: "L'IA en logistique permet en moyenne de réduire les coûts de transport de :", options: ["5%", "15%", "30%"], correct: 1 },
-            { q: "Quel est l'un des principaux défis de la Reverse Logistics ?", options: ["Application de flux poussés", "Gestion des stocks imprévisibles", "Incompatibilité avec l'IA"], correct: 1 },
-            { q: "Dans quel sens circule principalement le flux financier dans la Supply Chain ?", options: ["De l'amont vers l'aval", "De l'aval vers l'amont", "Il est uniquement circulaire"], correct: 1 },
-            { q: "Que signifie le 'Seiri' dans la méthode 5S ?", options: ["Ranger", "Nettoyer", "Débarrasser / Trier"], correct: 2 },
-            { q: "Quel système informatique est recommandé pour gérer efficacement les retours de la Reverse Logistics ?", options: ["CRM", "WMS avec module retours", "ERP basique"], correct: 1 },
-            { q: "Le modèle d'achat 'Papillon' se caractérise par :", options: ["Une relation cloisonnée entre l'acheteur et le vendeur", "Une collaboration inter-services totale", "L'utilisation de la blockchain"], correct: 0 },
-            { q: "Laquelle de ces affirmations décrit un flux poussé ?", options: ["On produit selon la commande ferme du client", "On produit en masse en anticipant une demande", "On produit sans stock"], correct: 1 },
-            { q: "Que mesure l'ACV (Analyse du Cycle de Vie) ?", options: ["L'impact environnemental du berceau à la tombe", "La rentabilité financière d'un produit", "Le délai de livraison d'un fournisseur"], correct: 0 },
-            { q: "Quelle technologie garantit une traçabilité décentralisée et infalsifiable dans la Supply Chain ?", options: ["L'Intelligence Artificielle", "Le WMS", "La Blockchain"], correct: 2 },
-            { q: "Le 'Mura' dans le vocabulaire Lean correspond à :", options: ["La variabilité et l'irrégularité des processus", "Les erreurs de qualité", "Le sur-stockage"], correct: 0 },
-            { q: "L'objectif principal d'une stratégie de relocalisation est de :", options: ["Trouver une main d'oeuvre moins chère", "Réduire l'empreinte carbone et la dépendance", "Allonger la Supply Chain"], correct: 1 },
-            { q: "Selon Kraljic, que faire pour les 'Produits Goulots' (Sourcing management) ?", options: ["Automatiser", "Gérer un inventaire de sûreté", "Chercher des partenariats mondiaux"], correct: 1 },
-            { q: "Quelle est la principale différence entre le Lean et le Six Sigma ?", options: ["Le Lean réduit la variabilité, Six Sigma réduit les gaspillages", "Le Lean réduit les gaspillages, Six Sigma réduit la variabilité", "Il n'y a aucune différence"], correct: 1 },
-            { q: "Les achats représentent en moyenne quelle part du chiffre d'affaires d'une entreprise ?", options: ["Plus de 60%", "Environ 30%", "Moins de 10%"], correct: 0 },
-            { q: "Selon Kraljic, quelle est la stratégie pour les 'Produits de base' (Purchasing management) ?", options: ["Inventaire de sûreté", "Automatiser les processus", "Partenariat exclusif"], correct: 1 },
-            { q: "Selon Kraljic, quelle est la stratégie pour les 'Produits Stratégiques' (Supply management) ?", options: ["Développer des partenariats et collaborer", "Changer de fournisseur chaque mois", "Acheter au moins cher"], correct: 0 },
-            { q: "Que signifie l'acronyme REPERES dans les motivations d'achat ?", options: ["Réduction, Écologie, Prix...", "Reconnaissance, Éthique, Prix, Émotion, Renouveau, Efficacité, Sécurité", "Rapidité, Efficience, Prix..."], correct: 1 },
-            { q: "Quelles sont les 3 destinations possibles après le tri en Reverse Logistics ?", options: ["Re-sell, Recycle, Scrap", "Return, Refuse, Remake", "Réparer, Repeindre, Revendre"], correct: 0 },
-            { q: "Historiquement, sur quoi se concentrait la logistique entre 1900 et 1950 ?", options: ["Les méthodes quantitatives", "La distribution physique liée au marketing", "L'intelligence artificielle"], correct: 1 },
-            { q: "Le Supply Chain Management (SCM) vise à intégrer :", options: ["Uniquement le service achat", "Toutes les activités des fournisseurs jusqu'aux clients", "Uniquement la production interne"], correct: 1 },
-            { q: "Dans le Lean Sourcing, quel est l'objectif de temps pour le traitement d'un appel d'offres ?", options: ["Moins de 30 jours", "Moins de 120 jours", "Plus de 200 jours"], correct: 1 },
-            { q: "Dans la Reverse Logistics, que signifie l'acronyme DEEE ?", options: ["Déchets d'Équipements Électriques et Électroniques", "Données Écologiques des Entreprises Européennes", "Département d'Évaluation de l'Empreinte Écologique"], correct: 0 }
+            { q: "Quel flux circule dans les 2 sens ?", options: ["Le flux physique", "Le flux d'informations", "Le flux financier"], correct: 1 },
+            { q: "Dans le Lean Management, que désigne le 'Muri' ?", options: ["Les gaspillages (surproduction...)", "L'excès, la surcharge par des processus non adaptés", "La variabilité des flux"], correct: 1 },
+            { q: "Selon la matrice de Kraljic, que doit-on faire pour les 'Produits leviers' (Materials Mgt) ?", options: ["Exploiter le pouvoir d'achat", "Créer un stock de sûreté", "Automatiser"], correct: 0 },
+            { q: "Que signifie TCO dans les Achats Responsables ?", options: ["Total Cost of Ownership (Coût d'achat + coûts cachés)", "Transport Costs Operations", "Technique de Coopération Organisationnelle"], correct: 0 },
+            { q: "Quel modèle illustre une coopération globale inter-services (Entreprise étendue) ?", options: ["Le Modèle Papillon", "Le Modèle Diamant", "Le Modèle Kaizen"], correct: 1 },
+            { q: "Pour être considérée comme Lean, une entreprise doit avoir un PCE de :", options: ["10%", "25% ou plus", "Moins de 5%"], correct: 1 },
+            { q: "Dans les 3 'démons' à éradiquer, que désigne le MUDA ?", options: ["Gaspillages (surproduction, temps d'attente, mouvements)", "La variabilité, l'irrégularité des flux", "L'excès, la surcharge"], correct: 0 },
+            { q: "La règle des 5R inclut : Rethink, Reduce, Reuse, Repair, et... ?", options: ["React", "Recycle", "Remove"], correct: 1 },
+            { q: "L'IA en logistique permet une réduction moyenne des coûts de transport de :", options: ["5%", "15%", "50%"], correct: 1 },
+            { q: "Quel est un défi majeur de la Reverse Logistics mentionné dans le cours ?", options: ["L'impossibilité d'utiliser des logiciels", "Les stocks imprévisibles et les surcoûts de tri", "Le fait que les clients ne retournent jamais rien"], correct: 1 },
+            { q: "Quel flux circule dans le sens inverse des flux physiques ?", options: ["Le flux d'informations", "Le flux financier", "Le flux logistique"], correct: 1 },
+            { q: "Plus de quel pourcentage du chiffre d'affaires passe par les achats en moyenne ?", options: ["20%", "40%", "60%"], correct: 2 },
+            { q: "Comment s'appelle le modèle traditionnel où la relation est cloisonnée entre l'acheteur et le vendeur ?", options: ["Le Modèle en Diamant", "Le Modèle en Papillon", "Le Modèle en Silo"], correct: 1 },
+            { q: "Selon la matrice de Kraljic, quelle est la stratégie pour les 'Produits stratégiques' (Supply Mgt) ?", options: ["Automatisation", "Stock de sûreté", "Partenariats, diversifier"], correct: 2 },
+            { q: "Selon la matrice de Kraljic, quelle est la stratégie pour les 'Produits goulots' (Sourcing Mgt) ?", options: ["Exploiter le pouvoir d'achat", "Stock de sûreté", "Partenariats"], correct: 1 },
+            { q: "Selon la matrice de Kraljic, quelle est la stratégie pour les 'Produits de base' (Purchasing Mgt) ?", options: ["Automatisation", "Diversification", "Augmentation des prix"], correct: 0 },
+            { q: "Que représente le flux physique ?", options: ["Le paiement des factures", "Le déplacement des marchandises", "Les prévisions de ventes"], correct: 1 },
+            { q: "Dans le Lean Management, que désigne le 'Mura' ?", options: ["L'excès", "Les gaspillages", "La variabilité, l'irrégularité des flux"], correct: 2 },
+            { q: "Quelle est la principale différence entre le Lean et le Six Sigma ?", options: ["Lean = réduire gaspillages / Six Sigma = réduire variabilité", "Lean = réduire variabilité / Six Sigma = réduire gaspillages", "Ce sont exactement les mêmes méthodes"], correct: 0 },
+            { q: "Qu'est-ce qui caractérise un 'Flux Tiré' ?", options: ["La production est déclenchée par la demande réelle du client", "Produire en grandes quantités en supposant le besoin", "Produire uniquement la nuit"], correct: 0 },
+            { q: "Qu'est-ce qui caractérise un 'Flux Poussé' ?", options: ["La production est déclenchée par la demande réelle", "Produire en grandes quantités en supposant le besoin", "Un flux qui remonte du client vers le fournisseur"], correct: 1 },
+            { q: "Dans les outils Achats Responsables, que signifie ACV ?", options: ["Achat à Coût Variable", "Analyse du Cycle de Vie (du berceau à la tombe)", "Association des Consommateurs Volontaires"], correct: 1 },
+            { q: "Selon le cours, l'IA logistique permet de réduire les stocks de :", options: ["10%", "15%", "25%"], correct: 0 },
+            { q: "Que contient le flux d'informations ?", options: ["Les factures et paiements", "Commandes, prévisions, données clients", "Uniquement les réclamations SAV"], correct: 1 },
+            { q: "Dans quel sens se fait la gestion des flux de la 'Reverse Logistics' ?", options: ["Du fournisseur vers le consommateur", "Du consommateur vers le fournisseur", "Du fournisseur vers l'entrepôt"], correct: 1 },
+            { q: "Parmi ces éléments, lequel fait partie des domaines de la Reverse Logistics ?", options: ["La production de masse", "La distribution en magasin", "Le recyclage (DEEE) et le SAV"], correct: 2 },
+            { q: "Quelle est la solution recommandée pour gérer la Reverse Logistics ?", options: ["Utiliser des camions plus grands", "Utiliser un WMS spécialisé", "Arrêter d'accepter les retours"], correct: 1 },
+            { q: "Lequel de ces systèmes vise à éliminer les gaspillages et créer de la valeur pour le client ?", options: ["Le Six Sigma exclusif", "Le Lean Management", "Le Modèle Papillon"], correct: 1 },
+            { q: "Parmi ces outils, lesquels sont associés au Lean Management dans le cours ?", options: ["Le TCO et l'ACV", "Les 5S, le Kaizen et la VSM", "Le Modèle Diamant"], correct: 1 },
+            { q: "Dans la règle des 5R, que signifie le premier 'R' (Rethink) ?", options: ["Repenser", "Réduire", "Recycler"], correct: 0 }
         ];
 
         function shuffleArray(array) {

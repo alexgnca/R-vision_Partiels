@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de révision — Stratégies Marketing & Commerciales (Haute Densité)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+        :root {
+            --bg: #0d0f14;
+            --surface: #151820;
+            --surface2: #1c2030;
+            --border: #252a3a;
+            --accent: #4f7cff;
+            --accent2: #a78bfa;
+            --green: #22d3a0;
+            --yellow: #fbbf24;
+            --red: #f87171;
+            --orange: #fb923c;
+            --cyan: #06b6d4;
+            --gold: #eab308;
+            --text: #e2e8f0;
+            --text-muted: #64748b;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 32px 24px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0d0f14 0%, #2a1a3a 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(234, 179, 8, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-badge {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .header-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .meta-pill {
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .pill-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .pill-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .pill-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .pill-gold {
+            background: rgba(234, 179, 8, 0.15);
+            color: var(--gold);
+        }
+
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-bottom: 16px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .icon-blue {
+            background: rgba(79, 124, 255, 0.15);
+        }
+
+        .icon-green {
+            background: rgba(34, 211, 160, 0.15);
+        }
+
+        .icon-purple {
+            background: rgba(167, 139, 250, 0.15);
+        }
+
+        .icon-gold {
+            background: rgba(234, 179, 8, 0.15);
+        }
+
+        .icon-red {
+            background: rgba(248, 113, 113, 0.15);
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .card {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .card-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+        }
+
+        .card-title.blue {
+            color: var(--accent);
+        }
+
+        .card-title.green {
+            color: var(--green);
+        }
+
+        .card-title.purple {
+            color: var(--accent2);
+        }
+
+        .card-title.red {
+            color: var(--red);
+        }
+
+        .card-title.gold {
+            color: var(--gold);
+        }
+
+        ul.fiche-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        ul.fiche-list li {
+            font-size: 13px;
+            color: var(--text-dim);
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        ul.fiche-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        ul.fiche-list li strong {
+            color: var(--text);
+        }
+
+        .highlight-box {
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-top: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .highlight-gold {
+            background: rgba(234, 179, 8, 0.08);
+            border: 1px solid rgba(234, 179, 8, 0.25);
+            color: #fde047;
+        }
+
+        .piege-box {
+            background: rgba(248, 113, 113, 0.06);
+            border: 1px solid rgba(248, 113, 113, 0.2);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-top: 14px;
+        }
+
+        .piege-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        .tag-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .tag-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .tag-red {
+            background: rgba(248, 113, 113, 0.15);
+            color: var(--red);
+        }
+
+        .tag-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .tag-gold {
+            background: rgba(234, 179, 8, 0.15);
+            color: var(--gold);
+        }
+
+        .flow {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .flow-item {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 7px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .flow-arrow {
+            color: var(--gold);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .qcm-section {
+            background: linear-gradient(135deg, var(--surface), var(--surface2));
+            border: 1px solid var(--gold);
+            border-radius: 14px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .qcm-header {
+            font-family: 'Syne', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .reset-qcm-btn {
+            margin-left: 10px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-muted);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reset-qcm-btn:hover {
+            border-color: var(--gold);
+            color: #0d0f14;
+            background: var(--gold);
+        }
+
+        .qcm-score-display {
+            margin-left: auto;
+            background: rgba(234, 179, 8, 0.15);
+            color: var(--gold);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .question-box {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-box:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .question-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 8px;
+        }
+
+        .option-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--text-dim);
+            font-size: 13px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .option-btn:hover {
+            border-color: var(--gold);
+            color: #fff;
+        }
+
+        .option-btn.correct {
+            background: rgba(34, 211, 160, 0.15);
+            border-color: var(--green);
+            color: var(--green);
+            pointer-events: none;
+        }
+
+        .option-btn.wrong {
+            background: rgba(248, 113, 113, 0.15);
+            border-color: var(--red);
+            color: var(--red);
+            pointer-events: none;
+        }
+
+        .feedback-icon {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 16px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="javascript:history.back()"
+        style="display:inline-block; margin-bottom: 20px; color: var(--gold); text-decoration: none; font-size: 13px; font-weight: 500;">←
+        Retour au tableau de bord</a>
+
+    <div class="header">
+        <div class="header-badge">Fiche de révision Haute Densité · INSEEC MSc</div>
+        <div class="header-title">Stratégies Marketing et Commerciales</div>
+        <div class="header-sub">VUCA/PDCA, Matrices TOWS/BCG/Ansoff, Modèle SCP, Techniques de Vente & PNL[cite: 35, 36,
+            37, 38, 39]</div>
+        <div class="header-meta">
+            <span class="meta-pill pill-purple">📅 Module 10</span>
+            <span class="meta-pill pill-gold">🎯 QCM Interactif Aléatoire</span>
+            <span class="meta-pill pill-blue">Prof. Patrick Legrand</span>
+        </div>
+    </div>
+
+    <!-- 1. FONDAMENTAUX DE LA STRATÉGIE -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-gold">🧭</div>
+            <div class="section-title">1. Les Fondamentaux de la Stratégie</div>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title gold">Définitions Clés[cite: 36, 37]</div>
+                <ul class="fiche-list">
+                    <li><strong>Origine :</strong> Du grec <em>stratos</em> (armée) et <em>argos</em> (conduire)[cite:
+                        36].</li>
+                    <li><strong>Stratégie (Chandler) :</strong> Détermination des buts à long terme et allocation des
+                        ressources pour les atteindre[cite: 37].</li>
+                    <li><strong>Marketing (Kotler) :</strong> Satisfaire le client de façon rentable et durable (via les
+                        4P)[cite: 37].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title gold">Méthodes d'Amélioration[cite: 35, 36]</div>
+                <ul class="fiche-list">
+                    <li><strong>PDCA (Roue de Deming) :</strong><br>
+                        - <strong>P</strong>lan (Planifier)<br>
+                        - <strong>D</strong>o (Développer/Mettre en œuvre)<br>
+                        - <strong>C</strong>heck (Contrôler les écarts)<br>
+                        - <strong>A</strong>ct (Agir/Ajuster)[cite: 36].
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight-box highlight-gold" style="margin-top:12px;">
+            <strong>L'Environnement VUCA :</strong> Pour décider dans un monde complexe[cite: 36].
+            <br>→ <strong>V</strong>olatility (Fréquences des changements)
+            <br>→ <strong>U</strong>ncertainty (Difficultés de prévision long terme)
+            <br>→ <strong>C</strong>omplexity (Quantité de paramètres)
+            <br>→ <strong>A</strong>mbiguity (La solution miracle n'existe pas)[cite: 36].
+        </div>
+    </div>
+
+    <!-- 2. ANALYSE STRATÉGIQUE (MATRICES) -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-blue">📊</div>
+            <div class="section-title">2. L'Analyse Stratégique (Matrices & Modèles)</div>
+        </div>
+
+        <div class="grid-2">
+            <div>
+                <div class="card-title blue" style="margin-bottom:8px">Du SWOT au TOWS[cite: 36, 39]</div>
+                <ul class="fiche-list">
+                    <li><strong>SWOT :</strong> Bilan interne (Forces/Faiblesses) et externe
+                        (Opportunités/Menaces)[cite: 37].</li>
+                    <li>Le <strong>TOWS</strong> croise ces dimensions pour créer 4 stratégies :
+                        <br>- <span class="tag tag-blue">SO (Maxi-Maxi)</span> : Stratégie d'<strong>attaque</strong>.
+                        Utiliser les forces pour saisir les opportunités[cite: 36, 39].
+                        <br>- <span class="tag tag-gold">WO (Mini-Maxi)</span> : Corriger les faiblesses grâce aux
+                        opportunités[cite: 36, 39].
+                        <br>- <span class="tag tag-purple">ST (Maxi-Mini)</span> : Stratégie <strong>défensive</strong>.
+                        Utiliser les forces pour minimiser les menaces[cite: 36, 39].
+                        <br>- <span class="tag tag-red">WT (Mini-Mini)</span> : Stratégie de
+                        <strong>survie/retrait</strong>[cite: 36, 39].
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div class="card-title blue" style="margin-bottom:8px">La Matrice BCG[cite: 37]</div>
+                <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 8px;">Croise la <em>Croissance du
+                        marché</em> et la <em>Part de marché relative</em>.</p>
+                <ul class="fiche-list">
+                    <li><span class="tag tag-gold">Star (Vedette) :</span> Forte croissance, forte PDM (Besoin de
+                        cash)[cite: 37].</li>
+                    <li><span class="tag tag-green">Vache à lait :</span> Faible croissance, forte PDM (Génère le
+                        cash)[cite: 37].</li>
+                    <li><span class="tag tag-blue">Dilemme :</span> Forte croissance, faible PDM[cite: 37].</li>
+                    <li><span class="tag tag-red">Poids mort :</span> Faible croissance, faible PDM[cite: 37].</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider" style="height:1px; background:var(--border); margin:16px 0;"></div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title blue">Stratégies de Porter[cite: 36, 39]</div>
+                <ul class="fiche-list">
+                    <li><strong>Domination par les coûts :</strong> Cibler tout le marché avec les coûts les plus
+                        faibles (effet d'expérience)[cite: 36, 39].</li>
+                    <li><strong>Différenciation :</strong> Cibler tout le marché avec un caractère unique perçu[cite:
+                        36, 39].</li>
+                    <li><strong>Concentration (Focalisation/Niche) :</strong> Cibler un segment restreint[cite: 36, 39].
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title blue">Matrice d'Ansoff[cite: 37, 39]</div>
+                <ul class="fiche-list">
+                    <li><strong>Pénétration :</strong> Produit Existant / Marché Existant[cite: 37, 39].</li>
+                    <li><strong>Extension de marché :</strong> Produit Existant / Marché Nouveau[cite: 37, 39].</li>
+                    <li><strong>Développement produit :</strong> Produit Nouveau / Marché Existant[cite: 37, 39].</li>
+                    <li><strong>Diversification :</strong> Produit Nouveau / Marché Nouveau[cite: 37, 39].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. LE MARKETING STRATÉGIQUE -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-purple">🎯</div>
+            <div class="section-title">3. Le Marketing Stratégique</div>
+        </div>
+        <div class="card-title purple">La Méthode SCP (Segmenter - Cibler - Positionner)[cite: 36, 39]</div>
+        <ul class="fiche-list">
+            <li><strong>Segmenter :</strong> Découper le marché en groupes homogènes (constat du marché)[cite: 36, 39].
+            </li>
+            <li><strong>Cibler :</strong> Décision stratégique du ou des segments visés[cite: 36, 39].
+                <br>- <em>Indifférencié</em> (même produit pour tous).
+                <br>- <em>Différencié</em> (offre spécifique par segment).
+                <br>- <em>Concentré</em> (un seul segment).
+                <br>- <em>One-to-one</em> (offre sur-mesure)[cite: 36, 39].
+            </li>
+            <li><strong>Positionner :</strong> Place unique dans l'esprit du consommateur (Sortir de l'anonymat, ex: le
+                poisson rouge coloré)[cite: 36, 39].</li>
+        </ul>
+
+        <div class="highlight-box highlight-gold" style="margin-top:12px;">
+            <strong>Stratégie Océan Bleu (CERE) :</strong> Créer - Élever - Réduire - Éliminer. Permet d'améliorer sa
+            proposition de valeur pour rendre la concurrence obsolète[cite: 39].
+        </div>
+    </div>
+
+    <!-- 4. L'ACTION COMMERCIALE & LA NÉGOCIATION -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-red">🤝</div>
+            <div class="section-title">4. Action Commerciale, Négociation et PNL</div>
+        </div>
+
+        <div class="grid-2">
+            <div>
+                <div class="card-title red" style="margin-bottom:8px">Le Comportement d'Achat[cite: 36, 37]</div>
+                <ul class="fiche-list">
+                    <li><strong>Les 5 étapes de décision :</strong> 1. Reconnaissance du besoin → 2. Recherche d'info →
+                        3. Évaluation → 4. Achat → 5. Évaluation post-achat[cite: 36, 37].</li>
+                    <li><strong>Le SONCASER (Motivations) :</strong> Sécurité, Orgueil, Nouveauté, Confort, Argent,
+                        Sympathie + <strong>Environnement, Région</strong>[cite: 36].</li>
+                </ul>
+            </div>
+            <div>
+                <div class="card-title red" style="margin-bottom:8px">Méthodes de Vente[cite: 39]</div>
+                <ul class="fiche-list">
+                    <li><strong>Méthode ADAC :</strong> Accueil, Découverte, Argumentation, Conclusion[cite: 39].</li>
+                    <li><strong>Le Sous-Marin :</strong> Rapport de confiance → Contrat préalable → Douleur → Budget →
+                        Décision → Conclusion → Après-vente[cite: 39].</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider" style="height:1px; background:var(--border); margin:16px 0;"></div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title red">Fidélisation & Churn[cite: 39]</div>
+                <ul class="fiche-list">
+                    <li><strong>Loi de Pareto :</strong> 20% des clients font 80% des ventes[cite: 39].</li>
+                    <li><strong>Churn :</strong> Attrition (perte de clients)[cite: 39].</li>
+                    <li><strong>Stratégies :</strong> Ventes incitatives (Up-sell vers gamme supérieure), Ventes
+                        croisées (Cross-sell)[cite: 39].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title red">Communication & PNL[cite: 39]</div>
+                <ul class="fiche-list">
+                    <li><em>"On ne peut pas ne pas communiquer."</em> <strong>60%</strong> du message est Non-Verbal
+                        (posture, voix)[cite: 39].</li>
+                    <li><strong>L'Index de Référence (PNL) :</strong>
+                        <br>1. Processus Interne (Penser)
+                        <br>2. État Interne (Sentir : états de ressource/positifs ou états limitants)
+                        <br>3. Comportement Externe (Agir)[cite: 39].
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PIÈGES QCM -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-gold">⚠️</div>
+            <div class="section-title">Pièges classiques QCM</div>
+        </div>
+        <div class="piege-box" style="margin-top:0;">
+            <div class="piege-title">Attention aux confusions dans les Matrices !</div>
+            <ul class="fiche-list">
+                <li><strong>BCG :</strong> Ne confonds pas "Poids Mort" (faible croissance/faible PDM) avec "Dilemme"
+                    (Forte croissance/Faible PDM)[cite: 37].</li>
+                <li><strong>TOWS vs SWOT :</strong> Le SWOT fait le bilan, le TOWS croise les données pour créer les
+                    stratégies (SO, WO, ST, WT)[cite: 36, 39].</li>
+                <li><strong>SONCASER :</strong> Les deux nouvelles lettres (E et R) signifient
+                    <strong>Environnement</strong> et <strong>Région</strong>[cite: 36].</li>
+                <li><strong>PDCA :</strong> Le "D" veut dire <em>Do (Développer/Mettre en œuvre)</em>, pas Decide ni
+                    Discover[cite: 36].</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================= QCM INTERACTIF ALÉATOIRE ================= -->
+    <div class="qcm-section" id="qcm">
+        <div class="qcm-header" style="color:#fff;">
+            🎯 QCM d'entraînement (Banque de 30 questions)
+            <button class="reset-qcm-btn" onclick="initQuiz()">↺ Refaire le QCM (Tirage au sort)</button>
+            <span class="qcm-score-display" id="score-display">Score : 0/10</span>
+        </div>
+
+        <div id="qcm-questions-container">
+            <!-- Les 10 questions seront générées ici par JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const SUBJECT_ID = 's10'; // ID pour Stratégies Marketing et Commerciales (dans index.html)
+        const TOTAL_QUESTIONS = 10;
+        let score = 0;
+        let answeredQuestions = new Set();
+
+        // BANQUE DE 30 QUESTIONS STRAT & MARKETING
+        const questionPool = [
+            { q: "Quelle est l'origine étymologique du mot 'Stratégie' ?[cite: 36]", options: ["Du latin signifiant commerce", "Du grec signifiant la conduite des armées", "De l'anglais lié au management financier"], correct: 1 },
+            { q: "Dans l'acronyme VUCA, que signifie le 'A' ?[cite: 36]", options: ["Agilité", "Ambiguity (Ambiguïté)", "Attitude"], correct: 1 },
+            { q: "Que signifie le 'D' dans la roue de Deming (PDCA) ?[cite: 36]", options: ["Decide (Décider)", "Discover (Découvrir)", "Do (Développer, réaliser, mettre en œuvre)"], correct: 2 },
+            { q: "Selon Chandler, en quoi consiste la stratégie ?[cite: 37]", options: ["Déterminer les buts à long terme et l'allocation des ressources", "Faire des publicités virales", "Embaucher les meilleurs commerciaux"], correct: 0 },
+            { q: "Dans la matrice TOWS, à quoi correspond la stratégie 'SO' (Maxi-Maxi) ?[cite: 36, 39]", options: ["Une stratégie défensive", "Une stratégie d'attaque s'appuyant sur les forces pour maximiser les opportunités", "Une stratégie de survie (minimiser faiblesses et menaces)"], correct: 1 },
+            { q: "Dans la matrice BCG, qu'est-ce qu'une 'Vache à lait' ?[cite: 37]", options: ["Un marché en forte croissance avec une faible part de marché", "Un marché en faible croissance avec une part de marché élevée (qui dégage du cash)", "Un marché en déclin total"], correct: 1 },
+            { q: "Dans la matrice BCG, qu'est-ce qu'un 'Poids Mort' ?[cite: 37]", options: ["Faible croissance et faible part de marché", "Forte croissance et forte part de marché", "L'entreprise la plus lourde financièrement"], correct: 0 },
+            { q: "Dans les stratégies génériques de Porter, que signifie la 'Domination par les coûts' ?[cite: 36, 39]", options: ["Vendre le produit le plus cher du marché", "S'adresser à l'ensemble du marché avec un niveau de coût inférieur aux concurrents", "Se concentrer sur une micro-niche de luxe"], correct: 1 },
+            { q: "Dans la matrice d'Ansoff, comment s'appelle la stratégie croisant 'Nouveau Produit' et 'Nouveau Marché' ?[cite: 37, 39]", options: ["Pénétration du marché", "Diversification", "Développement de produits"], correct: 1 },
+            { q: "Que signifie l'acronyme de la méthode 'SCP' ?[cite: 36, 39]", options: ["Savoir, Communiquer, Persuader", "Segmenter, Cibler, Positionner", "Sécurité, Confort, Prix"], correct: 1 },
+            { q: "Quelle est la définition d'un ciblage 'Concentré' ?[cite: 36, 39]", options: ["Viser tous les consommateurs avec le même produit", "Sélectionner un seul segment de consommateurs et y apporter une valeur ajoutée particulière", "Faire du sur-mesure pour chaque client (One-to-one)"], correct: 1 },
+            { q: "Dans le comportement du consommateur, quelle est la PREMIÈRE étape du processus de décision d'achat ?[cite: 36, 37]", options: ["L'évaluation des alternatives", "La décision d'achat", "La reconnaissance d'un besoin, d'un problème ou d'un manque"], correct: 2 },
+            { q: "Que signifient les deux dernières lettres (E et R) de la typologie SONCASER ?[cite: 36]", options: ["Économie et Rentabilité", "Environnement et Région", "Écoute et Réactivité"], correct: 1 },
+            { q: "Que signifie l'acronyme de la stratégie Océan Bleu 'CERE' ?[cite: 39]", options: ["Créer, Élever, Réduire, Éliminer", "Convaincre, Évaluer, Rassurer, Engager", "Coûts, Étude, Rentabilité, Écologie"], correct: 0 },
+            { q: "Dans la méthode de vente ADAC, que signifie le premier 'A' ?[cite: 39]", options: ["Argumentation", "Attaque", "Accueil"], correct: 2 },
+            { q: "Dans la technique de vente du 'Sous-Marin', quelle étape suit la découverte de la 'Douleur' du client ?[cite: 39]", options: ["Le Budget", "La Conclusion", "Le Contrat préalable"], correct: 0 },
+            { q: "Quelle loi statistique s'applique souvent au portefeuille client (Pareto) ?[cite: 39]", options: ["50% des clients font 50% des ventes", "20% des clients font 80% des ventes", "1% des clients font 99% des ventes"], correct: 1 },
+            { q: "Dans le jargon commercial, qu'est-ce que le 'Churn' ?[cite: 39]", options: ["Le taux de transformation", "La perte de clients (l'attrition)", "Le panier moyen"], correct: 1 },
+            { q: "En communication interpersonnelle, quel pourcentage du message capté est attribué au 'non verbal' (corps, ton, rythme) ?[cite: 39]", options: ["10%", "30%", "60%"], correct: 2 },
+            { q: "Selon la PNL (Programmation Neuro-Linguistique), quels sont les 3 pôles de l'Index de Référence ?[cite: 39]", options: ["Le Passé, le Présent, le Futur", "L'État Interne (Sentir), le Processus Interne (Penser), le Comportement Externe (Agir)", "L'Acheteur, le Vendeur, le Produit"], correct: 1 },
+            { q: "En PNL, comment appelle-t-on les états internes positifs (comme la confiance ou le courage) ?[cite: 39]", options: ["Les états de ressource", "Les états limitants", "Les états hypnotiques"], correct: 0 },
+            { q: "Dans le cadre d'une stratégie commerciale, qu'est-ce qu'une vente 'incitative' (Up-selling) ?[cite: 39]", options: ["Vendre un produit complémentaire (ex: une coque avec un téléphone)", "Vendre un produit de gamme supérieure à ce que le client prévoyait d'acheter", "Faire une réduction de 50%"], correct: 1 },
+            { q: "Que signifie le 'P' dans la méthode PESTEL ?[cite: 35]", options: ["Prix", "Politique", "Produit"], correct: 1 },
+            { q: "Quelle est la définition du 'Positionnement' selon le cours ?[cite: 36, 39]", options: ["L'emplacement physique du magasin", "L'ensemble des caractéristiques distinctives associées à la marque pour occuper une place unique dans l'esprit des consommateurs", "Le rang d'apparition sur Google"], correct: 1 },
+            { q: "Quelle est la différence fondamentale entre 'Segmenter' et 'Cibler' ?[cite: 36, 39]", options: ["La segmentation est un constat du marché, le ciblage est une décision stratégique de l'entreprise", "Le ciblage se fait avant la segmentation", "Il n'y a aucune différence"], correct: 0 },
+            { q: "Dans la matrice de Porter, qu'est-ce qu'une stratégie de Différenciation ?[cite: 36, 39]", options: ["Offrir le prix le plus bas", "Offrir quelque chose d'unique auquel les clients attachent de la valeur, permettant un surprix", "Se focaliser sur une seule ville"], correct: 1 },
+            { q: "Que contient typiquement un PAC (Plan d'Actions Commerciales) ?[cite: 35, 39]", options: ["Uniquement le bilan comptable de l'année précédente", "Le détail des actions à entreprendre, les responsables, les dates, les budgets et les résultats attendus", "La liste des employés de l'entreprise"], correct: 1 },
+            { q: "Dans la matrice TOWS, que vise la stratégie 'WT' (Mini-Mini) ?[cite: 36, 39]", options: ["Attaquer le leader du marché", "Minimiser les faiblesses et les menaces (stratégie de survie ou de retrait)", "Créer un nouveau produit de luxe"], correct: 1 },
+            { q: "Le but ultime du marketing relationnel est de :[cite: 39]", options: ["Faire de la publicité à la télévision", "Faire de la conquête et convaincre les clients de ne pas quitter la marque (fidélisation)", "Augmenter immédiatement les prix"], correct: 1 },
+            { q: "Selon Kotler, quel est l'objectif du marketing ?[cite: 37]", options: ["Détruire la concurrence par tous les moyens", "Satisfaire le client de façon rentable et durable", "Minimiser les coûts de production"], correct: 1 }
+        ];
+
+        function shuffleArray(array) {
+            let curId = array.length;
+            while (0 !== curId) {
+                let randId = Math.floor(Math.random() * curId);
+                curId -= 1;
+                let tmp = array[curId];
+                array[curId] = array[randId];
+                array[randId] = tmp;
+            }
+            return array;
+        }
+
+        function initQuiz() {
+            const container = document.getElementById('qcm-questions-container');
+            container.innerHTML = '';
+            score = 0;
+            answeredQuestions.clear();
+            document.getElementById('score-display').textContent = `Score : 0/${TOTAL_QUESTIONS}`;
+
+            let shuffled = shuffleArray([...questionPool]).slice(0, TOTAL_QUESTIONS);
+
+            shuffled.forEach((qObj, index) => {
+                let html = `
+        <div class="question-box">
+          <div class="question-text">${index + 1}. ${qObj.q}</div>
+          <div class="options-grid">
+      `;
+                qObj.options.forEach((optText, optIndex) => {
+                    let isCorrect = (optIndex === qObj.correct);
+                    let letter = ['A', 'B', 'C'][optIndex];
+                    html += `
+          <button class="option-btn" onclick="handleAnswer(this, ${isCorrect}, ${index})">
+            <span>${letter}. ${optText}</span>
+            <span class="feedback-icon"></span>
+          </button>
+        `;
+                });
+                html += `</div></div>`;
+                container.innerHTML += html;
+            });
+
+            updateDashboardScore(0);
+        }
+
+        function handleAnswer(btn, isCorrect, qIndex) {
+            if (answeredQuestions.has(qIndex)) return;
+            answeredQuestions.add(qIndex);
+
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.option-btn').forEach(b => b.style.pointerEvents = 'none');
+
+            if (isCorrect) {
+                btn.classList.add('correct');
+                btn.querySelector('.feedback-icon').textContent = '✓';
+                score++;
+            } else {
+                btn.classList.add('wrong');
+                btn.querySelector('.feedback-icon').textContent = '✗';
+                parent.querySelectorAll('.option-btn').forEach(b => {
+                    if (b.getAttribute('onclick').includes('true')) {
+                        b.classList.add('correct');
+                        b.querySelector('.feedback-icon').textContent = '✓';
+                    }
+                });
+            }
+
+            document.getElementById('score-display').textContent = `Score : ${score}/${TOTAL_QUESTIONS}`;
+            updateDashboardScore(score);
+        }
+
+        function updateDashboardScore(newScore) {
+            try {
+                let state = JSON.parse(localStorage.getItem('revision_state')) || {};
+                if (!state[SUBJECT_ID]) { state[SUBJECT_ID] = { fiche: true, maitrise: -1, score: '', notes: '' }; }
+                state[SUBJECT_ID].score = newScore;
+                state[SUBJECT_ID].fiche = true;
+                localStorage.setItem('revision_state', JSON.stringify(state));
+            } catch (e) { console.error("Erreur de sauvegarde", e); }
+        }
+
+        window.onload = initQuiz;
+    </script>
+</body>
+
+</html>

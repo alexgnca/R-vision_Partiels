@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de révision — Techniques de Ventes & Excellence Commerciale</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+        :root {
+            --bg: #0d0f14;
+            --surface: #151820;
+            --surface2: #1c2030;
+            --border: #252a3a;
+            --accent: #4f7cff;
+            --accent2: #a78bfa;
+            --green: #22d3a0;
+            --yellow: #fbbf24;
+            --red: #f87171;
+            --orange: #fb923c;
+            --cyan: #06b6d4;
+            --indigo: #6366f1;
+            --text: #e2e8f0;
+            --text-muted: #64748b;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 32px 24px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0d0f14 0%, #1a1a2e 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-badge {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--indigo);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .header-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .meta-pill {
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .pill-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .pill-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .pill-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .pill-indigo {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--indigo);
+        }
+
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-bottom: 16px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .icon-blue {
+            background: rgba(79, 124, 255, 0.15);
+        }
+
+        .icon-green {
+            background: rgba(34, 211, 160, 0.15);
+        }
+
+        .icon-purple {
+            background: rgba(167, 139, 250, 0.15);
+        }
+
+        .icon-indigo {
+            background: rgba(99, 102, 241, 0.15);
+        }
+
+        .icon-red {
+            background: rgba(248, 113, 113, 0.15);
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .card {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .card-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+        }
+
+        .card-title.blue {
+            color: var(--accent);
+        }
+
+        .card-title.green {
+            color: var(--green);
+        }
+
+        .card-title.purple {
+            color: var(--accent2);
+        }
+
+        .card-title.red {
+            color: var(--red);
+        }
+
+        .card-title.indigo {
+            color: var(--indigo);
+        }
+
+        ul.fiche-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        ul.fiche-list li {
+            font-size: 13px;
+            color: var(--text-dim);
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        ul.fiche-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--indigo);
+            font-weight: 700;
+        }
+
+        ul.fiche-list li strong {
+            color: var(--text);
+        }
+
+        .highlight-box {
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-top: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .highlight-indigo {
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            color: #818cf8;
+        }
+
+        .piege-box {
+            background: rgba(248, 113, 113, 0.06);
+            border: 1px solid rgba(248, 113, 113, 0.2);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-top: 14px;
+        }
+
+        .piege-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        .tag-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .tag-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .tag-red {
+            background: rgba(248, 113, 113, 0.15);
+            color: var(--red);
+        }
+
+        .tag-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .tag-indigo {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--indigo);
+        }
+
+        .flow {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .flow-item {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 7px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .flow-arrow {
+            color: var(--indigo);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .qcm-section {
+            background: linear-gradient(135deg, var(--surface), var(--surface2));
+            border: 1px solid var(--indigo);
+            border-radius: 14px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .qcm-header {
+            font-family: 'Syne', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .reset-qcm-btn {
+            margin-left: 10px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-muted);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reset-qcm-btn:hover {
+            border-color: var(--indigo);
+            color: #fff;
+            background: var(--indigo);
+        }
+
+        .qcm-score-display {
+            margin-left: auto;
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--indigo);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .question-box {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-box:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .question-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 8px;
+        }
+
+        .option-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--text-dim);
+            font-size: 13px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .option-btn:hover {
+            border-color: var(--indigo);
+            color: #fff;
+        }
+
+        .option-btn.correct {
+            background: rgba(34, 211, 160, 0.15);
+            border-color: var(--green);
+            color: var(--green);
+            pointer-events: none;
+        }
+
+        .option-btn.wrong {
+            background: rgba(248, 113, 113, 0.15);
+            border-color: var(--red);
+            color: var(--red);
+            pointer-events: none;
+        }
+
+        .feedback-icon {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 16px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="javascript:history.back()"
+        style="display:inline-block; margin-bottom: 20px; color: var(--indigo); text-decoration: none; font-size: 13px; font-weight: 500;">←
+        Retour au tableau de bord</a>
+
+    <div class="header">
+        <div class="header-badge">Fiche de révision Haute Densité · INSEEC MSc</div>
+        <div class="header-title">Techniques de Ventes & Excellence Commerciale</div>
+        <div class="header-sub">SPIN Selling, Golden Circle, PNL, Analyse Transactionnelle, Communication Non
+            Verbale[cite: 40, 41]</div>
+        <div class="header-meta">
+            <span class="meta-pill pill-purple">📅 Module 11</span>
+            <span class="meta-pill pill-indigo">🎯 QCM Interactif Aléatoire</span>
+        </div>
+    </div>
+
+    <!-- 1. FONDAMENTAUX & POSTURE -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-indigo">💼</div>
+            <div class="section-title">1. Posture de l'Ingénieur d'Affaires et Modèles Fondamentaux</div>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title indigo">Le Métier d'Ingénieur d'Affaires[cite: 41]</div>
+                <ul class="fiche-list">
+                    <li><strong>Rôle :</strong> Être un intermédiaire à forte valeur ajoutée, un concepteur et un
+                        apporteur de solutions en BtoB[cite: 41].</li>
+                    <li><strong>Attitude clé :</strong> "Vous avez beau avoir toutes les aptitudes, si vous n'avez pas
+                        l'attitude, vous ne réussirez pas" (Gandhi). Il faut de l'envie, de l'énergie et de la
+                        curiosité[cite: 41].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title indigo">L'USP (Unique Selling Proposition)[cite: 40]</div>
+                <ul class="fiche-list">
+                    <li><strong>Winning Zone :</strong> Ce que votre marque fait bien ET que le consommateur veut[cite:
+                        40].</li>
+                    <li><strong>Losing Zone :</strong> Ce que votre concurrent fait bien et que le consommateur
+                        veut[cite: 40].</li>
+                    <li><strong>Risky :</strong> Ce que vous et vos concurrents faites bien (champ de bataille
+                        compétitif)[cite: 40].</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight-box highlight-indigo" style="margin-top:12px;">
+            <strong>Le Golden Circle (Start with Why - Simon Sinek) :</strong> "Les gens n'achètent pas ce que vous
+            faites, ils achètent POURQUOI vous le faites"[cite: 41].<br>
+            - <span class="tag tag-indigo">WHY (Pourquoi)</span> : Le but, la cause, la croyance (système
+            limbique/émotions)[cite: 40, 41].<br>
+            - <span class="tag tag-blue">HOW (Comment)</span> : Ce qui vous différencie, vos méthodes[cite: 40, 41].<br>
+            - <span class="tag tag-purple">WHAT (Quoi)</span> : Le produit ou service final (néo-cortex/rationnel)[cite:
+            40, 41].
+        </div>
+    </div>
+
+    <!-- 2. LES ÉTAPES DE LA VENTE ET LE SPIN SELLING -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-blue">🔄</div>
+            <div class="section-title">2. Les Étapes de la Vente et la Méthode SPIN</div>
+        </div>
+
+        <div class="card-title blue" style="margin-bottom:8px">Les 6 Étapes de l'Entretien de Vente BtoB[cite: 41]</div>
+        <div class="flow" style="margin-bottom: 16px;">
+            <div class="flow-item">1. Les 1ers instants</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">2. Transition / Cadrage</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">3. Découverte / Investigation</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">4. Argumentation</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">5. Objections</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">6. Closing</div>
+        </div>
+
+        <div class="grid-2">
+            <div>
+                <div class="card-title blue">La Méthode SPIN Selling (Neil Rackham)[cite: 40]</div>
+                <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 8px;">Guider la conversation via des
+                    questions pour transformer les besoins implicites en besoins explicites[cite: 40].</p>
+                <ul class="fiche-list">
+                    <li><strong>S - Situation :</strong> Comprendre le contexte actuel du prospect (ex: "Quelles
+                        solutions utilisez-vous aujourd'hui ?")[cite: 40].</li>
+                    <li><strong>P - Problème :</strong> Identifier les défis et points de douleur (ex: "Êtes-vous
+                        satisfait de votre équipement ?")[cite: 40].</li>
+                </ul>
+            </div>
+            <div>
+                <div class="card-title blue">SPIN : Impact et Solution[cite: 40]</div>
+                <ul class="fiche-list" style="margin-top: 24px;">
+                    <li><strong>I - Implication :</strong> Mettre en lumière les conséquences et quantifier les risques
+                        (ex: "Combien cette perte de temps vous coûte-t-elle ?")[cite: 40].</li>
+                    <li><strong>N - Need-payoff (Besoins/Bénéfices) :</strong> Amener le client à imaginer les bénéfices
+                        concrets de la solution (ex: "Qu'est-ce que vous apporterait cette solution demain ?")[cite:
+                        40].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. COMMUNICATION INTERPERSONNELLE -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-green">🗣️</div>
+            <div class="section-title">3. Communication Interpersonnelle & Non-Verbale</div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title green">La Loi de Mehrabian (L'impact du message)[cite: 41]</div>
+                <ul class="fiche-list">
+                    <li><strong>55% Visuel (Non-Verbal) :</strong> Gestuelle, posture, expression du visage, contact
+                        visuel[cite: 41].</li>
+                    <li><strong>38% Vocal (Para-verbal) :</strong> Ton, rythme, débit, intonation de la voix[cite: 41].
+                    </li>
+                    <li><strong>7% Verbal :</strong> Le sens strict des mots utilisés[cite: 41].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title green">Le Verbal & Le Temps de Parole[cite: 41]</div>
+                <ul class="fiche-list">
+                    <li><strong>Le temps de parole idéal :</strong> 80% pour le client, 20% pour le commercial. Se taire
+                        permet d'écouter et de faire parler l'autre[cite: 41].</li>
+                    <li><strong>Les temps des verbes :</strong> Le Présent = l'action, Le Futur proche = la projection,
+                        Le Passé = la justification, <strong>Le Conditionnel = l'hésitation (à éviter)</strong>[cite:
+                        41].</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider" style="height:1px; background:var(--border); margin:16px 0;"></div>
+
+        <div class="card-title green">L'Écoute Active et les Reformulations[cite: 41]</div>
+        <ul class="fiche-list">
+            <li><strong>Synthèse :</strong> Hiérarchiser les éléments pour dégager l'essentiel et valider une
+                étape[cite: 41].</li>
+            <li><strong>Écho (Perroquet) :</strong> Reprendre les derniers propos pour inviter à développer[cite: 41].
+            </li>
+            <li><strong>Miroir (Reflet) :</strong> Reformuler avec ses propres mots pour vérifier la compréhension[cite:
+                41].</li>
+            <li><strong>Recadrage :</strong> Repréciser le sujet sans jugement quand le client s'écarte du sujet[cite:
+                41].</li>
+            <li><strong>Amortie :</strong> Minimiser les propos (en cas d'exagération) tout en conservant l'esprit de la
+                demande[cite: 41].</li>
+        </ul>
+    </div>
+
+    <!-- 4. PNL ET ANALYSE TRANSACTIONNELLE -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-purple">🧠</div>
+            <div class="section-title">4. PNL et Analyse Transactionnelle (AT)</div>
+        </div>
+        <div class="grid-2">
+            <div>
+                <div class="card-title purple" style="margin-bottom:8px">Analyse Transactionnelle (Les États du
+                    Moi)[cite: 41]</div>
+                <ul class="fiche-list">
+                    <li><strong>Le Parent (L'appris) :</strong> Normatif (règles, interdits, jugements) ou Nourricier
+                        (protection, permission)[cite: 41].</li>
+                    <li><strong>L'Adulte (Le pensé) :</strong> Traitement des faits, de la réalité, de la logique et des
+                        méthodes[cite: 41].</li>
+                    <li><strong>L'Enfant (Le senti) :</strong> Adapté/Rebelle (réflexes conditionnés), Créateur
+                        (intuitions), Spontané (émotions, sensations)[cite: 41].</li>
+                    <li><strong>Transactions :</strong> <em>Complémentaires</em> (parallèles, sans conflit),
+                        <em>Croisées</em> (communication rompue/déviée), <em>Cachées</em> (message
+                        implicite/psychologique décisif)[cite: 41].</li>
+                </ul>
+            </div>
+            <div>
+                <div class="card-title purple" style="margin-bottom:8px">La PNL (Programmation Neuro-Linguistique)[cite:
+                    41]</div>
+                <ul class="fiche-list">
+                    <li><strong>Principe :</strong> "La carte n'est pas le territoire". Chacun a ses propres
+                        filtres[cite: 41].</li>
+                    <li><strong>VAKOG :</strong> Canaux de perception (Visuel, Auditif, Kinesthésique, Olfactif,
+                        Gustatif)[cite: 41].</li>
+                    <li><strong>Mouvements des yeux :</strong> Vers la Gauche de l'observateur = Souvenir/Passé. Vers la
+                        Droite = Construction/Futur[cite: 41].</li>
+                    <li><strong>Synchronisation :</strong> Adopter les mêmes postures, voix et mots pour instaurer un
+                        climat de confiance au niveau inconscient[cite: 41].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PIÈGES QCM -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-red">⚠️</div>
+            <div class="section-title">Pièges classiques QCM</div>
+        </div>
+        <div class="piege-box" style="margin-top:0;">
+            <div class="piege-title">Attention aux confusions !</div>
+            <ul class="fiche-list">
+                <li><strong>SPIN :</strong> La lettre 'I' signifie <em>Implication</em> (quantifier les conséquences du
+                    problème), et non Investigation[cite: 40].</li>
+                <li><strong>Mehrabian :</strong> Le Visuel est le plus fort (<strong>55%</strong>), suivi du Vocal
+                    (<strong>38%</strong>). Les mots ne comptent que pour <strong>7%</strong> de l'impact[cite: 41].
+                </li>
+                <li><strong>Le Conditionnel :</strong> Dans le langage commercial, le conditionnel n'est PAS la
+                    politesse, c'est le <em>temps de l'hésitation</em> (à bannir)[cite: 41].</li>
+                <li><strong>Proxémie (E.T. Hall) :</strong> La zone sociale (pour les réunions professionnelles
+                    classiques) se situe entre <strong>125 cm et 360 cm</strong>[cite: 41].</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================= QCM INTERACTIF ALÉATOIRE ================= -->
+    <div class="qcm-section" id="qcm">
+        <div class="qcm-header">
+            🎯 QCM d'entraînement (Banque de 30 questions)
+            <button class="reset-qcm-btn" onclick="initQuiz()">↺ Refaire le QCM (Tirage au sort)</button>
+            <span class="qcm-score-display" id="score-display">Score : 0/10</span>
+        </div>
+
+        <div id="qcm-questions-container">
+            <!-- Les 10 questions seront générées ici par JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const SUBJECT_ID = 's11'; // ID pour Techniques de Ventes
+        const TOTAL_QUESTIONS = 10;
+        let score = 0;
+        let answeredQuestions = new Set();
+
+        // BANQUE DE 30 QUESTIONS TECHNIQUES DE VENTE
+        const questionPool = [
+            { q: "Qu'est-ce que le SPIN Selling ?[cite: 40]", options: ["Une technique d'hypnose", "Une technique de vente reposant sur des questions pour guider la conversation et identifier les besoins profonds", "Une méthode pour vendre plus vite sans écouter le client"], correct: 1 },
+            { q: "Que signifie la lettre 'I' dans l'acronyme SPIN ?[cite: 40]", options: ["Investigation", "Implication (mettre en lumière les conséquences du problème)", "Interrogation"], correct: 1 },
+            { q: "Selon Simon Sinek (Le Cercle d'Or), par quoi toute organisation qui réussit devrait-elle commencer ?[cite: 40, 41]", options: ["Par le WHAT (Quoi)", "Par le HOW (Comment)", "Par le WHY (Pourquoi)"], correct: 2 },
+            { q: "Dans la loi de Mehrabian, quel pourcentage de l'impact d'un message est attribué au non-verbal (le visuel) ?[cite: 41]", options: ["7%", "38%", "55%"], correct: 2 },
+            { q: "En Analyse Transactionnelle, quel état du 'Moi' traite les informations, les faits et la logique ?[cite: 41]", options: ["Le Parent", "L'Adulte", "L'Enfant"], correct: 1 },
+            { q: "En PNL, que signifie l'acronyme VAKOG ?[cite: 41]", options: ["Vente, Argumentation, Kinesthésique, Organisation, Gestion", "Visuel, Auditif, Kinesthésique, Olfactif, Gustatif", "Visuel, Action, Kinésithérapie, Oral, Geste"], correct: 1 },
+            { q: "Selon Edward T. Hall (Proxémie), à quelle distance correspond la 'Zone sociale' ?[cite: 41]", options: ["0 à 15 cm", "40 à 125 cm", "125 à 360 cm"], correct: 2 },
+            { q: "Dans le concept d'USP, que représente la 'Winning Zone' ?[cite: 40]", options: ["Ce que votre marque fait bien et que le consommateur veut", "Ce que vous et votre concurrent faites mal", "Ce que le concurrent fait mieux que vous"], correct: 0 },
+            { q: "En Analyse Transactionnelle, que se passe-t-il lors d'une transaction croisée ?[cite: 41]", options: ["La communication peut durer éternellement", "La communication en cours est interrompue ou prend un cours nouveau", "C'est un message implicite caché qui détermine l'échange"], correct: 1 },
+            { q: "D'après Paul Ekman, quelle émotion se caractérise par des sourcils relevés/rapprochés et des lèvres étirées horizontalement ?[cite: 41]", options: ["Le Dégoût", "La Colère", "La Peur"], correct: 2 },
+            { q: "Qu'est-ce qu'une reformulation 'écho' ou 'perroquet' ?[cite: 41]", options: ["Résumer tout l'entretien", "Reprendre juste les derniers propos du client pour l'inviter à développer", "Minimiser les propos du client"], correct: 1 },
+            { q: "Que signifie l'étape 'Need-payoff' (Besoin-Bénéfice) dans la méthode SPIN ?[cite: 40]", options: ["Faire payer le client immédiatement", "Amener le client à s'imaginer la solution et ses avantages concrets par lui-même", "Poser des questions sur le budget"], correct: 1 },
+            { q: "En PNL, à quoi sert le 'recadrage' ?[cite: 41]", options: ["À changer le cadre d'un écran", "À donner un sens différent à un comportement ou événement pour ouvrir le point de vue", "À forcer le client à signer"], correct: 1 },
+            { q: "Qu'est-ce que la 'synchronisation' en communication interpersonnelle ?[cite: 41]", options: ["Avoir la même montre que son client", "Adopter les mêmes gestes, ton de voix et mots que son interlocuteur pour favoriser la confiance", "Parler en même temps que le client"], correct: 1 },
+            { q: "En PNL (accès oculaires), si une personne regarde vers la gauche (votre droite), cela indique généralement :[cite: 41]", options: ["Une mémorisation / un souvenir (Le Passé)", "Une construction / une imagination (Le Futur)", "Une introspection kinesthésique"], correct: 0 },
+            { q: "Dans la loi de Mehrabian, quel est le poids des 'Mots' (le verbal) dans l'impact d'un message ?[cite: 41]", options: ["7%", "38%", "55%"], correct: 0 },
+            { q: "Lequel de ces éléments N'EST PAS une étape classique de l'entretien de vente BtoB ?[cite: 41]", options: ["La découverte des besoins", "La méditation transcendantale", "Le traitement des objections"], correct: 1 },
+            { q: "Dans le schéma de la communication, qu'est-ce qu'un 'parasite sémantique' ?[cite: 41]", options: ["Un bruit de travaux dans la rue", "Une salle trop grande", "Une incompréhension de langage (termes techniques, jargon inadapté)"], correct: 2 },
+            { q: "L'expression 'La carte n'est pas le territoire' est un postulat célèbre de :[cite: 41]", options: ["L'Analyse Transactionnelle", "La Programmation Neuro-Linguistique (PNL)", "La Méthode SPIN"], correct: 1 },
+            { q: "Quel temps verbal est considéré comme 'le temps de l'hésitation' et doit être évité par le commercial ?[cite: 41]", options: ["Le présent", "Le futur proche", "Le conditionnel"], correct: 2 },
+            { q: "Quel est le temps de parole idéal pour le commercial lors d'un entretien de vente ?[cite: 41]", options: ["80%", "50%", "20% (le client doit parler 80% du temps)"], correct: 2 },
+            { q: "En Analyse Transactionnelle, quel 'Enfant' comprend les intuitions et les idées magiques ?[cite: 41]", options: ["L'Enfant Soumis", "L'Enfant Créateur", "L'Enfant Rebelle"], correct: 1 },
+            { q: "En Analyse Transactionnelle, par quoi se caractérise le 'Parent Normatif' ?[cite: 41]", options: ["Les jugements de valeur, les normes sociales et les règles", "L'intuition", "Le traitement factuel des informations"], correct: 0 },
+            { q: "Lequel de ces comportements non-verbaux est à privilégier lors d'un entretien ?[cite: 41]", options: ["Regard fuyant et bras croisés", "Mains ouvertes, visage avenant et gestes horizontaux", "Doigt accusateur et gestes verticaux"], correct: 1 },
+            { q: "Que signifie l'acronyme 'POC' dans le processus de vente complexe ?[cite: 40]", options: ["Price Of Contract", "Proof of Concept (démontrer la valeur ajoutée)", "Plan Of Communication"], correct: 1 },
+            { q: "En Analyse Transactionnelle, quand les vecteurs sont parallèles et que la communication peut se poursuivre indéfiniment, on parle de transaction :[cite: 41]", options: ["Croisée", "Cachée", "Complémentaire"], correct: 2 },
+            { q: "Quel est l'objectif d'une reformulation 'Amortie' ?[cite: 41]", options: ["Minimiser les propos (en cas d'exagération du client) en conservant l'esprit de sa demande", "Faire taire le client", "Simplifier ce qui vient d'être dit sans juger"], correct: 0 },
+            { q: "Comment le cours définit-il le métier d'Ingénieur d'Affaires ?[cite: 41]", options: ["Un simple preneur de commande", "Un intermédiaire à forte valeur ajoutée, concepteur et apporteur de solutions", "Un expert comptable"], correct: 1 },
+            { q: "Dans les 6 étapes de l'entretien de vente, quelle étape vient juste AVANT la 'Découverte des besoins' ?[cite: 41]", options: ["Le traitement des objections", "La transition (rituel + cadrage / pitch)", "L'argumentation"], correct: 1 },
+            { q: "En PNL, de quoi se compose l'Index de référence ?[cite: 41]", options: ["Le Moi, le Surmoi, le Ça", "Visuel, Auditif, Kinesthésique", "Comportement Externe (Agir), État Interne (Sentir), Processus Interne (Penser)"], correct: 2 }
+        ];
+
+        function shuffleArray(array) {
+            let curId = array.length;
+            while (0 !== curId) {
+                let randId = Math.floor(Math.random() * curId);
+                curId -= 1;
+                let tmp = array[curId];
+                array[curId] = array[randId];
+                array[randId] = tmp;
+            }
+            return array;
+        }
+
+        function initQuiz() {
+            const container = document.getElementById('qcm-questions-container');
+            container.innerHTML = '';
+            score = 0;
+            answeredQuestions.clear();
+            document.getElementById('score-display').textContent = `Score : 0/${TOTAL_QUESTIONS}`;
+
+            let shuffled = shuffleArray([...questionPool]).slice(0, TOTAL_QUESTIONS);
+
+            shuffled.forEach((qObj, index) => {
+                let html = `
+        <div class="question-box">
+          <div class="question-text">${index + 1}. ${qObj.q}</div>
+          <div class="options-grid">
+      `;
+                qObj.options.forEach((optText, optIndex) => {
+                    let isCorrect = (optIndex === qObj.correct);
+                    let letter = ['A', 'B', 'C'][optIndex];
+                    html += `
+          <button class="option-btn" onclick="handleAnswer(this, ${isCorrect}, ${index})">
+            <span>${letter}. ${optText}</span>
+            <span class="feedback-icon"></span>
+          </button>
+        `;
+                });
+                html += `</div></div>`;
+                container.innerHTML += html;
+            });
+
+            updateDashboardScore(0);
+        }
+
+        function handleAnswer(btn, isCorrect, qIndex) {
+            if (answeredQuestions.has(qIndex)) return;
+            answeredQuestions.add(qIndex);
+
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.option-btn').forEach(b => b.style.pointerEvents = 'none');
+
+            if (isCorrect) {
+                btn.classList.add('correct');
+                btn.querySelector('.feedback-icon').textContent = '✓';
+                score++;
+            } else {
+                btn.classList.add('wrong');
+                btn.querySelector('.feedback-icon').textContent = '✗';
+                parent.querySelectorAll('.option-btn').forEach(b => {
+                    if (b.getAttribute('onclick').includes('true')) {
+                        b.classList.add('correct');
+                        b.querySelector('.feedback-icon').textContent = '✓';
+                    }
+                });
+            }
+
+            document.getElementById('score-display').textContent = `Score : ${score}/${TOTAL_QUESTIONS}`;
+            updateDashboardScore(score);
+        }
+
+        function updateDashboardScore(newScore) {
+            try {
+                let state = JSON.parse(localStorage.getItem('revision_state')) || {};
+                if (!state[SUBJECT_ID]) { state[SUBJECT_ID] = { fiche: true, maitrise: -1, score: '', notes: '' }; }
+                state[SUBJECT_ID].score = newScore;
+                state[SUBJECT_ID].fiche = true;
+                localStorage.setItem('revision_state', JSON.stringify(state));
+            } catch (e) { console.error("Erreur de sauvegarde", e); }
+        }
+
+        window.onload = initQuiz;
+    </script>
+</body>
+
+</html>

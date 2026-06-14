@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de révision — Marketing Digital & CRM (Haute Densité)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+        :root {
+            --bg: #0d0f14;
+            --surface: #151820;
+            --surface2: #1c2030;
+            --border: #252a3a;
+            --accent: #4f7cff;
+            --accent2: #a78bfa;
+            --green: #22d3a0;
+            --yellow: #fbbf24;
+            --red: #f87171;
+            --orange: #fb923c;
+            --pink: #ec4899;
+            --text: #e2e8f0;
+            --text-muted: #64748b;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 32px 24px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0d0f14 0%, #20101c 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-badge {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--pink);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .header-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .meta-pill {
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .pill-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .pill-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .pill-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .pill-pink {
+            background: rgba(236, 72, 153, 0.15);
+            color: var(--pink);
+        }
+
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-bottom: 16px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .icon-blue {
+            background: rgba(79, 124, 255, 0.15);
+        }
+
+        .icon-green {
+            background: rgba(34, 211, 160, 0.15);
+        }
+
+        .icon-purple {
+            background: rgba(167, 139, 250, 0.15);
+        }
+
+        .icon-yellow {
+            background: rgba(251, 191, 36, 0.15);
+        }
+
+        .icon-orange {
+            background: rgba(251, 146, 60, 0.15);
+        }
+
+        .icon-red {
+            background: rgba(248, 113, 113, 0.15);
+        }
+
+        .icon-pink {
+            background: rgba(236, 72, 153, 0.15);
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .card {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .card-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+        }
+
+        .card-title.blue {
+            color: var(--accent);
+        }
+
+        .card-title.green {
+            color: var(--green);
+        }
+
+        .card-title.purple {
+            color: var(--accent2);
+        }
+
+        .card-title.yellow {
+            color: var(--yellow);
+        }
+
+        .card-title.orange {
+            color: var(--orange);
+        }
+
+        .card-title.red {
+            color: var(--red);
+        }
+
+        .card-title.pink {
+            color: var(--pink);
+        }
+
+        ul.fiche-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        ul.fiche-list li {
+            font-size: 13px;
+            color: var(--text-dim);
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        ul.fiche-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--pink);
+            font-weight: 700;
+        }
+
+        ul.fiche-list li strong {
+            color: var(--text);
+        }
+
+        .highlight-box {
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-top: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .highlight-pink {
+            background: rgba(236, 72, 153, 0.08);
+            border: 1px solid rgba(236, 72, 153, 0.25);
+            color: #fbcfe8;
+        }
+
+        .piege-box {
+            background: rgba(248, 113, 113, 0.06);
+            border: 1px solid rgba(248, 113, 113, 0.2);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-top: 14px;
+        }
+
+        .piege-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        .tag-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .tag-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .tag-red {
+            background: rgba(248, 113, 113, 0.15);
+            color: var(--red);
+        }
+
+        .tag-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .tag-pink {
+            background: rgba(236, 72, 153, 0.15);
+            color: var(--pink);
+        }
+
+        .flow {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .flow-item {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 7px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .flow-arrow {
+            color: var(--pink);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .qcm-section {
+            background: linear-gradient(135deg, var(--surface), var(--surface2));
+            border: 1px solid var(--pink);
+            border-radius: 14px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .qcm-header {
+            font-family: 'Syne', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .reset-qcm-btn {
+            margin-left: 10px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-muted);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reset-qcm-btn:hover {
+            border-color: var(--pink);
+            color: #0d0f14;
+            background: var(--pink);
+        }
+
+        .qcm-score-display {
+            margin-left: auto;
+            background: rgba(236, 72, 153, 0.15);
+            color: var(--pink);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .question-box {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-box:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .question-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 8px;
+        }
+
+        .option-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--text-dim);
+            font-size: 13px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .option-btn:hover {
+            border-color: var(--pink);
+            color: #fff;
+        }
+
+        .option-btn.correct {
+            background: rgba(34, 211, 160, 0.15);
+            border-color: var(--green);
+            color: var(--green);
+            pointer-events: none;
+        }
+
+        .option-btn.wrong {
+            background: rgba(248, 113, 113, 0.15);
+            border-color: var(--red);
+            color: var(--red);
+            pointer-events: none;
+        }
+
+        .feedback-icon {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 16px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="javascript:history.back()"
+        style="display:inline-block; margin-bottom: 20px; color: var(--pink); text-decoration: none; font-size: 13px; font-weight: 500;">←
+        Retour au tableau de bord</a>
+
+    <div class="header">
+        <div class="header-badge">Fiche de révision Haute Densité · INSEEC MSc</div>
+        <div class="header-title">Marketing Digital & CRM</div>
+        <div class="header-sub">Marché de l'e-pub, Display, Ciblages, Social Media & Glossaire Digital[cite: 29, 30, 31,
+            32]</div>
+        <div class="header-meta">
+            <span class="meta-pill pill-purple">📅 Module 07</span>
+            <span class="meta-pill pill-pink">🎯 QCM Interactif Aléatoire</span>
+        </div>
+    </div>
+
+    <!-- 1. MARCHÉ DE LA PUBLICITÉ DIGITALE -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-blue">📊</div>
+            <div class="section-title">1. Le Marché de l'E-pub (Bilan S1 2025)</div>
+        </div>
+        <div class="highlight-box highlight-pink" style="margin-top:0; margin-bottom:12px;">
+            <strong>Taille du marché :</strong> Le marché global de la publicité digitale en France atteint <strong>5
+                911 M€</strong> au S1 2025, soit une croissance de <strong>+11%</strong>[cite: 32].
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title blue">Répartition par Leviers[cite: 32]</div>
+                <ul class="fiche-list">
+                    <li><span class="tag tag-blue">Search</span> <strong>41% du marché</strong> (2 439 M€). Leader
+                        absolu, sa part diminue légèrement mais sa croissance reste forte (+9%)[cite: 32].</li>
+                    <li><span class="tag tag-pink">Social</span> <strong>33% du marché</strong> (1 932 M€). C'est le
+                        levier qui tire la croissance du marché avec la plus forte hausse : <strong>+15%</strong>[cite:
+                        32].</li>
+                    <li><span class="tag tag-green">Display</span> <strong>18% du marché</strong> (1 080 M€). Poussé par
+                        la vidéo et le streaming audio[cite: 32].</li>
+                    <li><span class="tag tag-orange">Affiliation/Email</span> <strong>8% du marché</strong> (461 M€).
+                        Levier en faible croissance (+2%)[cite: 32].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title blue">Tendances Majeures[cite: 32]</div>
+                <ul class="fiche-list">
+                    <li><strong>Retail Media :</strong> Pèse <strong>11%</strong> du marché global (647 M€) et croît de
+                        +12%, principalement via le Retail Search sur les sites e-commerce[cite: 32].</li>
+                    <li><strong>Vidéo :</strong> Représente désormais <strong>61%</strong> du Display. Le format
+                        <em>Connected TV (CTV)</em> s'impose comme le device incontournable de ce segment[cite: 32].
+                    </li>
+                    <li><strong>Social Publishing :</strong> Nouveau levier où un annonceur diffuse un post sponsorisé
+                        via le compte d'un média reconnu (ex: Brut, Konbini) pour bénéficier de sa caution[cite: 32].
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. L'ACHAT D'ESPACE ET LE DISPLAY -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-pink">🖼️</div>
+            <div class="section-title">2. L'Achat d'Espace et le Display</div>
+        </div>
+        <div class="grid-2">
+            <div>
+                <div class="card-title pink" style="margin-bottom:8px">Historique & Formats[cite: 29]</div>
+                <ul class="fiche-list">
+                    <li><strong>1994 :</strong> 1ère publicité display. <strong>2017 :</strong> L'investissement digital
+                        dépasse la TV[cite: 29].</li>
+                    <li><strong>Réseau Display de Google :</strong> Met en relation avec <strong>90%</strong> des
+                        internautes[cite: 29].</li>
+                    <li><strong>Formats Classiques (IAB) :</strong> Le <em>Leaderboard</em> (728x90) est le plus
+                        courant. Le <em>Rectangle moyen</em> (300x250) et la <em>Demi-page</em> (300x600)[cite: 29].
+                    </li>
+                    <li><strong>Formats Rich Media :</strong> Bannière extensible, Slider, et le <em>Pushdown</em> (qui
+                        déplace le contenu vers le bas)[cite: 29].</li>
+                    <li><strong>Vidéo :</strong> <em>Instream</em> (pub insérée dans un contenu vidéo, ex: pre-roll) vs
+                        <em>Outstream</em> (pub vidéo insérée dans un article texte)[cite: 29].</li>
+                </ul>
+            </div>
+            <div>
+                <div class="card-title pink" style="margin-bottom:8px">Bonnes Pratiques & Modèles d'Achat[cite: 29, 31,
+                    32]</div>
+                <ul class="fiche-list">
+                    <li><strong>Performance Visuelle :</strong> Inclure des <strong>visages</strong> attire 43%
+                        d'attention en plus. La visibilité des pubs textuelles est 48% supérieure aux pubs uniquement
+                        imagées[cite: 29].</li>
+                    <li><strong>Call to Action (CTA) :</strong> Doit être testé (A/B testing) pour optimiser la
+                        conversion[cite: 29].</li>
+                    <li><strong>Programmatique (RTB) :</strong> Achat automatisé en temps réel via des <em>Ad
+                            Exchanges</em> où se rencontrent les DSP (acheteurs) et SSP (éditeurs). Représente ~65% des
+                        achats display[cite: 31, 32].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. STRATÉGIES DE CIBLAGE -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-green">🎯</div>
+            <div class="section-title">3. Le Ciblage Publicitaire</div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title green">Ciblages de base[cite: 29]</div>
+                <ul class="fiche-list">
+                    <li><strong>Contextuel :</strong> L'affichage dépend du <em>contenu éditorial</em> de la page
+                        visitée (ex: pub de voiture sur un blog auto)[cite: 29].</li>
+                    <li><strong>Comportemental :</strong> L'affichage dépend de l'<em>historique de navigation</em> de
+                        l'utilisateur, peu importe le site où il se trouve[cite: 29].</li>
+                    <li><strong>Socio-démo :</strong> Ciblage par âge, sexe, CSP. <em>Limite :</em> très restrictif (ex:
+                        57% des acheteurs de certains véhicules n'ont pas entre 25 et 49 ans)[cite: 29].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title green">Ciblages Avancés[cite: 29]</div>
+                <ul class="fiche-list">
+                    <li><strong>Remarketing (Retargeting) :</strong> Reciblage des visiteurs de son propre site. Génère
+                        <strong>43% de chances en plus de convertir</strong> et un CTR 10x supérieur au display
+                        classique[cite: 29].</li>
+                    <li><strong>Audience personnalisée :</strong> Embasement d'internautes via données CRM[cite: 29].
+                    </li>
+                    <li><strong>Audience similaire (Lookalike) :</strong> L'algorithme cherche de nouveaux profils
+                        jumeaux à votre audience existante[cite: 29].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. GESTION DE COMMUNAUTÉ -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-orange">🤝</div>
+            <div class="section-title">4. Stratégie Communautaire et Social Media</div>
+        </div>
+        <div class="grid-2">
+            <div>
+                <div class="card-title orange" style="margin-bottom:8px">Cartographie de l'Audience[cite: 30]</div>
+                <ul class="fiche-list">
+                    <li>L'audience se map selon 2 axes : l'<strong>Opinion</strong> et
+                        l'<strong>Influence</strong>[cite: 30].</li>
+                    <li><span class="tag tag-green">Ambassadeurs</span> Influence très forte, Opinion très positive. À
+                        impliquer activement[cite: 30].</li>
+                    <li><span class="tag tag-blue">Convaincus</span> Opinion très favorable, mais faible influence[cite:
+                        30].</li>
+                    <li><span class="tag tag-red">Détracteurs</span> Influence très forte et contradicteurs. Règle : "ne
+                        pas nuire" et trouver leurs failles[cite: 30].</li>
+                </ul>
+            </div>
+            <div>
+                <div class="card-title orange" style="margin-bottom:8px">Tonalité de Marque (Brand Voice)[cite: 30]
+                </div>
+                <ul class="fiche-list">
+                    <li>C'est l'adaptation de la <strong>personnalité</strong> de la marque en mots et en attitude[cite:
+                        30].</li>
+                    <li>Une bonne tonalité doit être <strong>unique, incarnée et surprenante</strong> (ex: Oasis ou
+                        Burger King)[cite: 30].</li>
+                    <li>Nécessite de définir le rythme, les figures de style, et l'emploi du "Tu" ou "Vous" via une
+                        charte conversationnelle[cite: 30].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. GLOSSAIRE DIGITAL EXPRESS -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-purple">📖</div>
+            <div class="section-title">5. Vocabulaire Clé du Digital</div>
+        </div>
+        <ul class="fiche-list">
+            <li><strong>AARRR :</strong> Framework de croissance : <em>Acquisition, Activation, Retention, Revenue,
+                    Referral</em>[cite: 31].</li>
+            <li><strong>SEO vs SEA :</strong> <em>Search Engine Optimization</em> (référencement naturel) vs <em>Search
+                    Engine Advertising</em> (liens sponsorisés payants)[cite: 31].</li>
+            <li><strong>Modèles d'achat :</strong> <em>CPM</em> (Coût Pour Mille impressions), <em>CPC</em> (Coût Par
+                Clic), <em>CPA</em> (Coût Par Action ou Acquisition)[cite: 31].</li>
+            <li><strong>Landing Page :</strong> Page d'atterrissage spécifique à une campagne, conçue avec un seul but
+                de conversion (via un Call-To-Action / CTA)[cite: 31].</li>
+            <li><strong>Native Advertising :</strong> Publicité dont la forme et le fond s'intègrent parfaitement et de
+                manière transparente à l'environnement éditorial du site[cite: 29, 31].</li>
+        </ul>
+    </div>
+
+    <!-- PIÈGES QCM -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-red">⚠️</div>
+            <div class="section-title">Pièges classiques QCM</div>
+        </div>
+        <div class="piege-box" style="margin-top:0;">
+            <div class="piege-title">Attention aux confusions !</div>
+            <ul class="fiche-list">
+                <li><strong>Instream vs Outstream :</strong> Instream = Pub diffusée <em>dans</em> une vidéo (comme
+                    YouTube). Outstream = Pub vidéo diffusée dans un contenu texte (article de presse)[cite: 29].</li>
+                <li><strong>Cookie-less :</strong> La fin des cookies tiers (third-party cookies) affecte le ciblage.
+                    Pour un éditeur, l'interdiction du ciblage peut entraîner une <strong>baisse de 30 à 45% de ses
+                        revenus publicitaires</strong>[cite: 32].</li>
+                <li><strong>Retargeting vs Lookalike :</strong> Le Retargeting cible ceux qui vous connaissent déjà. Le
+                    Lookalike (Audience similaire) cible des inconnus qui ont le même profil que vos clients[cite: 29].
+                </li>
+                <li><strong>Above the fold (ATF) :</strong> "Au-dessus de la ligne de flottaison", c'est la partie de la
+                    page web visible immédiatement sans avoir besoin de scroller[cite: 31].</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================= QCM INTERACTIF ALÉATOIRE ================= -->
+    <div class="qcm-section" id="qcm">
+        <div class="qcm-header" style="color:#fff;">
+            🎯 QCM d'entraînement (Banque de 30 questions)
+            <button class="reset-qcm-btn" onclick="initQuiz()">↺ Refaire le QCM (Tirage au sort)</button>
+            <span class="qcm-score-display" id="score-display">Score : 0/10</span>
+        </div>
+
+        <div id="qcm-questions-container">
+            <!-- Les 10 questions seront générées ici par JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const SUBJECT_ID = 's7'; // ID pour Marketing Digital & CRM (à créer dans index.html)
+        const TOTAL_QUESTIONS = 10;
+        let score = 0;
+        let answeredQuestions = new Set();
+
+        // BANQUE DE 30 QUESTIONS MARKETING DIGITAL
+        const questionPool = [
+            { q: "Au S1 2025, quel levier représente la plus grande part de marché de la publicité digitale en France (41%) ?[cite: 32]", options: ["Le Social", "Le Search", "Le Display"], correct: 1 },
+            { q: "En 2025, quel levier affiche la plus forte croissance de l'e-pub (+15%) ?[cite: 32]", options: ["L'Affiliation", "Le Social", "Le Search classique"], correct: 1 },
+            { q: "Quelle date historique marque l'année où les investissements digitaux ont dépassé ceux de la TV en France ?[cite: 29]", options: ["2005", "2010", "2017"], correct: 2 },
+            { q: "Quel est le format d'annonce display classique le plus courant sur le web ?[cite: 29]", options: ["Le Pushdown", "Le Leaderboard (728x90)", "L'interstitiel"], correct: 1 },
+            { q: "Qu'est-ce qu'un format 'Pushdown' en publicité display ?[cite: 29]", options: ["Une publicité vidéo qui se lance sans le son", "Un format rich media qui déplace le contenu de la page vers le bas lors de son apparition", "Une pop-up qui bloque la lecture"], correct: 1 },
+            { q: "Quelle est la différence entre une publicité vidéo Instream et Outstream ?[cite: 29]", options: ["L'Instream se trouve dans un contenu vidéo (ex: pre-roll), l'Outstream dans un contenu non vidéo", "L'Instream est statique, l'Outstream est animé", "Il n'y a aucune différence technique"], correct: 0 },
+            { q: "Quel est le principal atout du remarketing (reciblage) ?[cite: 29]", options: ["Il offre 43% de chances en plus de convertir auprès d'internautes reciblés", "Il est totalement gratuit", "Il permet d'atteindre des personnes qui ne connaissent pas du tout la marque"], correct: 0 },
+            { q: "Quelle est la différence fondamentale entre le ciblage comportemental et le ciblage contextuel ?[cite: 29]", options: ["Le comportemental est basé sur la navigation de l'utilisateur, le contextuel sur le contenu éditorial de la page affichée", "Le comportemental est illégal, le contextuel est autorisé", "Le contextuel cible l'âge, le comportemental cible la ville"], correct: 0 },
+            { q: "En publicité digitale, qu'est-ce qu'une 'Audience Similaire' (Lookalike) ?[cite: 29]", options: ["Un groupe de personnes qui ont déjà acheté sur le site", "Une audience générée par l'algorithme car elle a des comportements/profils similaires à une audience de base", "Une liste d'adresses email achetée à un tiers"], correct: 1 },
+            { q: "Dans la cartographie d'une communauté, comment qualifie-t-on les 'Ambassadeurs' ?[cite: 30]", options: ["Ils ont une influence forte mais aucune opinion marquée", "Ils ont une opinion très favorable mais pas d'influence", "Ils ont une influence très forte et une opinion très positive de la marque"], correct: 2 },
+            { q: "Quelle est la stratégie recommandée face aux 'Détracteurs' d'une communauté ?[cite: 30]", options: ["Ne pas nuire et trouver leurs points d'attaque/fragilité", "En faire des ambassadeurs actifs", "Leur donner le contrôle des réseaux sociaux de la marque"], correct: 0 },
+            { q: "Qu'est-ce que la 'Tonalité de marque' (Brand voice) ?[cite: 30]", options: ["Le volume sonore de la musique dans les vidéos de la marque", "L'adaptation de la personnalité de la marque en mots et en attitude", "Le code couleur du logo"], correct: 1 },
+            { q: "Que signifie le sigle 'RTB' dans l'écosystème programmatique ?[cite: 31]", options: ["Return To Base", "Real-Time Bidding (enchères en temps réel)", "Rate Through Business"], correct: 1 },
+            { q: "Que signifie l'acronyme AARRR, célèbre modèle d'analyse de croissance (Growth) ?[cite: 31]", options: ["Attention, Action, Rétention, Rémunération, Risque", "Acquisition, Activation, Retention, Revenue, Referral", "Analyse, Audit, Recherche, Retour, Ratio"], correct: 1 },
+            { q: "Qu'est-ce que le 'Retail Media' dans le domaine de l'e-pub ?[cite: 32]", options: ["Les publicités imprimées dans les supermarchés", "La commercialisation des espaces publicitaires et des données directement par les distributeurs (e-commerçants) sur leurs propres sites", "La vente de télévisions connectées"], correct: 1 },
+            { q: "Au S1 2025, quel pourcentage du marché du Display est représenté par la vidéo ?[cite: 32]", options: ["25%", "61%", "85%"], correct: 1 },
+            { q: "Que signifie le modèle de tarification 'CPM' ?[cite: 31]", options: ["Coût Par Message", "Coût Pour Mille (impressions)", "Coût Par Mois"], correct: 1 },
+            { q: "Qu'est-ce qu'un 'Cookie tiers' (Third-party cookie) ?[cite: 31]", options: ["Un biscuit offert aux clients fidèles", "Un traceur web placé par un domaine différent de celui que l'utilisateur visite, servant à le suivre", "Un outil pour nettoyer son navigateur"], correct: 1 },
+            { q: "Que signifie l'acronyme 'SEO' ?[cite: 31]", options: ["Search Engine Optimization (Référencement naturel)", "Social Engagement Operator", "Search Engine Advertising (Référencement payant)"], correct: 0 },
+            { q: "Qu'est-ce que le 'Social Publishing' ?[cite: 32]", options: ["L'impression de livres issus de tweets", "Un post sponsorisé sur les réseaux sociaux associé au compte d'une marque média reconnue (ex: Konbini) pour bénéficier de sa caution", "La création d'un réseau social d'entreprise"], correct: 1 },
+            { q: "En vidéo digitale, que désigne le sigle 'CTV' ?[cite: 32]", options: ["Click Through View", "Connected TV (les télévisions connectées à internet)", "Cost To View"], correct: 1 },
+            { q: "D'après les analyses, quel serait l'impact de l'arrêt du ciblage publicitaire (fin des cookies) pour les éditeurs numériques ?[cite: 32]", options: ["Une augmentation de leurs revenus", "Aucun impact", "Une baisse des revenus publicitaires de 30% à 45%"], correct: 2 },
+            { q: "L'une des grandes limites du ciblage strictement socio-démographique est :[cite: 29]", options: ["Son prix exorbitant", "Le fait que les comportements ne suivent pas toujours l'âge (ex: 57% des acheteurs d'un certain modèle auto n'ont pas l'âge cible)", "Il est illégal"], correct: 1 },
+            { q: "D'après les heatmaps, qu'est-ce qui attire 43% d'attention en plus dans une création publicitaire display ?[cite: 29]", options: ["Un texte très long", "Les visages", "Le logo de l'entreprise"], correct: 1 },
+            { q: "En Display, quelle est la différence de visibilité entre une publicité textuelle et une publicité uniquement imagée ?[cite: 29]", options: ["L'image est 100% plus visible", "Il n'y a aucune différence", "La publicité textuelle est 48% plus visible que la publicité uniquement imagée"], correct: 2 },
+            { q: "En quelle année est apparue la toute première bannière publicitaire sur internet ?[cite: 29]", options: ["1990", "1994", "2000"], correct: 1 },
+            { q: "Que signifie l'acronyme 'KPI' ?[cite: 31]", options: ["Key Performance Indicator (Indicateur Clé de Performance)", "Knowledge Process Integration", "Kilobit Per Interaction"], correct: 0 },
+            { q: "En design web et publicité, que signifie l'expression 'Above the fold' (ATF) ?[cite: 31]", options: ["La page de paiement", "La partie supérieure d'une page web visible sans avoir besoin de scroller (faire défiler vers le bas)", "Un format d'annonce vidéo caché"], correct: 1 },
+            { q: "Quel est l'objectif principal d'une 'Landing Page' (Page d'atterrissage) ?[cite: 31]", options: ["Présenter l'historique complet de l'entreprise", "Être une page spécifique à une campagne, conçue avec un seul but de conversion (sans menu de navigation complexe)", "Lister tous les produits du catalogue"], correct: 1 },
+            { q: "Qu'est-ce que le 'Native Advertising' (Publicité Native) ?[cite: 29, 31]", options: ["Une publicité qui interrompt agressivement la lecture de l'internaute", "Un format publicitaire conçu pour s'intégrer de manière transparente et harmonieuse à l'environnement éditorial du site", "Une publicité diffusée uniquement sur des sites gouvernementaux"], correct: 1 }
+        ];
+
+        function shuffleArray(array) {
+            let curId = array.length;
+            while (0 !== curId) {
+                let randId = Math.floor(Math.random() * curId);
+                curId -= 1;
+                let tmp = array[curId];
+                array[curId] = array[randId];
+                array[randId] = tmp;
+            }
+            return array;
+        }
+
+        function initQuiz() {
+            const container = document.getElementById('qcm-questions-container');
+            container.innerHTML = '';
+            score = 0;
+            answeredQuestions.clear();
+            document.getElementById('score-display').textContent = `Score : 0/${TOTAL_QUESTIONS}`;
+
+            let shuffled = shuffleArray([...questionPool]).slice(0, TOTAL_QUESTIONS);
+
+            shuffled.forEach((qObj, index) => {
+                let html = `
+        <div class="question-box">
+          <div class="question-text">${index + 1}. ${qObj.q}</div>
+          <div class="options-grid">
+      `;
+                qObj.options.forEach((optText, optIndex) => {
+                    let isCorrect = (optIndex === qObj.correct);
+                    let letter = ['A', 'B', 'C'][optIndex];
+                    html += `
+          <button class="option-btn" onclick="handleAnswer(this, ${isCorrect}, ${index})">
+            <span>${letter}. ${optText}</span>
+            <span class="feedback-icon"></span>
+          </button>
+        `;
+                });
+                html += `</div></div>`;
+                container.innerHTML += html;
+            });
+
+            updateDashboardScore(0);
+        }
+
+        function handleAnswer(btn, isCorrect, qIndex) {
+            if (answeredQuestions.has(qIndex)) return;
+            answeredQuestions.add(qIndex);
+
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.option-btn').forEach(b => b.style.pointerEvents = 'none');
+
+            if (isCorrect) {
+                btn.classList.add('correct');
+                btn.querySelector('.feedback-icon').textContent = '✓';
+                score++;
+            } else {
+                btn.classList.add('wrong');
+                btn.querySelector('.feedback-icon').textContent = '✗';
+                parent.querySelectorAll('.option-btn').forEach(b => {
+                    if (b.getAttribute('onclick').includes('true')) {
+                        b.classList.add('correct');
+                        b.querySelector('.feedback-icon').textContent = '✓';
+                    }
+                });
+            }
+
+            document.getElementById('score-display').textContent = `Score : ${score}/${TOTAL_QUESTIONS}`;
+            updateDashboardScore(score);
+        }
+
+        function updateDashboardScore(newScore) {
+            try {
+                let state = JSON.parse(localStorage.getItem('revision_state')) || {};
+                if (!state[SUBJECT_ID]) { state[SUBJECT_ID] = { fiche: true, maitrise: -1, score: '', notes: '' }; }
+                state[SUBJECT_ID].score = newScore;
+                state[SUBJECT_ID].fiche = true;
+                localStorage.setItem('revision_state', JSON.stringify(state));
+            } catch (e) { console.error("Erreur de sauvegarde", e); }
+        }
+
+        window.onload = initQuiz;
+    </script>
+</body>
+
+</html>

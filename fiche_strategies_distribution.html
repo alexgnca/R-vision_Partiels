@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de révision — Stratégies de Distribution (Haute Densité)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+        :root {
+            --bg: #0d0f14;
+            --surface: #151820;
+            --surface2: #1c2030;
+            --border: #252a3a;
+            --accent: #4f7cff;
+            --accent2: #a78bfa;
+            --green: #22d3a0;
+            --yellow: #fbbf24;
+            --red: #f87171;
+            --orange: #fb923c;
+            --cyan: #06b6d4;
+            --text: #e2e8f0;
+            --text-muted: #64748b;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 32px 24px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0d0f14 0%, #102025 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-badge {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--cyan);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .header-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .meta-pill {
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .pill-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .pill-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .pill-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .pill-cyan {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--cyan);
+        }
+
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-bottom: 16px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .icon-blue {
+            background: rgba(79, 124, 255, 0.15);
+        }
+
+        .icon-green {
+            background: rgba(34, 211, 160, 0.15);
+        }
+
+        .icon-purple {
+            background: rgba(167, 139, 250, 0.15);
+        }
+
+        .icon-cyan {
+            background: rgba(6, 182, 212, 0.15);
+        }
+
+        .icon-red {
+            background: rgba(248, 113, 113, 0.15);
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .card {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .card-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+        }
+
+        .card-title.blue {
+            color: var(--accent);
+        }
+
+        .card-title.green {
+            color: var(--green);
+        }
+
+        .card-title.cyan {
+            color: var(--cyan);
+        }
+
+        .card-title.red {
+            color: var(--red);
+        }
+
+        ul.fiche-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        ul.fiche-list li {
+            font-size: 13px;
+            color: var(--text-dim);
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        ul.fiche-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-weight: 700;
+        }
+
+        ul.fiche-list li strong {
+            color: var(--text);
+        }
+
+        .highlight-box {
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-top: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .highlight-cyan {
+            background: rgba(6, 182, 212, 0.08);
+            border: 1px solid rgba(6, 182, 212, 0.25);
+            color: #67e8f9;
+        }
+
+        .piege-box {
+            background: rgba(248, 113, 113, 0.06);
+            border: 1px solid rgba(248, 113, 113, 0.2);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-top: 14px;
+        }
+
+        .piege-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        .tag-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .tag-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .tag-red {
+            background: rgba(248, 113, 113, 0.15);
+            color: var(--red);
+        }
+
+        .tag-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .tag-cyan {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--cyan);
+        }
+
+        .flow {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .flow-item {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 7px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .flow-arrow {
+            color: var(--cyan);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .qcm-section {
+            background: linear-gradient(135deg, var(--surface), var(--surface2));
+            border: 1px solid var(--cyan);
+            border-radius: 14px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .qcm-header {
+            font-family: 'Syne', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .reset-qcm-btn {
+            margin-left: 10px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-muted);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reset-qcm-btn:hover {
+            border-color: var(--cyan);
+            color: #0d0f14;
+            background: var(--cyan);
+        }
+
+        .qcm-score-display {
+            margin-left: auto;
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--cyan);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .question-box {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-box:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .question-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 8px;
+        }
+
+        .option-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--text-dim);
+            font-size: 13px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .option-btn:hover {
+            border-color: var(--cyan);
+            color: #fff;
+        }
+
+        .option-btn.correct {
+            background: rgba(34, 211, 160, 0.15);
+            border-color: var(--green);
+            color: var(--green);
+            pointer-events: none;
+        }
+
+        .option-btn.wrong {
+            background: rgba(248, 113, 113, 0.15);
+            border-color: var(--red);
+            color: var(--red);
+            pointer-events: none;
+        }
+
+        .feedback-icon {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 16px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="javascript:history.back()"
+        style="display:inline-block; margin-bottom: 20px; color: var(--cyan); text-decoration: none; font-size: 13px; font-weight: 500;">←
+        Retour au tableau de bord</a>
+
+    <div class="header">
+        <div class="header-badge">Fiche de révision Haute Densité · INSEEC MSc</div>
+        <div class="header-title">Stratégies de Distribution</div>
+        <div class="header-sub">Taxinomie IT, Rôle du DAM, P&L, Modèles Cloud (BigApp) et Pricing à l'usage[cite: 33,
+            34]</div>
+        <div class="header-meta">
+            <span class="meta-pill pill-purple">📅 Module 09</span>
+            <span class="meta-pill pill-cyan">🎯 QCM Interactif Aléatoire</span>
+            <span class="meta-pill pill-blue">Prof. Christian Dubesset</span>
+        </div>
+    </div>
+
+    <!-- 1. TAXINOMIE ET ECOSYSTEME IT -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-cyan">🏢</div>
+            <div class="section-title">1. Taxinomie et Valeur Ajoutée (L'écosystème IT)</div>
+        </div>
+        <div class="highlight-box highlight-cyan" style="margin-top:0; margin-bottom:12px;">
+            Un <strong>Business Partner</strong> est une société s'appuyant sur des "briques de base" pour construire
+            une solution ou un service à destination d'un client. Sa valeur ajoutée peut être <em>Logistique, Financière
+                ou Technique</em>[cite: 33].
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title cyan">Acteurs clés du B2B[cite: 33]</div>
+                <ul class="fiche-list">
+                    <li><span class="tag tag-cyan">Distributor</span> (Grossiste/Wholesaler) : Sa VA est
+                        <strong>Logistique, Stockage et Financière</strong> (crédit). Il ne vend pas au client
+                        final[cite: 33].</li>
+                    <li><span class="tag tag-cyan">ISV</span> (Independent Software Vendor) : Fournisseur de logiciels
+                        (ex: Microsoft, le plus grand mondial)[cite: 33].</li>
+                    <li><span class="tag tag-cyan">VAR</span> (Value Added Reseller) : Revendeur apportant une VA
+                        technique ou métier[cite: 33].</li>
+                    <li><span class="tag tag-cyan">System Integrator</span> : VA basée sur la capacité technique à
+                        intégrer des solutions complexes[cite: 33].</li>
+                    <li><span class="tag tag-cyan">Hoster / Telco</span> : Hébergeur Cloud / Opérateur télécom (Orange,
+                        SFR)[cite: 33].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title cyan">La Chaîne de Vente Indirecte[cite: 33]</div>
+                <div class="flow" style="font-size:10px; justify-content: flex-start; margin-bottom: 10px;">
+                    <div class="flow-item">1. Constructeur / ISV</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item">2. Grossiste</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item">3. Revendeur</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item">4. Client Final</div>
+                </div>
+                <ul class="fiche-list">
+                    <li><strong>Constructeur :</strong> Crée, fabrique et lance le produit[cite: 33].</li>
+                    <li><strong>Grossiste :</strong> Optimise les flux physiques et financiers (crédit)[cite: 33].</li>
+                    <li><strong>Revendeur :</strong> Conseille et intègre la solution pour le client[cite: 33].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. GESTION DES PARTENAIRES -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-blue">🤝</div>
+            <div class="section-title">2. Gérer un Business Partner (Rôle du DAM)</div>
+        </div>
+
+        <div class="grid-2">
+            <div>
+                <div class="card-title blue" style="margin-bottom:8px">DAM vs AM[cite: 33]</div>
+                <ul class="fiche-list">
+                    <li><strong>DAM (Dealer Account Manager) :</strong> En charge d'un ou plusieurs <em>Business
+                            Partners (revendeurs)</em>[cite: 33].</li>
+                    <li><strong>AM (Account Manager) :</strong> En charge d'un ou plusieurs <em>clients finaux
+                            importants</em>[cite: 33].</li>
+                </ul>
+            </div>
+            <div>
+                <div class="card-title blue" style="margin-bottom:8px">Profil idéal du DAM[cite: 33]</div>
+                <ul class="fiche-list">
+                    <li><strong>Produit :</strong> Connaît la stratégie/vision (sans être un hyper-technicien)[cite:
+                        33].</li>
+                    <li><strong>Finance :</strong> Suggère des stratégies d'achat pour <em>optimiser la rotation des
+                            stocks</em>[cite: 33].</li>
+                    <li><strong>Marketing :</strong> Garant de la bonne utilisation des fonds co-marketing (Coop
+                        funds)[cite: 33].</li>
+                    <li><strong>Manager :</strong> Influent pour orienter les vendeurs du partenaire vers sa
+                        marque[cite: 33].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. TRANSFORMATION & BIGAPP (PARTNER 2.0) -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-purple">☁️</div>
+            <div class="section-title">3. Le Modèle 2.0 : Cloud, Usage et BigApp</div>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title purple">De l'Offre à la Demande[cite: 33]</div>
+                <ul class="fiche-list">
+                    <li><strong style="color:var(--accent2)">Stratégie d'Offre :</strong> Approche industrielle. On
+                        fabrique en avance et on adresse tout le monde, même ceux n'ayant pas exprimé de besoin
+                        (push)[cite: 33].</li>
+                    <li><strong style="color:var(--accent2)">Stratégie de Demande :</strong> On adresse les clients qui
+                        expriment un besoin précis (pull)[cite: 33].</li>
+                    <li><strong>Transformation :</strong> Le pricing passe de <em>"Coût + Marge = Prix"</em> à un
+                        pricing basé sur <strong>l'usage (Par utilisateur / Par mois)</strong> = <em>Retour sur Valeur
+                            (Return on Value)</em>[cite: 33].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title purple">Le concept "BigApp"[cite: 33]</div>
+                <ul class="fiche-list">
+                    <li><strong>Définition :</strong> Une manière complète de traiter un processus client en combinant
+                        <em>Technologie + Service</em> avec une tarification basée sur la <strong>Consommation
+                            (Usage)</strong>[cite: 33].</li>
+                    <li><strong>Exemples de disruption :</strong> Porsche Passport (un abonnement mensuel unique pour
+                        changer de véhicule), Fujitsu Smart Buildings (paiement au m² mensuel)[cite: 33].</li>
+                    <li><strong>Le nuage (Cloud) :</strong> Ce n'est pas qu'une technologie, c'est un <strong>nouveau
+                            Business Model</strong> (forfaitisation, lissage des revenus sur 5 ans)[cite: 33].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. FONDAMENTAUX FINANCIERS -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-green">📈</div>
+            <div class="section-title">4. Fondamentaux Financiers (Le P&L)</div>
+        </div>
+        <div class="highlight-box highlight-cyan" style="margin-top:0;">
+            <strong>La structure du Compte de Résultat (P&L)[cite: 33] :</strong>
+            <ul class="fiche-list" style="margin-top: 8px;">
+                <li><strong style="color:var(--green)">1. Revenues :</strong> Chiffre d'affaires (Produits +
+                    Services)[cite: 33].</li>
+                <li><strong style="color:var(--green)">2. COGS (Cost of Goods Sold) :</strong> Coûts variables (coût de
+                    production, services internes)[cite: 33].</li>
+                <li><strong style="color:var(--green)">3. Gross Profit (Marge Brute) :</strong> =
+                    <code>Revenues - COGS</code>[cite: 33].</li>
+                <li><strong style="color:var(--green)">4. SG&A et R&D :</strong> Coûts fixes (Sales, General, Admin +
+                    Recherche & Développement)[cite: 33].</li>
+                <li><strong style="color:var(--green)">5. Operating Profit (Bénéfice d'exploitation) :</strong> =
+                    <code>Gross Profit - (SG&A + R&D)</code>[cite: 33].</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PIÈGES QCM -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-red">⚠️</div>
+            <div class="section-title">Pièges classiques QCM</div>
+        </div>
+        <div class="piege-box" style="margin-top:0;">
+            <div class="piege-title">Attention aux faux amis !</div>
+            <ul class="fiche-list">
+                <li><strong>"Distributor" en anglais :</strong> Dans les vidéos anglo-saxonnes, le terme "Distributor"
+                    est souvent utilisé à tort pour désigner un revendeur. En France, un distributeur est un
+                    <strong>Grossiste (Wholesaler)</strong> qui ne vend <em>jamais</em> au client final[cite: 34].</li>
+                <li><strong>Golden Circle (Sinek) :</strong> Il explique pourquoi certaines entreprises inspirent
+                    confiance. L'ordre est <strong>WHY</strong> (Pourquoi/La Croyance) ➔ <strong>HOW</strong>
+                    (Comment/Le Process) ➔ <strong>WHAT</strong> (Quoi/Le Produit)[cite: 34].</li>
+                <li><strong>Le Rôle du DAM :</strong> Le Dealer Account Manager ne s'occupe PAS des clients finaux. Son
+                    rôle est de gérer la relation, la finance et le marketing du <strong>Business Partner</strong>[cite:
+                    33].</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================= QCM INTERACTIF ALÉATOIRE ================= -->
+    <div class="qcm-section" id="qcm">
+        <div class="qcm-header" style="color:#fff;">
+            🎯 QCM d'entraînement (Banque de 30 questions)
+            <button class="reset-qcm-btn" onclick="initQuiz()">↺ Refaire le QCM (Tirage au sort)</button>
+            <span class="qcm-score-display" id="score-display">Score : 0/10</span>
+        </div>
+
+        <div id="qcm-questions-container">
+            <!-- Les 10 questions seront générées ici par JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const SUBJECT_ID = 's9'; // ID pour Stratégies de Distribution
+        const TOTAL_QUESTIONS = 10;
+        let score = 0;
+        let answeredQuestions = new Set();
+
+        // BANQUE DE 30 QUESTIONS DISTRIBUTION B2B
+        const questionPool = [
+            { q: "Qu'est-ce qu'un ISV dans la taxinomie de la distribution IT ?[cite: 33]", options: ["Internal Service Vendor", "Independent Software Vendor (ex: Microsoft)", "International System Validator"], correct: 1 },
+            { q: "Quelle est la valeur ajoutée principale d'un Grossiste (Distributor) ?[cite: 33]", options: ["Développement de code", "Support technique final", "Logistique, Stockage et Financière (Crédit)"], correct: 2 },
+            { q: "Dans un modèle de vente indirecte classique à deux niveaux (2-tier), quel acteur se trouve entre le Constructeur et le Revendeur ?[cite: 33]", options: ["Le Grossiste", "Le Client final", "L'Account Manager"], correct: 0 },
+            { q: "Quel est le rôle principal d'un Dealer Account Manager (DAM) ?[cite: 33]", options: ["Vendre directement aux clients finaux de l'entreprise", "Gérer et développer la relation avec un ou plusieurs Business Partners (Revendeurs)", "Gérer le budget Recherche & Développement de l'entreprise"], correct: 1 },
+            { q: "Dans le profil idéal du DAM, que signifie avoir une bonne compétence 'Finance' ?[cite: 33]", options: ["Être expert comptable diplômé", "Comprendre les contraintes du partenaire et l'aider à optimiser la rotation de ses stocks", "Refuser catégoriquement les budgets marketing"], correct: 1 },
+            { q: "Qu'est-ce que le 'Drop shipment' ?[cite: 33]", options: ["Un largage de colis par parachute", "La livraison de la marchandise par le grossiste directement au client final, pour le compte du revendeur", "L'annulation pure et simple d'une commande par le constructeur"], correct: 1 },
+            { q: "En finance de distribution, que signifie l'acronyme COGS ?[cite: 33]", options: ["Cash On Goods Saved", "Cost of Goods Sold (Coût variable des biens vendus)", "Company Organizational Gross Sales"], correct: 1 },
+            { q: "Comment calcule-t-on le Gross Profit (Marge Brute) ?[cite: 33]", options: ["Revenues (CA) + COGS", "Revenues (CA) - COGS", "Operating Profit - Taxes"], correct: 1 },
+            { q: "Comment calcule-t-on l'Operating Profit (Bénéfice d'exploitation) ?[cite: 33]", options: ["Gross Profit - (SG&A + R&D)", "Revenues - Gross Profit", "COGS + SG&A"], correct: 0 },
+            { q: "Dans le modèle traditionnel, comment le prix (Pricing) est-il généralement calculé ?[cite: 33]", options: ["Usage + Abonnement", "Coût de production + Marge", "Gratuit puis freemium"], correct: 1 },
+            { q: "Dans le nouveau modèle (Cloud / 2.0), sur quoi est basé le pricing pour le client ?[cite: 33]", options: ["Uniquement sur le hardware acheté", "Sur la consommation réelle, l'usage (par utilisateur / par mois)", "Sur un paiement à vie en une seule fois"], correct: 1 },
+            { q: "Selon le cours, qu'est-ce que le concept de 'BigApp' ?[cite: 33]", options: ["La plus grosse application de l'AppStore Apple", "Une manière complète de traiter un processus client combinant technologie et service avec une tarification à l'usage", "Un logiciel de gestion de ressources humaines uniquement"], correct: 1 },
+            { q: "Parmi ces propositions, laquelle est une caractéristique d'une stratégie basée sur l'Offre ?[cite: 33]", options: ["L'entreprise adresse une demande spécifique d'un client", "L'approche est industrielle et l'entreprise fabrique 'en avance' pour adresser tous les clients possibles", "Le produit n'est créé qu'après signature du client"], correct: 1 },
+            { q: "Dans les ressources complémentaires, que modélise le 'Golden Circle' de Simon Sinek ?[cite: 34]", options: ["Le cycle d'achat en 3 mois", "Le processus inspirant commençant par le WHY (Pourquoi), puis le HOW et le WHAT", "La répartition budgétaire du grossiste"], correct: 1 },
+            { q: "Selon les ressources, quel format devient une composante essentielle dans le parcours d'achat B2B moderne ?[cite: 34]", options: ["Le fax", "L'affichage 4 par 3 dans la rue", "La vidéo"], correct: 2 },
+            { q: "Quel est le risque lié à l'utilisation du mot anglais 'Distributor' dans les ressources anglo-saxonnes ?[cite: 34]", options: ["Il est souvent utilisé à tort pour désigner un revendeur, alors qu'il s'agit d'un grossiste", "Il désigne en fait le client final", "C'est une marque déposée par Microsoft"], correct: 0 },
+            { q: "Qu'est-ce qu'un VAR dans l'écosystème de distribution ?[cite: 33]", options: ["Variable Assessment Rate", "Value Added Reseller (Revendeur à Valeur Ajoutée)", "Virtual Augmented Reality"], correct: 1 },
+            { q: "Quel est le rôle du SAM (Software Asset Management) dans l'écosystème IT ?[cite: 33]", options: ["Vendre du matériel informatique", "Héberger des serveurs physiques", "Gérer et optimiser l'achat, le déploiement et la maintenance des actifs logiciels d'une organisation"], correct: 2 },
+            { q: "Que signifie l'acronyme SG&A dans le compte de résultat (P&L) ?[cite: 33]", options: ["Sales, General, and Administration (Frais de vente et frais généraux)", "Software, Goods, and Assets", "Stock, Growth, and Analytics"], correct: 0 },
+            { q: "Qu'est-ce qu'un 'Hoster' ?[cite: 33]", options: ["Un animateur de conférence", "Une société gérant et hébergeant des solutions logicielles sur son propre Cloud ou un Cloud public", "Un fabricant de matériel (Hardware Vendor)"], correct: 1 },
+            { q: "Dans l'écosystème, à qui s'adressent principalement les Retailers et E-tailers (comme Fnac, Darty ou LDLC) ?[cite: 33]", options: ["Exclusivement aux entreprises du CAC 40", "Aux grossistes pour faire du stock", "Aux consommateurs non professionnels, le 'grand public' (B2C)"], correct: 2 },
+            { q: "Le modèle d'abonnement 'Porsche Passport' présenté dans le cours illustre :[cite: 33]", options: ["Une stratégie de pricing classique basée sur le coût de la voiture", "Un modèle disruptif de tarification forfaitaire donnant accès à une flotte de véhicules selon les besoins (usage)", "Une vente directe en concession uniquement"], correct: 1 },
+            { q: "Comment le Cloud modifie-t-il la mesure de la performance financière ?[cite: 33]", options: ["On passe d'un ROI (Return On Investment) classique à un ROV (Return On Value) basé sur l'usage dans le temps", "On ne calcule plus aucune rentabilité", "On multiplie le prix de vente par deux immédiatement"], correct: 0 },
+            { q: "Quelle action un DAM doit-il mener au niveau marketing avec son partenaire ?[cite: 33]", options: ["Réaliser les publicités télévisées du groupe", "Gérer la bonne utilisation des fonds marketing du constructeur (co-op funds) et programmer des actions synchrones", "Vendre des espaces publicitaires aux clients finaux"], correct: 1 },
+            { q: "En B2B, l'Account Manager (AM) a pour mission de :[cite: 33]", options: ["Recruter de nouveaux grossistes dans un pays", "Gérer le compte d'un ou plusieurs clients finaux importants (ex: Total, Airbus)", "Développer les logiciels internes de son entreprise"], correct: 1 },
+            { q: "Dans l'exercice de structure de vente (Workshop 2), qu'est-ce qu'un vendeur 'éleveur' (Farmer) ?[cite: 33]", options: ["Un vendeur qui démarche agressivement de nouveaux clients (chasseur)", "Un vendeur en charge de la fidélisation des clients existants afin qu'ils ne se désabonnent pas", "Un vendeur responsable uniquement de l'élevage agricole"], correct: 1 },
+            { q: "Quelle proposition correspond à un System Integrator ?[cite: 33]", options: ["Il fournit uniquement des boîtes en carton vides", "Il stocke du matériel informatique sans jamais l'ouvrir", "Il a construit sa valeur sur sa capacité technique à intégrer des solutions informatiques très complexes"], correct: 2 },
+            { q: "Le prix dégressif au mètre carré et selon la durée d'engagement chez Fujitsu Smart Buildings est un exemple de :[cite: 33]", options: ["Un modèle de pricing disruptif lié à l'espace et à la durée plutôt qu'à l'achat de matériel", "Une erreur de facturation", "Un modèle de vente directe B2C"], correct: 0 },
+            { q: "Un constructeur IT qui souhaite adresser le marché des TPE/PME sans avoir d'équipe de vente directe va utiliser :[cite: 33]", options: ["Un réseau de vente indirecte (via grossistes et revendeurs VAR)", "Uniquement des ingénieurs R&D", "Le gouvernement pour vendre à sa place"], correct: 0 },
+            { q: "Parmi les règles du jeu du cours de C. Dubesset, laquelle est mentionnée ?[cite: 33]", options: ["Manger pendant les exercices", "Laisser sa vidéo en mode OFF", "La bienveillance : nécessité d'échanger de façon constructive sans jugement de valeur"], correct: 2 }
+        ];
+
+        function shuffleArray(array) {
+            let curId = array.length;
+            while (0 !== curId) {
+                let randId = Math.floor(Math.random() * curId);
+                curId -= 1;
+                let tmp = array[curId];
+                array[curId] = array[randId];
+                array[randId] = tmp;
+            }
+            return array;
+        }
+
+        function initQuiz() {
+            const container = document.getElementById('qcm-questions-container');
+            container.innerHTML = '';
+            score = 0;
+            answeredQuestions.clear();
+            document.getElementById('score-display').textContent = `Score : 0/${TOTAL_QUESTIONS}`;
+
+            let shuffled = shuffleArray([...questionPool]).slice(0, TOTAL_QUESTIONS);
+
+            shuffled.forEach((qObj, index) => {
+                let html = `
+        <div class="question-box">
+          <div class="question-text">${index + 1}. ${qObj.q}</div>
+          <div class="options-grid">
+      `;
+                qObj.options.forEach((optText, optIndex) => {
+                    let isCorrect = (optIndex === qObj.correct);
+                    let letter = ['A', 'B', 'C'][optIndex];
+                    html += `
+          <button class="option-btn" onclick="handleAnswer(this, ${isCorrect}, ${index})">
+            <span>${letter}. ${optText}</span>
+            <span class="feedback-icon"></span>
+          </button>
+        `;
+                });
+                html += `</div></div>`;
+                container.innerHTML += html;
+            });
+
+            updateDashboardScore(0);
+        }
+
+        function handleAnswer(btn, isCorrect, qIndex) {
+            if (answeredQuestions.has(qIndex)) return;
+            answeredQuestions.add(qIndex);
+
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.option-btn').forEach(b => b.style.pointerEvents = 'none');
+
+            if (isCorrect) {
+                btn.classList.add('correct');
+                btn.querySelector('.feedback-icon').textContent = '✓';
+                score++;
+            } else {
+                btn.classList.add('wrong');
+                btn.querySelector('.feedback-icon').textContent = '✗';
+                parent.querySelectorAll('.option-btn').forEach(b => {
+                    if (b.getAttribute('onclick').includes('true')) {
+                        b.classList.add('correct');
+                        b.querySelector('.feedback-icon').textContent = '✓';
+                    }
+                });
+            }
+
+            document.getElementById('score-display').textContent = `Score : ${score}/${TOTAL_QUESTIONS}`;
+            updateDashboardScore(score);
+        }
+
+        function updateDashboardScore(newScore) {
+            try {
+                let state = JSON.parse(localStorage.getItem('revision_state')) || {};
+                if (!state[SUBJECT_ID]) { state[SUBJECT_ID] = { fiche: true, maitrise: -1, score: '', notes: '' }; }
+                state[SUBJECT_ID].score = newScore;
+                state[SUBJECT_ID].fiche = true;
+                localStorage.setItem('revision_state', JSON.stringify(state));
+            } catch (e) { console.error("Erreur de sauvegarde", e); }
+        }
+
+        window.onload = initQuiz;
+    </script>
+</body>
+
+</html>

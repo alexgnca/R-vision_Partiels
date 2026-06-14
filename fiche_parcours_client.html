@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de révision — Parcours Client</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+        :root {
+            --bg: #0d0f14;
+            --surface: #151820;
+            --surface2: #1c2030;
+            --border: #252a3a;
+            --accent: #4f7cff;
+            --accent2: #a78bfa;
+            --green: #22d3a0;
+            --yellow: #fbbf24;
+            --red: #f87171;
+            --orange: #fb923c;
+            --text: #e2e8f0;
+            --text-muted: #64748b;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 32px 24px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0d0f14 0%, #151a2e 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(79, 124, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-badge {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .header-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .meta-pill {
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .pill-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .pill-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .pill-red {
+            background: rgba(248, 113, 113, 0.15);
+            color: var(--red);
+        }
+
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .section-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            background: rgba(79, 124, 255, 0.15);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .message-text {
+            font-size: 15px;
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .boostcamp-box {
+            background: rgba(79, 124, 255, 0.08);
+            border: 1px solid rgba(79, 124, 255, 0.25);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 12px;
+            font-size: 14px;
+            color: #a0b4ff;
+        }
+
+        .boostcamp-box strong {
+            color: #fff;
+        }
+
+        /* QCM Section */
+        .qcm-section {
+            background: linear-gradient(135deg, var(--surface), var(--surface2));
+            border: 1px solid var(--accent);
+            border-radius: 14px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .qcm-header {
+            font-family: 'Syne', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .qcm-score-display {
+            margin-left: auto;
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .question-box {
+            margin-bottom: 10px;
+        }
+
+        .question-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 8px;
+        }
+
+        .option-btn {
+            background: var(--surface);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            padding: 16px;
+            color: #fff;
+            font-size: 14px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+
+        .option-btn:hover {
+            background: rgba(79, 124, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .option-btn.correct {
+            background: rgba(34, 211, 160, 0.15);
+            border-color: #22d3a0;
+            color: #22d3a0;
+            pointer-events: none;
+            transform: none;
+        }
+
+        .feedback-icon {
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="javascript:history.back()"
+        style="display:inline-block; margin-bottom: 20px; color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500;">←
+        Retour au tableau de bord</a>
+
+    <div class="header">
+        <div class="header-badge">Fiche de révision · INSEEC MSc</div>
+        <div class="header-title">Parcours Client</div>
+        <div class="header-sub">Information importante pour la classe 🚀</div>
+        <div class="header-meta">
+            <span class="meta-pill pill-purple">📅 Module 08</span>
+            <span class="meta-pill pill-red">🎥 Format 100% Vidéo</span>
+        </div>
+    </div>
+
+    <!-- MESSAGE IMPORTANT -->
+    <div class="section">
+        <div class="section-icon">🍿</div>
+        <div class="section-title">Pas de fiche texte pour ce module !</div>
+
+        <p class="message-text">
+            Salut à tous ! <br><br>
+            Pour la matière <strong>Parcours Client</strong>, le professeur n'a fourni aucun support PDF ou PowerPoint à
+            synthétiser.
+            L'intégralité de l'apprentissage repose sur des formats vidéos exclusifs.
+        </p>
+
+        <div class="boostcamp-box">
+            <strong>Où trouver le cours ?</strong><br><br>
+            Rendez-vous directement sur la plateforme de l'école <strong>Boostcamp</strong>. <br>
+            Prenez le temps de visionner attentivement tous les modules vidéos, car des questions spécifiques à ces
+            vidéos tomberont très certainement lors du partiel de juin 2026 !
+        </div>
+    </div>
+
+    <!-- VALIDATION DU MODULE (10/10 GRATUIT) -->
+    <div class="qcm-section" id="qcm">
+        <div class="qcm-header">
+            🎬 Validation du module
+            <span class="qcm-score-display" id="score-display">Score : 0/10</span>
+        </div>
+
+        <div class="question-box">
+            <div class="question-text">Pour que ton tableau de bord soit à jour, valide ton engagement ci-dessous :
+            </div>
+            <div class="options-grid">
+                <button class="option-btn" onclick="validateBoostcamp(this)">
+                    <span>✅ J'ai compris, je file regarder les vidéos sur Boostcamp ! (Clique ici pour valider ton
+                        10/10)</span>
+                    <span class="feedback-icon"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const SUBJECT_ID = 's8'; // ID pour Parcours Client
+
+        function validateBoostcamp(btn) {
+            // Animation et validation visuelle
+            btn.classList.add('correct');
+            btn.querySelector('.feedback-icon').textContent = '✓';
+            document.getElementById('score-display').textContent = `Score : 10/10`;
+            document.getElementById('score-display').style.background = 'rgba(34,211,160,0.15)';
+            document.getElementById('score-display').style.color = '#22d3a0';
+
+            // Mise à jour du localStorage pour le tableau de bord
+            try {
+                let state = JSON.parse(localStorage.getItem('revision_state')) || {};
+                if (!state[SUBJECT_ID]) {
+                    state[SUBJECT_ID] = { fiche: true, maitrise: -1, score: '', notes: '' };
+                }
+                state[SUBJECT_ID].score = 10;
+                state[SUBJECT_ID].fiche = true;
+                localStorage.setItem('revision_state', JSON.stringify(state));
+            } catch (e) {
+                console.error("Erreur de sauvegarde du score", e);
+            }
+        }
+    </script>
+</body>
+
+</html>

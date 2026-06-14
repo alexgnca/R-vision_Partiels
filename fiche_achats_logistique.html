@@ -389,6 +389,25 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* BOUTON RESET QCM */
+        .reset-qcm-btn {
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-muted);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reset-qcm-btn:hover {
+            border-color: var(--accent);
+            color: #fff;
         }
 
         .qcm-score-display {
@@ -489,8 +508,7 @@
     <div class="header">
         <div class="header-badge">Fiche de révision · INSEEC MSc</div>
         <div class="header-title">Achats & Logistique</div>
-        <div class="header-sub">La logique des 3 flux · Supply Chain · Lean Management · Reverse Logistics · RSE[cite:
-            5]</div>
+        <div class="header-sub">La logique des 3 flux · Supply Chain · Lean Management · Reverse Logistics · RSE</div>
         <div class="header-meta">
             <span class="meta-pill pill-blue">📅 Module 01</span>
             <span class="meta-pill pill-green">🎯 QCM Interactif (10 questions)</span>
@@ -498,7 +516,6 @@
         </div>
     </div>
 
-    <!-- 1. LES 3 FLUX = FONDAMENTAL -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon icon-blue">🔁</div>
@@ -509,34 +526,34 @@
             <div class="card">
                 <div class="card-title blue">Flux Physiques →</div>
                 <ul class="fiche-list">
-                    <li>Déplacement des <strong>marchandises</strong>[cite: 1]</li>
-                    <li>Fournisseur → Producteur → Entrepôt → Client[cite: 1]</li>
-                    <li>Approvisionnement, fabrication, distribution[cite: 1]</li>
+                    <li>Déplacement des <strong>marchandises</strong></li>
+                    <li>Fournisseur → Producteur → Entrepôt → Client</li>
+                    <li>Approvisionnement, fabrication, distribution</li>
                 </ul>
             </div>
             <div class="card">
                 <div class="card-title green">Flux Informations ↔</div>
                 <ul class="fiche-list">
-                    <li>Circule dans les <strong>2 sens</strong>[cite: 1]</li>
-                    <li>Commandes, prévisions, données clients[cite: 1]</li>
-                    <li>Soutient et pilote les flux physiques[cite: 1]</li>
+                    <li>Circule dans les <strong>2 sens</strong></li>
+                    <li>Commandes, prévisions, données clients</li>
+                    <li>Soutient et pilote les flux physiques</li>
                 </ul>
             </div>
             <div class="card">
                 <div class="card-title purple">Flux Financiers ←</div>
                 <ul class="fiche-list">
-                    <li>Sens <strong>inverse</strong> des flux physiques[cite: 1]</li>
-                    <li>Paiements, factures, règlements[cite: 1]</li>
-                    <li>Du client vers les fournisseurs[cite: 1]</li>
+                    <li>Sens <strong>inverse</strong> des flux physiques</li>
+                    <li>Paiements, factures, règlements</li>
+                    <li>Du client vers les fournisseurs</li>
                 </ul>
             </div>
         </div>
 
         <div class="highlight highlight-blue" style="margin-top:14px">
             <strong>⚡ À retenir (Logique Poussé vs Tiré) :</strong> <br>
-            <strong>Flux Poussé :</strong> Produire en grandes quantités en supposant le besoin[cite: 1].<br>
+            <strong>Flux Poussé :</strong> Produire en grandes quantités en supposant le besoin.<br>
             <strong>Flux Tiré :</strong> La production est déclenchée par la demande réelle du client (tirée de la
-            droite vers la gauche)[cite: 1, 2].
+            droite vers la gauche).
         </div>
 
         <div class="flow" style="margin-top:14px">
@@ -550,7 +567,6 @@
         </div>
     </div>
 
-    <!-- 2. LES ACHATS -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon icon-yellow">🛒</div>
@@ -559,47 +575,46 @@
 
         <div class="grid-2">
             <div>
-                <div class="card-title yellow" style="margin-bottom:8px">Chiffre clé[cite: 5]</div>
+                <div class="card-title yellow" style="margin-bottom:8px">Chiffre clé</div>
                 <div class="highlight highlight-yellow">
                     <strong>+ de 60% du chiffre d'affaires</strong> d'une entreprise passe par les achats → levier
-                    stratégique majeur ![cite: 1, 5]
+                    stratégique majeur !
                 </div>
                 <div style="margin-top:12px">
-                    <div class="card-title yellow" style="margin-bottom:8px">Paradigme relationnel[cite: 1]</div>
+                    <div class="card-title yellow" style="margin-bottom:8px">Paradigme relationnel</div>
                     <div class="card" style="margin-bottom: 6px;"><span class="tag tag-red">Modèle Papillon</span> <span
                             style="font-size:11px;color:var(--text-dim)">Traditionnel : relation cloisonnée Acheteur ↔
-                            Vendeur[cite: 1].</span></div>
+                            Vendeur.</span></div>
                     <div class="card"><span class="tag tag-green">Modèle Diamant</span> <span
                             style="font-size:11px;color:var(--text-dim)">Moderne : coopération globale inter-services
-                            (Entreprise étendue)[cite: 1].</span></div>
+                            (Entreprise étendue).</span></div>
                 </div>
             </div>
 
             <div>
-                <div class="card-title yellow" style="margin-bottom:8px">Matrice de Kraljic (Sourcing)[cite: 5]</div>
+                <div class="card-title yellow" style="margin-bottom:8px">Matrice de Kraljic (Sourcing)</div>
                 <div class="card" style="margin-bottom: 6px;">
                     <span class="tag tag-blue">Materials Mgt</span> <span
                         style="font-size:11px;color:var(--text-dim)">Produits leviers : exploiter le pouvoir
-                        d'achat[cite: 5].</span>
+                        d'achat.</span>
                 </div>
                 <div class="card" style="margin-bottom: 6px;">
                     <span class="tag tag-red">Supply Mgt</span> <span
                         style="font-size:11px;color:var(--text-dim)">Produits stratégiques : partenariats,
-                        diversifier[cite: 5].</span>
+                        diversifier.</span>
                 </div>
                 <div class="card" style="margin-bottom: 6px;">
                     <span class="tag tag-green">Purchasing Mgt</span> <span
-                        style="font-size:11px;color:var(--text-dim)">Produits de base : automatisation[cite: 5].</span>
+                        style="font-size:11px;color:var(--text-dim)">Produits de base : automatisation.</span>
                 </div>
                 <div class="card">
                     <span class="tag tag-orange">Sourcing Mgt</span> <span
-                        style="font-size:11px;color:var(--text-dim)">Produits goulots : stock de sûreté[cite: 5].</span>
+                        style="font-size:11px;color:var(--text-dim)">Produits goulots : stock de sûreté.</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 3. LEAN MANAGEMENT -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon icon-orange">⚙️</div>
@@ -608,42 +623,41 @@
 
         <div class="grid-2">
             <div>
-                <div class="card-title orange" style="margin-bottom:8px">Définition & Mesure[cite: 5]</div>
+                <div class="card-title orange" style="margin-bottom:8px">Définition & Mesure</div>
                 <div class="highlight highlight-yellow">
                     Système visant à <strong>éliminer les gaspillages</strong> et créer de la valeur pour le client.<br>
                     <strong>PCE (Process Cycle Efficiency) :</strong> Entreprise Lean si <strong>PCE ≥
-                        25%</strong>[cite: 1, 5].
+                        25%</strong>.
                 </div>
                 <ul class="fiche-list" style="margin-top:10px">
                     <li><strong>Outils :</strong> 5S (Ranger, Nettoyer...), Kaizen (Amélioration continue PDCA),
-                        VSM[cite: 1].</li>
+                        VSM.</li>
                 </ul>
             </div>
 
             <div>
-                <div class="card-title orange" style="margin-bottom:8px">Les 3 "démons" à éradiquer[cite: 5]</div>
+                <div class="card-title orange" style="margin-bottom:8px">Les 3 "démons" à éradiquer</div>
                 <div style="display:flex;flex-direction:column;gap:6px;margin-top:4px">
                     <div class="card" style="padding:10px 12px">
                         <span class="tag tag-red">MUDA</span>
                         <span style="font-size:12px;color:var(--text-dim)">Gaspillages (surproduction, temps d'attente,
-                            mouvements)[cite: 1, 5]</span>
+                            mouvements)</span>
                     </div>
                     <div class="card" style="padding:10px 12px">
                         <span class="tag tag-yellow">MURI</span>
                         <span style="font-size:12px;color:var(--text-dim)">L'excès, la surcharge par des processus non
-                            adaptés[cite: 1, 5]</span>
+                            adaptés</span>
                     </div>
                     <div class="card" style="padding:10px 12px">
                         <span class="tag tag-blue">MURA</span>
-                        <span style="font-size:12px;color:var(--text-dim)">La variabilité, l'irrégularité des flux[cite:
-                            1, 5]</span>
+                        <span style="font-size:12px;color:var(--text-dim)">La variabilité, l'irrégularité des
+                            flux</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 4. REVERSE LOGISTICS -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon icon-blue">🔄</div>
@@ -655,26 +669,26 @@
                 <div class="card-title blue" style="margin-bottom:8px">Reverse Logistics</div>
                 <ul class="fiche-list">
                     <li><strong>Définition :</strong> Gestion des flux du <strong>consommateur vers le
-                            fournisseur</strong>[cite: 3].</li>
+                            fournisseur</strong>.</li>
                     <li><strong>Domaines :</strong> SAV (réparations), retours pour défauts, invendus, recyclage
-                        (DEEE)[cite: 3].</li>
+                        (DEEE).</li>
                     <li><strong>Défis :</strong> Stocks imprévisibles, surcoûts de tri. Solution : Utiliser un
-                        <strong>WMS</strong> spécialisé[cite: 3].</li>
+                        <strong>WMS</strong> spécialisé.
+                    </li>
                 </ul>
             </div>
             <div>
                 <div class="card-title purple" style="margin-bottom:8px">Outils Achats Responsables</div>
                 <ul class="fiche-list">
                     <li><strong>TCO (Total Cost of Ownership) :</strong> Coût d'achat + tous les coûts cachés (douanes,
-                        pannes, recyclage)[cite: 1, 5].</li>
-                    <li><strong>ACV :</strong> Analyse du Cycle de Vie (du berceau à la tombe)[cite: 2].</li>
-                    <li><strong>5R :</strong> Rethink, Reduce, Reuse, Repair, Recycle[cite: 1, 2, 3].</li>
+                        pannes, recyclage).</li>
+                    <li><strong>ACV :</strong> Analyse du Cycle de Vie (du berceau à la tombe).</li>
+                    <li><strong>5R :</strong> Rethink, Reduce, Reuse, Repair, Recycle.</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- PIÈGES QCM -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon icon-red">⚠️</div>
@@ -685,159 +699,31 @@
                 <div class="piege-title">⚠️ Confusions fréquentes</div>
                 <ul class="fiche-list">
                     <li><strong>Lean</strong> = réduire gaspillages / <strong>Six Sigma</strong> = réduire
-                        variabilité[cite: 1, 5].</li>
+                        variabilité.</li>
                     <li><strong>MUDA</strong> = sans valeur / <strong>MURI</strong> = excès / <strong>MURA</strong> =
-                        variabilité[cite: 1, 5].</li>
+                        variabilité.</li>
                 </ul>
             </div>
             <div class="piege-box">
                 <div class="piege-title">⚠️ Chiffres clés</div>
                 <ul class="fiche-list">
-                    <li>Achats = <strong>+ de 60%</strong> du CA[cite: 1, 5].</li>
-                    <li>PCE Lean = <strong>≥ 25%</strong>[cite: 1, 5].</li>
-                    <li>IA logistique : <strong>-15%</strong> transport, <strong>-10%</strong> stocks[cite: 1, 5].</li>
+                    <li>Achats = <strong>+ de 60%</strong> du CA.</li>
+                    <li>PCE Lean = <strong>≥ 25%</strong>.</li>
+                    <li>IA logistique : <strong>-15%</strong> transport, <strong>-10%</strong> stocks.</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- ================= QCM INTERACTIF (10 QUESTIONS) ================= -->
     <div class="qcm-section" id="qcm">
         <div class="qcm-header">
             🎯 QCM de Validation
+            <button class="reset-qcm-btn" onclick="initQuiz()">↺ Refaire le QCM (Tirage au sort)</button>
             <span class="qcm-score-display" id="score-display">Score : 0/10</span>
         </div>
 
-        <div class="question-box">
-            <div class="question-text">1. Quel flux circule de l'aval vers l'amont pour déclencher la production ?</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, false, 1)"><span>A. Le flux physique</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, true, 1)"><span>B. Le flux
-                        d'informations</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 1)"><span>C. Le flux financier
-                        uniquement</span><span class="feedback-icon"></span></button>
-            </div>
+        <div id="qcm-questions-container">
         </div>
-
-        <div class="question-box">
-            <div class="question-text">2. Le "Muri" dans le Lean Management correspond à :</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, false, 2)"><span>A. Les gaspillages sans valeur
-                        ajoutée</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, true, 2)"><span>B. L'excès et la surcharge de
-                        travail imposée par des processus inadaptés</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 2)"><span>C. La variabilité des
-                        flux</span><span class="feedback-icon"></span></button>
-            </div>
-        </div>
-
-        <div class="question-box">
-            <div class="question-text">3. Selon la matrice de Kraljic, quelle stratégie adopter pour les "Produits
-                Leviers" (Materials management) ?</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, true, 3)"><span>A. Exploiter le pouvoir
-                        d'achat</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 3)"><span>B. Créer un stock de
-                        sûreté</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 3)"><span>C. Automatiser les
-                        processus</span><span class="feedback-icon"></span></button>
-            </div>
-        </div>
-
-        <div class="question-box">
-            <div class="question-text">4. Que signifie le TCO (Total Cost of Ownership) ?</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, true, 4)"><span>A. Le prix d'achat additionné de
-                        tous les coûts cachés (logistique, douanes, SAV, destruction)</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 4)"><span>B. Le coût exclusif du transport
-                        et des douanes</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 4)"><span>C. Le coût d'acquisition d'une
-                        entreprise concurrente</span><span class="feedback-icon"></span></button>
-            </div>
-        </div>
-
-        <div class="question-box">
-            <div class="question-text">5. Quel modèle illustre une relation Achats moderne, intégrée et transversale
-                entre toutes les fonctions de deux entreprises ?</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, false, 5)"><span>A. Le modèle en
-                        Papillon</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, true, 5)"><span>B. Le modèle en
-                        Diamant</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 5)"><span>C. Le modèle
-                        Lean-Agile</span><span class="feedback-icon"></span></button>
-            </div>
-        </div>
-
-        <div class="question-box">
-            <div class="question-text">6. Quel est le pourcentage minimum du PCE (Process Cycle Efficiency) pour qu'une
-                entreprise soit considérée comme Lean ?</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, false, 6)"><span>A. 10%</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, true, 6)"><span>B. 25%</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 6)"><span>C. 50%</span><span
-                        class="feedback-icon"></span></button>
-            </div>
-        </div>
-
-        <div class="question-box">
-            <div class="question-text">7. Dans le Lean Management, que désigne spécifiquement le "Muda" ?</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, true, 7)"><span>A. Les gaspillages
-                        (surproduction, temps d'attente, mouvements inutiles)</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 7)"><span>B. La variabilité et
-                        l'irrégularité des processus</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 7)"><span>C. Le système de rangement en 5
-                        étapes</span><span class="feedback-icon"></span></button>
-            </div>
-        </div>
-
-        <div class="question-box">
-            <div class="question-text">8. En matière d'Achats Responsables, quelle règle permet de limiter les impacts
-                environnementaux ?</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, false, 8)"><span>A. La règle des 3C</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, true, 8)"><span>B. La règle des 5R (Rethink,
-                        Reduce, Reuse, Repair, Recycle)</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 8)"><span>C. La matrice de Kraljic
-                        environnementale</span><span class="feedback-icon"></span></button>
-            </div>
-        </div>
-
-        <div class="question-box">
-            <div class="question-text">9. L'intégration de l'Intelligence Artificielle (IA) en logistique permet en
-                moyenne de réduire les coûts de transport de :</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, false, 9)"><span>A. 5%</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, true, 9)"><span>B. 15%</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 9)"><span>C. 30%</span><span
-                        class="feedback-icon"></span></button>
-            </div>
-        </div>
-
-        <div class="question-box">
-            <div class="question-text">10. Quel est l'un des principaux défis opérationnels de la "Reverse Logistics" ?
-            </div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, false, 10)"><span>A. L'impossibilité d'utiliser
-                        l'Intelligence Artificielle pour les retours clients</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 10)"><span>B. L'obligation d'appliquer
-                        uniquement des flux poussés</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, true, 10)"><span>C. La gestion de stocks
-                        imprévisibles et les surcoûts liés au tri de la marchandise retournée</span><span
-                        class="feedback-icon"></span></button>
-            </div>
-        </div>
-
     </div>
 
     <script>
@@ -846,9 +732,88 @@
         let score = 0;
         let answeredQuestions = new Set();
 
-        function handleAnswer(btn, isCorrect, questionNumber) {
-            if (answeredQuestions.has(questionNumber)) return;
-            answeredQuestions.add(questionNumber);
+        // BANQUE DE 30 QUESTIONS ACHATS & LOGISTIQUE
+        const questionPool = [
+            { q: "Quel flux circule de l'aval vers l'amont pour déclencher la production ?", options: ["Le flux physique", "Le flux d'informations", "Le flux financier"], correct: 1 },
+            { q: "Le 'Muri' dans le Lean Management correspond à :", options: ["Les gaspillages sans valeur ajoutée", "L'excès et la surcharge de travail", "La variabilité des flux"], correct: 1 },
+            { q: "Selon Kraljic, quelle stratégie adopter pour les 'Produits Leviers' (Materials management) ?", options: ["Exploiter le pouvoir d'achat", "Créer un stock de sûreté", "Automatiser les processus"], correct: 0 },
+            { q: "Que signifie le TCO (Total Cost of Ownership) ?", options: ["Prix d'achat + tous les coûts cachés", "Coût exclusif du transport", "Coût d'acquisition d'entreprise"], correct: 0 },
+            { q: "Quel modèle illustre une relation Achats intégrée entre toutes les fonctions de deux entreprises ?", options: ["Papillon", "Diamant", "Kaizen"], correct: 1 },
+            { q: "Quel est le pourcentage minimum du PCE pour qu'une entreprise soit Lean ?", options: ["10%", "25%", "50%"], correct: 1 },
+            { q: "Dans le Lean, que désigne spécifiquement le 'Muda' ?", options: ["Les 8 gaspillages", "La variabilité", "L'excès de production"], correct: 0 },
+            { q: "En Achats Responsables, quelle règle limite les impacts environnementaux ?", options: ["Les 3C", "Les 5R (Rethink, Reduce...)", "La méthode 5S"], correct: 1 },
+            { q: "L'IA en logistique permet en moyenne de réduire les coûts de transport de :", options: ["5%", "15%", "30%"], correct: 1 },
+            { q: "Quel est l'un des principaux défis de la Reverse Logistics ?", options: ["Application de flux poussés", "Gestion des stocks imprévisibles", "Incompatibilité avec l'IA"], correct: 1 },
+            { q: "Dans quel sens circule principalement le flux financier dans la Supply Chain ?", options: ["De l'amont vers l'aval", "De l'aval vers l'amont", "Il est uniquement circulaire"], correct: 1 },
+            { q: "Que signifie le 'Seiri' dans la méthode 5S ?", options: ["Ranger", "Nettoyer", "Débarrasser / Trier"], correct: 2 },
+            { q: "Quel système informatique est recommandé pour gérer efficacement les retours de la Reverse Logistics ?", options: ["CRM", "WMS avec module retours", "ERP basique"], correct: 1 },
+            { q: "Le modèle d'achat 'Papillon' se caractérise par :", options: ["Une relation cloisonnée entre l'acheteur et le vendeur", "Une collaboration inter-services totale", "L'utilisation de la blockchain"], correct: 0 },
+            { q: "Laquelle de ces affirmations décrit un flux poussé ?", options: ["On produit selon la commande ferme du client", "On produit en masse en anticipant une demande", "On produit sans stock"], correct: 1 },
+            { q: "Que mesure l'ACV (Analyse du Cycle de Vie) ?", options: ["L'impact environnemental du berceau à la tombe", "La rentabilité financière d'un produit", "Le délai de livraison d'un fournisseur"], correct: 0 },
+            { q: "Quelle technologie garantit une traçabilité décentralisée et infalsifiable dans la Supply Chain ?", options: ["L'Intelligence Artificielle", "Le WMS", "La Blockchain"], correct: 2 },
+            { q: "Le 'Mura' dans le vocabulaire Lean correspond à :", options: ["La variabilité et l'irrégularité des processus", "Les erreurs de qualité", "Le sur-stockage"], correct: 0 },
+            { q: "L'objectif principal d'une stratégie de relocalisation est de :", options: ["Trouver une main d'oeuvre moins chère", "Réduire l'empreinte carbone et la dépendance", "Allonger la Supply Chain"], correct: 1 },
+            { q: "Selon Kraljic, que faire pour les 'Produits Goulots' (Sourcing management) ?", options: ["Automatiser", "Gérer un inventaire de sûreté", "Chercher des partenariats mondiaux"], correct: 1 },
+            { q: "Quelle est la principale différence entre le Lean et le Six Sigma ?", options: ["Le Lean réduit la variabilité, Six Sigma réduit les gaspillages", "Le Lean réduit les gaspillages, Six Sigma réduit la variabilité", "Il n'y a aucune différence"], correct: 1 },
+            { q: "Les achats représentent en moyenne quelle part du chiffre d'affaires d'une entreprise ?", options: ["Plus de 60%", "Environ 30%", "Moins de 10%"], correct: 0 },
+            { q: "Selon Kraljic, quelle est la stratégie pour les 'Produits de base' (Purchasing management) ?", options: ["Inventaire de sûreté", "Automatiser les processus", "Partenariat exclusif"], correct: 1 },
+            { q: "Selon Kraljic, quelle est la stratégie pour les 'Produits Stratégiques' (Supply management) ?", options: ["Développer des partenariats et collaborer", "Changer de fournisseur chaque mois", "Acheter au moins cher"], correct: 0 },
+            { q: "Que signifie l'acronyme REPERES dans les motivations d'achat ?", options: ["Réduction, Écologie, Prix...", "Reconnaissance, Éthique, Prix, Émotion, Renouveau, Efficacité, Sécurité", "Rapidité, Efficience, Prix..."], correct: 1 },
+            { q: "Quelles sont les 3 destinations possibles après le tri en Reverse Logistics ?", options: ["Re-sell, Recycle, Scrap", "Return, Refuse, Remake", "Réparer, Repeindre, Revendre"], correct: 0 },
+            { q: "Historiquement, sur quoi se concentrait la logistique entre 1900 et 1950 ?", options: ["Les méthodes quantitatives", "La distribution physique liée au marketing", "L'intelligence artificielle"], correct: 1 },
+            { q: "Le Supply Chain Management (SCM) vise à intégrer :", options: ["Uniquement le service achat", "Toutes les activités des fournisseurs jusqu'aux clients", "Uniquement la production interne"], correct: 1 },
+            { q: "Dans le Lean Sourcing, quel est l'objectif de temps pour le traitement d'un appel d'offres ?", options: ["Moins de 30 jours", "Moins de 120 jours", "Plus de 200 jours"], correct: 1 },
+            { q: "Dans la Reverse Logistics, que signifie l'acronyme DEEE ?", options: ["Déchets d'Équipements Électriques et Électroniques", "Données Écologiques des Entreprises Européennes", "Département d'Évaluation de l'Empreinte Écologique"], correct: 0 }
+        ];
+
+        function shuffleArray(array) {
+            let curId = array.length;
+            while (0 !== curId) {
+                let randId = Math.floor(Math.random() * curId);
+                curId -= 1;
+                let tmp = array[curId];
+                array[curId] = array[randId];
+                array[randId] = tmp;
+            }
+            return array;
+        }
+
+        function initQuiz() {
+            const container = document.getElementById('qcm-questions-container');
+            container.innerHTML = '';
+            score = 0;
+            answeredQuestions.clear();
+            document.getElementById('score-display').textContent = `Score : 0/${TOTAL_QUESTIONS}`;
+
+            // Sélection aléatoire de 10 questions
+            let shuffled = shuffleArray([...questionPool]).slice(0, TOTAL_QUESTIONS);
+
+            shuffled.forEach((qObj, index) => {
+                let html = `
+                    <div class="question-box">
+                        <div class="question-text">${index + 1}. ${qObj.q}</div>
+                        <div class="options-grid">
+                `;
+                qObj.options.forEach((optText, optIndex) => {
+                    let isCorrect = (optIndex === qObj.correct);
+                    let letter = ['A', 'B', 'C'][optIndex];
+                    html += `
+                        <button class="option-btn" onclick="handleAnswer(this, ${isCorrect}, ${index})">
+                            <span>${letter}. ${optText}</span>
+                            <span class="feedback-icon"></span>
+                        </button>
+                    `;
+                });
+                html += `</div></div>`;
+                container.innerHTML += html;
+            });
+
+            updateDashboardScore(0);
+        }
+
+        function handleAnswer(btn, isCorrect, qIndex) {
+            if (answeredQuestions.has(qIndex)) return;
+            answeredQuestions.add(qIndex);
 
             const parent = btn.parentElement;
             parent.querySelectorAll('.option-btn').forEach(b => b.style.pointerEvents = 'none');
@@ -881,6 +846,9 @@
                 localStorage.setItem('revision_state', JSON.stringify(state));
             } catch (e) { console.error("Erreur de sauvegarde", e); }
         }
+
+        // Initialiser le quiz au chargement de la page
+        window.onload = initQuiz;
     </script>
 </body>
 

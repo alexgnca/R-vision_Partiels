@@ -300,6 +300,26 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* NOUVEAU BOUTON RESET QCM */
+        .reset-qcm-btn {
+            margin-left: 10px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-muted);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reset-qcm-btn:hover {
+            border-color: var(--accent2);
+            color: #fff;
         }
 
         .qcm-score-display {
@@ -376,6 +396,12 @@
             font-weight: bold;
             font-size: 16px;
         }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 16px 12px;
+            }
+        }
     </style>
 </head>
 
@@ -388,8 +414,8 @@
     <div class="header">
         <div class="header-badge">Fiche de révision Haute Densité · INSEEC MSc</div>
         <div class="header-title">Droit Commercial</div>
-        <div class="header-sub">Règles fondamentales, Droit EU de la Concurrence, CVIM, Rome I et Résolution de
-            Cas[cite: 12, 13]</div>
+        <div class="header-sub">Règles fondamentales, Droit EU de la Concurrence, CVIM, Rome I et Résolution de Cas
+        </div>
         <div class="header-meta">
             <span class="meta-pill pill-purple">📅 Module 02</span>
             <span class="meta-pill pill-green">🎯 QCM Interactif (10 questions)</span>
@@ -397,7 +423,6 @@
         </div>
     </div>
 
-    <!-- 1. DROIT FRANÇAIS -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon icon-blue">🇫🇷</div>
@@ -408,13 +433,14 @@
                 <div class="card-title blue">Commerçants & Obligations</div>
                 <ul class="fiche-list">
                     <li><strong>Acte de commerce par nature :</strong> Opération d'achat de biens meubles pour les
-                        revendre (en l'état ou après travail)[cite: 12].</li>
+                        revendre (en l'état ou après travail).</li>
                     <li><strong>Prescription :</strong> Le délai de droit commun pour les obligations nées entre
-                        commerçants est de <strong>5 ans</strong>[cite: 12].</li>
+                        commerçants est de <strong>5 ans</strong>.</li>
                     <li><strong>Solidarité :</strong> Contrairement au droit civil, la solidarité est
-                        <strong>présumée</strong> entre codébiteurs pour une dette commerciale[cite: 12].</li>
+                        <strong>présumée</strong> entre codébiteurs pour une dette commerciale.
+                    </li>
                     <li><strong>Tribunal :</strong> Le <strong>Tribunal de Commerce</strong> est exclusivement compétent
-                        pour les litiges entre deux commerçants[cite: 12].</li>
+                        pour les litiges entre deux commerçants.</li>
                 </ul>
             </div>
             <div class="card">
@@ -422,19 +448,18 @@
                 <ul class="fiche-list">
                     <li><strong>Fonds de Commerce :</strong> Qualifié juridiquement de <strong>bien meuble
                             incorporel</strong>. L'élément central (la condition <em>sine qua non</em>) est l'existence
-                        d'une <strong>clientèle réelle et certaine</strong>[cite: 12].</li>
+                        d'une <strong>clientèle réelle et certaine</strong>.</li>
                     <li><strong>Sociétés :</strong> L'immatriculation au RCS donne naissance à la <strong>personnalité
-                            morale</strong>. Dans une SARL, la responsabilité est limitée au montant des apports[cite:
-                        12].</li>
+                            morale</strong>. Dans une SARL, la responsabilité est limitée au montant des apports.</li>
                     <li><strong>Baux & Vente :</strong> Bail commercial = <strong>9 ans minimum</strong>. La
                         <strong>clause de réserve de propriété</strong> permet au vendeur de rester propriétaire
-                        jusqu'au paiement intégral du bien[cite: 12].</li>
+                        jusqu'au paiement intégral du bien.
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- 2. DROIT EUROPÉEN -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon icon-purple">🇪🇺</div>
@@ -443,13 +468,12 @@
 
         <div class="piege-box"
             style="margin-top: 0; margin-bottom: 12px; border-color: var(--accent2); background: rgba(167,139,250,0.06);">
-            <div class="piege-title" style="color: var(--accent2);">La Hiérarchie des Normes Européennes[cite: 9, 12]
-            </div>
+            <div class="piege-title" style="color: var(--accent2);">La Hiérarchie des Normes Européennes</div>
             <ul class="fiche-list" style="margin-top: 5px;">
                 <li><span class="tag tag-purple">Le Règlement</span> D'application immédiate et directe. Il s'applique
-                    tel quel aux entreprises de tous les États membres sans nécessité de loi nationale[cite: 12].</li>
+                    tel quel aux entreprises de tous les États membres sans nécessité de loi nationale.</li>
                 <li><span class="tag tag-blue">La Directive</span> Fixe un objectif à atteindre. L'État membre doit la
-                    transposer via une loi nationale pour qu'elle s'applique[cite: 9, 12].</li>
+                    transposer via une loi nationale pour qu'elle s'applique.</li>
             </ul>
         </div>
 
@@ -458,13 +482,13 @@
                 <div class="card-title purple" style="margin-bottom:8px">Institutions & Principes</div>
                 <ul class="fiche-list">
                     <li><strong>TFUE :</strong> Le Traité sur le Fonctionnement de l'UE constitue la base du droit de la
-                        concurrence européen[cite: 12, 13].</li>
+                        concurrence européen.</li>
                     <li><strong>Acteurs :</strong> La <strong>Commission Européenne</strong> contrôle les
-                        fusions/concentrations. La <strong>CJUE</strong> assure l'interprétation uniforme du droit[cite:
-                        12, 13].</li>
+                        fusions/concentrations. La <strong>CJUE</strong> assure l'interprétation uniforme du droit.</li>
                     <li><strong>Libre circulation :</strong> Interdiction des taxes/quotas. Principe de
                         <strong>reconnaissance mutuelle</strong> (Arrêt Cassis de Dijon) : un produit légalement vendu
-                        dans un État est valable partout[cite: 12, 13].</li>
+                        dans un État est valable partout.
+                    </li>
                 </ul>
             </div>
             <div>
@@ -472,18 +496,17 @@
                 <ul class="fiche-list">
                     <li><strong><span class="tag tag-red">Art 101 TFUE</span> Les Ententes :</strong> Interdit les
                         pratiques concertées ou ententes secrètes (ex: fixation de prix, partage de territoire, quotas
-                        de production)[cite: 6, 12].</li>
+                        de production).</li>
                     <li><strong><span class="tag tag-red">Art 102 TFUE</span> Abus de Position Dominante :</strong>
                         Interdit à un leader de marché d'abuser de sa force (ex: prix prédateurs, accords d'exclusivité
-                        bloquants)[cite: 6, 12].</li>
+                        bloquants).</li>
                     <li><strong>Aides d'État :</strong> Subventions nationales interdites si elles faussent la
-                        concurrence[cite: 13].</li>
+                        concurrence.</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- 3. DROIT INTERNATIONAL -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon icon-green">🌍</div>
@@ -494,13 +517,13 @@
                 <div class="card-title green" style="margin-bottom:8px">Vente & Incoterms</div>
                 <ul class="fiche-list">
                     <li><strong>CVIM (Convention de Vienne de 1980) :</strong> Traité majeur qui régit exclusivement les
-                        contrats de <strong>vente internationale de marchandises</strong> (biens mobiliers
-                        corporels)[cite: 10, 12].</li>
+                        contrats de <strong>vente internationale de marchandises</strong> (biens mobiliers corporels).
+                    </li>
                     <li><strong>Incoterms clés :</strong>
                         <br>→ <strong>EXW (Ex Works) :</strong> Le vendeur met juste la marchandise à dispo dans ses
-                        propres locaux. L'acheteur gère tout le reste[cite: 12].
+                        propres locaux. L'acheteur gère tout le reste.
                         <br>→ <strong>DDP (Delivered Duty Paid) :</strong> Le vendeur livre la marchandise entièrement
-                        dédouanée à l'acheteur[cite: 12].
+                        dédouanée à l'acheteur.
                     </li>
                 </ul>
             </div>
@@ -508,18 +531,17 @@
                 <div class="card-title green" style="margin-bottom:8px">Paiements & Litiges</div>
                 <ul class="fiche-list">
                     <li><strong>Credoc (Crédit documentaire) :</strong> Garantie de paiement par une banque en échange
-                        de la remise stricte des documents d'expédition[cite: 12].</li>
+                        de la remise stricte des documents d'expédition.</li>
                     <li><strong>Clause compromissoire :</strong> Clause contractuelle où les parties s'engagent à
-                        soumettre leur litige à l'<strong>arbitrage</strong> privé plutôt qu'aux tribunaux
-                        étatiques[cite: 12].</li>
+                        soumettre leur litige à l'<strong>arbitrage</strong> privé plutôt qu'aux tribunaux étatiques.
+                    </li>
                     <li><strong>Lex mercatoria :</strong> Les usages et principes du commerce international développés
-                        directement par les marchands[cite: 12].</li>
+                        directement par les marchands.</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- 4. METHODOLOGIE CAS PRATIQUES -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon icon-red">⚖️</div>
@@ -532,178 +554,40 @@
                 <li><strong style="color:var(--red);">Conflit de Loi / Contrat Transfrontalier (ex: France-Allemagne)
                         :</strong> Si les parties n'ont pas désigné la loi applicable, il faut appliquer le
                     <strong>Règlement Rome I (CE n° 593/2008)</strong>. Il détermine la loi selon le principe de
-                    l'établissement du vendeur ou du lieu d'exécution[cite: 6, 9, 12]. Toute modification unilatérale du
-                    contrat post-signature est invalide au nom du principe de bonne foi et de force obligatoire[cite: 7,
-                    9].</li>
+                    l'établissement du vendeur ou du lieu d'exécution. Toute modification unilatérale du contrat
+                    post-signature est invalide au nom du principe de bonne foi et de force obligatoire.
+                </li>
                 <li><strong style="color:var(--red);">Retards de livraison ou Non-conformité :</strong> En droit
                     européen ou sous la CVIM, le fournisseur fautif est responsable. L'acheteur peut demander des
-                    <strong>dommages et intérêts</strong>, l'exécution forcée, ou la résolution du contrat[cite: 7, 8,
-                    11]. Le fournisseur ne peut s'exonérer que s'il prouve un cas de <strong>Force majeure</strong>
-                    (événement imprévisible, irrésistible et extérieur)[cite: 7, 10, 12].</li>
+                    <strong>dommages et intérêts</strong>, l'exécution forcée, ou la résolution du contrat. Le
+                    fournisseur ne peut s'exonérer que s'il prouve un cas de <strong>Force majeure</strong> (événement
+                    imprévisible, irrésistible et extérieur).
+                </li>
                 <li><strong style="color:var(--red);">Ententes (Cartel) sur les prix ou territoires :</strong> Si deux
                     entreprises concurrentes s'accordent pour fixer des prix ou se diviser l'Europe, c'est une
                     <strong>Entente illicite</strong> prohibée par <strong>l'Article 101 du TFUE</strong>. La Commission
-                    européenne peut ouvrir une enquête et infliger de lourdes amendes financières[cite: 6, 12].</li>
+                    européenne peut ouvrir une enquête et infliger de lourdes amendes financières.
+                </li>
                 <li><strong style="color:var(--red);">Abus de Position Dominante :</strong> Si une entreprise leader
                     impose des accords d'exclusivité écrasant une start-up, elle viole <strong>l'Article 102 du
-                        TFUE</strong>[cite: 6, 12].</li>
+                        TFUE</strong>.</li>
                 <li><strong style="color:var(--red);">Blocage de marchandises par un État :</strong> Si un État (ex:
                     Belgique) bloque l'entrée d'un matériel italien conforme aux normes UE, cela viole le principe
                     fondamental de la <strong>libre circulation des marchandises</strong> (reconnaissance mutuelle),
-                    sauf s'il démontre un motif impérieux de santé publique[cite: 6, 13].</li>
+                    sauf s'il démontre un motif impérieux de santé publique.</li>
             </ul>
         </div>
     </div>
 
-    <!-- ================= QCM INTERACTIF (10 QUESTIONS) ================= -->
     <div class="qcm-section" id="qcm">
         <div class="qcm-header">
-            🎯 QCM de Validation (Questions tirées du partiel blanc)
+            🎯 QCM d'entraînement
+            <button class="reset-qcm-btn" onclick="initQuiz()">↺ Refaire le QCM (Tirage au sort)</button>
             <span class="qcm-score-display" id="score-display">Score : 0/10</span>
         </div>
 
-        <div class="question-box">
-            <div class="question-text">1. Quel est le délai de prescription de droit commun pour les obligations nées
-                entre commerçants en France ?</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, false, 1)"><span>A. 2 ans</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, true, 1)"><span>B. 5 ans</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 1)"><span>C. 10 ans</span><span
-                        class="feedback-icon"></span></button>
-            </div>
+        <div id="qcm-questions-container">
         </div>
-
-        <div class="question-box">
-            <div class="question-text">2. En droit commercial français, que caractérise la notion de "Solidarité" entre
-                codébiteurs ?</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, false, 2)"><span>A. Elle doit toujours être
-                        expressément stipulée par écrit dans le contrat.</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, true, 2)"><span>B. Elle est présumée entre
-                        codébiteurs pour une dette commerciale.</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 2)"><span>C. Elle n'existe que dans les
-                        SARL (Sociétés à Responsabilité Limitée).</span><span class="feedback-icon"></span></button>
-            </div>
-        </div>
-
-        <div class="question-box">
-            <div class="question-text">3. L'article 101 du TFUE (Droit européen de la concurrence) interdit
-                principalement :</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, false, 3)"><span>A. L'abus de position dominante
-                        par une entreprise isolée.</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 3)"><span>B. Les aides d'État accordées
-                        aux entreprises en difficulté financière.</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, true, 3)"><span>C. Les ententes et pratiques
-                        concertées qui restreignent la concurrence (ex: cartel sur les prix).</span><span
-                        class="feedback-icon"></span></button>
-            </div>
-        </div>
-
-        <div class="question-box">
-            <div class="question-text">4. Quelle est la différence juridique fondamentale entre un Règlement et une
-                Directive européenne ?</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, false, 4)"><span>A. Le règlement doit être
-                        transposé par l'État, tandis que la directive est d'application directe.</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, true, 4)"><span>B. Le règlement est d'application
-                        immédiate et directe, tandis que la directive fixe un objectif à transposer.</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 4)"><span>C. Le règlement est facultatif
-                        pour les PME, la directive est obligatoire pour toutes les entreprises.</span><span
-                        class="feedback-icon"></span></button>
-            </div>
-        </div>
-
-        <div class="question-box">
-            <div class="question-text">5. Quel traité international régit spécifiquement les contrats de vente
-                internationale de marchandises ?</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, false, 5)"><span>A. Le Règlement de Rome
-                        I</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, true, 5)"><span>B. La Convention de Vienne (CVIM)
-                        de 1980</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 5)"><span>C. La Convention de La Haye sur
-                        la propriété intellectuelle</span><span class="feedback-icon"></span></button>
-            </div>
-        </div>
-
-        <div class="question-box">
-            <div class="question-text">6. En cas de litige international (ex: France-Espagne), si aucune loi n'est
-                expressément choisie dans le contrat, comment détermine-t-on la loi applicable ?</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, false, 6)"><span>A. On annule le contrat pour
-                        vice de forme.</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 6)"><span>B. On applique systématiquement
-                        la loi du pays de l'acheteur.</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, true, 6)"><span>C. On utilise les règles de
-                        conflit de lois, comme le Règlement européen Rome I.</span><span
-                        class="feedback-icon"></span></button>
-            </div>
-        </div>
-
-        <div class="question-box">
-            <div class="question-text">7. Quel élément est considéré comme la condition "sine qua non" (indispensable)
-                pour prouver l'existence juridique d'un fonds de commerce ?</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, false, 7)"><span>A. Le droit au bail (le local
-                        commercial)</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, true, 7)"><span>B. La clientèle réelle et
-                        certaine</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 7)"><span>C. Le stock de marchandises et
-                        l'outillage</span><span class="feedback-icon"></span></button>
-            </div>
-        </div>
-
-        <div class="question-box">
-            <div class="question-text">8. L'article 102 du TFUE (Traité sur le Fonctionnement de l'UE) vise
-                explicitement l'interdiction de :</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, true, 8)"><span>A. L'abus de position
-                        dominante</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 8)"><span>B. La vente de produits
-                        non-conformes aux normes CE</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 8)"><span>C. Les entraves à la libre
-                        circulation des travailleurs</span><span class="feedback-icon"></span></button>
-            </div>
-        </div>
-
-        <div class="question-box">
-            <div class="question-text">9. En logistique internationale, que signifie exactement l'Incoterm "EXW" (Ex
-                Works) ?</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, false, 9)"><span>A. Le vendeur paie le transport
-                        principal jusqu'au port de destination final de l'acheteur.</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, true, 9)"><span>B. Le vendeur met simplement la
-                        marchandise à disposition de l'acheteur dans ses propres locaux (l'acheteur gère le
-                        reste).</span><span class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 9)"><span>C. Le vendeur est responsable de
-                        livrer la marchandise dédouanée et taxée (DDP).</span><span
-                        class="feedback-icon"></span></button>
-            </div>
-        </div>
-
-        <div class="question-box">
-            <div class="question-text">10. Qu'est-ce qu'une "clause compromissoire" insérée dans un contrat commercial
-                international ?</div>
-            <div class="options-grid">
-                <button class="option-btn" onclick="handleAnswer(this, true, 10)"><span>A. Une clause par laquelle les
-                        deux parties s'engagent à soumettre leur éventuel litige à l'arbitrage privé.</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 10)"><span>B. Une clause pénale qui permet
-                        de réduire le prix payé en cas de retard de livraison.</span><span
-                        class="feedback-icon"></span></button>
-                <button class="option-btn" onclick="handleAnswer(this, false, 10)"><span>C. Une clause de force majeure
-                        qui annule définitivement le contrat en cas de conflit armé.</span><span
-                        class="feedback-icon"></span></button>
-            </div>
-        </div>
-
     </div>
 
     <script>
@@ -712,9 +596,89 @@
         let score = 0;
         let answeredQuestions = new Set();
 
-        function handleAnswer(btn, isCorrect, questionNumber) {
-            if (answeredQuestions.has(questionNumber)) return;
-            answeredQuestions.add(questionNumber);
+        // BANQUE DE 30 QUESTIONS DROIT COMMERCIAL
+        const questionPool = [
+            { q: "Quel est le délai de prescription de droit commun pour les obligations entre commerçants ?", options: ["2 ans", "5 ans", "10 ans"], correct: 1 },
+            { q: "En droit commercial, que caractérise la notion de 'Solidarité' entre codébiteurs ?", options: ["Elle doit être stipulée par écrit", "Elle est présumée", "Elle n'existe que dans les SARL"], correct: 1 },
+            { q: "L'article 101 du TFUE interdit principalement :", options: ["L'abus de position dominante", "Les aides d'État", "Les ententes qui restreignent la concurrence"], correct: 2 },
+            { q: "Quelle est la différence fondamentale entre un Règlement et une Directive européenne ?", options: ["Règlement transposé, Directive directe", "Règlement d'application directe, Directive à transposer", "Le règlement est facultatif"], correct: 1 },
+            { q: "Quel traité régit les contrats de vente internationale de marchandises ?", options: ["Règlement Rome I", "Convention de Vienne (CVIM) 1980", "Convention de La Haye"], correct: 1 },
+            { q: "En cas de litige international sans loi choisie, comment la détermine-t-on ?", options: ["On annule le contrat", "On utilise la loi américaine", "On utilise les règles de conflit de lois (ex: Rome I)"], correct: 2 },
+            { q: "Quel est l'élément 'sine qua non' pour prouver l'existence d'un fonds de commerce ?", options: ["Le droit au bail", "La clientèle réelle et certaine", "Le stock de marchandises"], correct: 1 },
+            { q: "L'article 102 du TFUE interdit expressément :", options: ["L'abus de position dominante", "La vente de produits non-conformes", "La libre circulation des travailleurs"], correct: 0 },
+            { q: "Que signifie l'Incoterm 'EXW' (Ex Works) ?", options: ["Transport payé par le vendeur", "Marchandise mise à dispo dans les locaux du vendeur", "Vendeur livre dédouané"], correct: 1 },
+            { q: "Qu'est-ce qu'une 'clause compromissoire' ?", options: ["Soumettre un litige à l'arbitrage", "Réduire le prix en cas de retard", "Annuler le contrat en cas de guerre"], correct: 0 },
+            { q: "Quelle est la définition juridique de l'acte de commerce par nature ?", options: ["Achat de biens immeubles", "Achat de biens meubles pour les revendre", "Tout contrat signé devant notaire"], correct: 1 },
+            { q: "En France, quel tribunal est compétent pour un litige entre deux commerçants ?", options: ["Tribunal d'Instance", "Tribunal de Commerce", "Conseil des Prud'hommes"], correct: 1 },
+            { q: "Quel acte donne naissance à la personnalité morale d'une société commerciale ?", options: ["La rédaction des statuts", "Le dépôt de capital", "L'immatriculation au RCS"], correct: 2 },
+            { q: "Quelle est la durée minimale légale d'un bail commercial en France ?", options: ["3 ans", "6 ans", "9 ans"], correct: 2 },
+            { q: "À quoi sert une clause de réserve de propriété ?", options: ["Garder la propriété jusqu'au paiement intégral", "Annuler la vente si l'acheteur déménage", "Réserver le droit d'augmenter le prix"], correct: 0 },
+            { q: "Quelle institution européenne est chargée de contrôler les fusions et concentrations ?", options: ["Le Parlement Européen", "La Commission Européenne", "La Cour des Comptes Européenne"], correct: 1 },
+            { q: "Quel principe a été établi par l'arrêt Cassis de Dijon ?", options: ["La fixation des prix agricoles", "Le principe de reconnaissance mutuelle", "L'interdiction de l'arbitrage"], correct: 1 },
+            { q: "Une entreprise française et une allemande signent un contrat. Quel texte détermine la loi applicable à défaut de choix ?", options: ["La CVIM", "Le Règlement Rome I", "La Lex Mercatoria"], correct: 1 },
+            { q: "Dans une SARL, la responsabilité des associés est :", options: ["Illimitée", "Limitée au montant de leurs apports", "Solidaire et indéfinie"], correct: 1 },
+            { q: "Que signifie l'Incoterm 'DDP' ?", options: ["Delivered Duty Paid (Livré dédouané)", "Delivery During Production", "Documentary Draft Payment"], correct: 0 },
+            { q: "Qu'est-ce qu'un Crédit Documentaire (Credoc) ?", options: ["Un prêt accordé par l'État", "Une garantie de paiement bancaire contre remise de documents", "Un système de troc"], correct: 1 },
+            { q: "Qu'est-ce que la 'Lex mercatoria' ?", options: ["Une loi romaine obsolète", "Les usages et principes développés par les marchands internationaux", "Un impôt douanier"], correct: 1 },
+            { q: "Quelles sont les caractéristiques de la Force majeure ?", options: ["Prévisible et surmontable", "Imprévisible, irrésistible et extérieure", "Due à une erreur du vendeur"], correct: 1 },
+            { q: "Une modification unilatérale d'un contrat commercial est-elle autorisée ?", options: ["Oui, si l'économie change", "Non, cela viole le principe de la force obligatoire et de bonne foi", "Oui, avec un préavis de 10 jours"], correct: 1 },
+            { q: "Quelles sont les conséquences d'une non-conformité de livraison pour le vendeur ?", options: ["Il peut être forcé à l'exécution ou payer des dommages et intérêts", "Il peut annuler la commande librement", "Il ne risque rien si c'est la première fois"], correct: 0 },
+            { q: "L'Organisation Mondiale du Commerce (OMC) a pour mission principale de :", options: ["Fixer les cours des devises", "Libéraliser le commerce et régler les différends entre États", "Prêter de l'argent aux entreprises"], correct: 1 },
+            { q: "Qu'est-ce qu'un brevet international (via le PCT) ?", options: ["Un titre unique mondial", "Une procédure simplifiée pour demander protection dans plusieurs pays", "Un impôt sur l'innovation"], correct: 1 },
+            { q: "Quelle cour assure l'interprétation uniforme du droit de l'UE ?", options: ["La Cour Européenne des Droits de l'Homme", "La Cour de Justice de l'Union Européenne (CJUE)", "La Cour Internationale de Justice"], correct: 1 },
+            { q: "Le fonds de commerce est juridiquement qualifié de :", options: ["Bien immeuble par destination", "Bien meuble corporel", "Bien meuble incorporel"], correct: 2 },
+            { q: "En cas de retard de livraison non justifié, le fournisseur peut-il invoquer l'article 101 du TFUE ?", options: ["Oui, c'est une entente sur les délais", "Non, l'art 101 concerne les ententes anti-concurrentielles, pas les retards contractuels", "Oui, si le retard dépasse 30 jours"], correct: 1 }
+        ];
+
+        function shuffleArray(array) {
+            let curId = array.length;
+            while (0 !== curId) {
+                let randId = Math.floor(Math.random() * curId);
+                curId -= 1;
+                let tmp = array[curId];
+                array[curId] = array[randId];
+                array[randId] = tmp;
+            }
+            return array;
+        }
+
+        function initQuiz() {
+            const container = document.getElementById('qcm-questions-container');
+            container.innerHTML = '';
+            score = 0;
+            answeredQuestions.clear();
+            document.getElementById('score-display').textContent = `Score : 0/${TOTAL_QUESTIONS}`;
+
+            // Sélection aléatoire de 10 questions
+            let shuffled = shuffleArray([...questionPool]).slice(0, TOTAL_QUESTIONS);
+
+            shuffled.forEach((qObj, index) => {
+                let html = `
+                    <div class="question-box">
+                        <div class="question-text">${index + 1}. ${qObj.q}</div>
+                        <div class="options-grid">
+                `;
+                qObj.options.forEach((optText, optIndex) => {
+                    let isCorrect = (optIndex === qObj.correct);
+                    let letter = ['A', 'B', 'C'][optIndex];
+                    html += `
+                        <button class="option-btn" onclick="handleAnswer(this, ${isCorrect}, ${index})">
+                            <span>${letter}. ${optText}</span>
+                            <span class="feedback-icon"></span>
+                        </button>
+                    `;
+                });
+                html += `</div></div>`;
+                container.innerHTML += html;
+            });
+
+            updateDashboardScore(0);
+        }
+
+        function handleAnswer(btn, isCorrect, qIndex) {
+            if (answeredQuestions.has(qIndex)) return;
+            answeredQuestions.add(qIndex);
+
             const parent = btn.parentElement;
             parent.querySelectorAll('.option-btn').forEach(b => b.style.pointerEvents = 'none');
 
@@ -745,6 +709,9 @@
                 localStorage.setItem('revision_state', JSON.stringify(state));
             } catch (e) { console.error("Erreur de sauvegarde", e); }
         }
+
+        // Initialiser le quiz au chargement de la page
+        window.onload = initQuiz;
     </script>
 </body>
 

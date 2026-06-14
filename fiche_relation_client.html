@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de révision — Management de la Relation Client (Haute Densité)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+        :root {
+            --bg: #0d0f14;
+            --surface: #151820;
+            --surface2: #1c2030;
+            --border: #252a3a;
+            --accent: #4f7cff;
+            --accent2: #a78bfa;
+            --green: #22d3a0;
+            --yellow: #fbbf24;
+            --red: #f87171;
+            --orange: #fb923c;
+            --text: #e2e8f0;
+            --text-muted: #64748b;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 32px 24px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0d0f14 0%, #151a2e 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(79, 124, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-badge {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .header-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .meta-pill {
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .pill-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .pill-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .pill-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .pill-red {
+            background: rgba(248, 113, 113, 0.15);
+            color: var(--red);
+        }
+
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-bottom: 16px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .icon-blue {
+            background: rgba(79, 124, 255, 0.15);
+        }
+
+        .icon-green {
+            background: rgba(34, 211, 160, 0.15);
+        }
+
+        .icon-purple {
+            background: rgba(167, 139, 250, 0.15);
+        }
+
+        .icon-yellow {
+            background: rgba(251, 191, 36, 0.15);
+        }
+
+        .icon-orange {
+            background: rgba(251, 146, 60, 0.15);
+        }
+
+        .icon-red {
+            background: rgba(248, 113, 113, 0.15);
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .card {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .card-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+        }
+
+        .card-title.blue {
+            color: var(--accent);
+        }
+
+        .card-title.green {
+            color: var(--green);
+        }
+
+        .card-title.purple {
+            color: var(--accent2);
+        }
+
+        .card-title.red {
+            color: var(--red);
+        }
+
+        .card-title.yellow {
+            color: var(--yellow);
+        }
+
+        ul.fiche-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        ul.fiche-list li {
+            font-size: 13px;
+            color: var(--text-dim);
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        ul.fiche-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        ul.fiche-list li strong {
+            color: var(--text);
+        }
+
+        .highlight-box {
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-top: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .highlight-blue {
+            background: rgba(79, 124, 255, 0.08);
+            border: 1px solid rgba(79, 124, 255, 0.25);
+            color: #a0b4ff;
+        }
+
+        .piege-box {
+            background: rgba(248, 113, 113, 0.06);
+            border: 1px solid rgba(248, 113, 113, 0.2);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-top: 14px;
+        }
+
+        .piege-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        .tag-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .tag-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .tag-red {
+            background: rgba(248, 113, 113, 0.15);
+            color: var(--red);
+        }
+
+        .tag-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .tag-yellow {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--yellow);
+        }
+
+        .qcm-section {
+            background: linear-gradient(135deg, var(--surface), var(--surface2));
+            border: 1px solid var(--accent);
+            border-radius: 14px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .qcm-header {
+            font-family: 'Syne', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .reset-qcm-btn {
+            margin-left: 10px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-muted);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reset-qcm-btn:hover {
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .qcm-score-display {
+            margin-left: auto;
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .question-box {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-box:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .question-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 8px;
+        }
+
+        .option-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--text-dim);
+            font-size: 13px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .option-btn:hover {
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .option-btn.correct {
+            background: rgba(34, 211, 160, 0.15);
+            border-color: var(--green);
+            color: var(--green);
+            pointer-events: none;
+        }
+
+        .option-btn.wrong {
+            background: rgba(248, 113, 113, 0.15);
+            border-color: var(--red);
+            color: var(--red);
+            pointer-events: none;
+        }
+
+        .feedback-icon {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 16px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="javascript:history.back()"
+        style="display:inline-block; margin-bottom: 20px; color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500;">←
+        Retour au tableau de bord</a>
+
+    <div class="header">
+        <div class="header-badge">Fiche de révision Haute Densité · INSEEC MSc</div>
+        <div class="header-title">Management de la Relation Client</div>
+        <div class="header-sub">Évolution Marketing, CRM vs CX, Personnalisation, KPI, Méthode CARP[cite: 24, 25, 26]
+        </div>
+        <div class="header-meta">
+            <span class="meta-pill pill-purple">📅 Module 05</span>
+            <span class="meta-pill pill-blue">🎯 QCM Interactif Aléatoire</span>
+            <span class="meta-pill pill-green">Prof. Bruno Simon</span>
+        </div>
+    </div>
+
+    <!-- 1. ÉVOLUTION & FONDEMENTS -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-blue">🔄</div>
+            <div class="section-title">1. Évolution historique des approches client</div>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title blue">Du Produit à l'Expérience[cite: 24, 26]</div>
+                <ul class="fiche-list">
+                    <li><strong>1. Transactionnel (60s-80s) :</strong> Focus sur le produit et la vente immédiate (mass
+                        market)[cite: 24, 26].</li>
+                    <li><strong>2. Relationnel (90s-00s) :</strong> Émergence de la fidélisation. On réalise que
+                        fidéliser coûte moins cher qu'acquérir[cite: 24, 26].</li>
+                    <li><strong>3. Digital (00s-10s) :</strong> L'omnicanalité et le pouvoir passent au consommateur via
+                        les réseaux sociaux[cite: 26].</li>
+                    <li><strong>4. Expérientiel (Aujourd'hui) :</strong> L'expérience prime sur le produit.
+                        Hyper-personnalisation[cite: 24, 26].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title blue">CRM vs CX[cite: 26]</div>
+                <ul class="fiche-list">
+                    <li><strong style="color:var(--accent)">CRM (Customer Relationship Mgt) :</strong> L'outil. Centré
+                        sur l'entreprise, il centralise les données et automatise les processus (ex: Salesforce,
+                        Hubspot)[cite: 26].</li>
+                    <li><strong style="color:var(--green)">CX (Customer Experience) :</strong> L'expérience. Centrée sur
+                        le client, c'est le ressenti émotionnel et cognitif à <em>chaque point de contact</em>[cite:
+                        26].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. LA VALEUR ET LES KPI -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-purple">📊</div>
+            <div class="section-title">2. Métriques, Valeur et KPI Stratégiques</div>
+        </div>
+
+        <div class="highlight-box highlight-blue" style="margin-top:0; margin-bottom:12px;">
+            <strong>Règle d'or de la fidélisation :</strong> Acquérir un nouveau client coûte <strong>5 fois plus
+                cher</strong> que de fidéliser un client existant[cite: 26].
+        </div>
+
+        <div class="grid-2">
+            <div>
+                <div class="card-title purple" style="margin-bottom:8px">Les Indicateurs de Satisfaction (CX)[cite: 24,
+                    26]</div>
+                <ul class="fiche-list">
+                    <li><strong>NPS (Net Promoter Score) :</strong> Mesure la recommandation ("Recommanderiez-vous ?").
+                        <em>Formule : % Promoteurs (9-10) - % Détracteurs (0-6)</em>. Score > 50 = excellent[cite: 24,
+                        26].</li>
+                    <li><strong>CSAT (Customer Satisfaction) :</strong> Satisfaction immédiate post-interaction (ex:
+                        après un achat)[cite: 26].</li>
+                    <li><strong>CES (Customer Effort Score) :</strong> Mesure la facilité de résolution d'un problème.
+                        Un faible effort = haute fidélité[cite: 26].</li>
+                </ul>
+            </div>
+            <div>
+                <div class="card-title purple" style="margin-bottom:8px">Les Indicateurs Financiers[cite: 25, 26]</div>
+                <ul class="fiche-list">
+                    <li><strong>CLV (Customer Lifetime Value) :</strong> Valeur Vie Client. C'est le profit net total
+                        généré par un client sur toute la relation. <em>Doit être > 3 fois le CAC (Coût d'Acquisition
+                            Client)</em>[cite: 26].</li>
+                    <li><strong>Churn Rate (Taux d'attrition) :</strong> % de clients perdus. Réduire le churn de 5%
+                        peut augmenter la rentabilité de 25% à 95%[cite: 26].</li>
+                    <li><strong>CPA / CPL :</strong> Coût par Acquisition / Coût par Lead[cite: 25].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. SEGMENTATION & PERSONNALISATION -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-green">🎯</div>
+            <div class="section-title">3. Segmentation et Personnalisation</div>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title green">Typologies de Segmentation[cite: 26]</div>
+                <ul class="fiche-list">
+                    <li><strong>Démographique & Géo :</strong> Âge, genre, revenus, localisation. Niveau de base[cite:
+                        26].</li>
+                    <li><strong>Psychographique :</strong> Valeurs, attitudes, style de vie, personnalité[cite: 26].
+                    </li>
+                    <li><strong>Comportementale :</strong> Historique d'achat, fréquence, usage du produit[cite: 26].
+                    </li>
+                    <li><strong>Par Valeur (RFM) :</strong> Récence, Fréquence, Montant[cite: 26].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title green">Modèles d'Excellence[cite: 24, 26]</div>
+                <ul class="fiche-list">
+                    <li><strong>Netflix :</strong> Hyper-personnalisation algorithmique (1300+ paramètres, visuels
+                        adaptés aux goûts)[cite: 26].</li>
+                    <li><strong>Sephora :</strong> Segmentation par valeur (Beauty Insider, VIB, Rouge) couplée à l'IA
+                        (Virtual Artist)[cite: 26].</li>
+                    <li><strong>Amazon :</strong> Parcours sans friction (1-click) + Recommandation + Écosystème de
+                        commodité (Prime)[cite: 24, 26].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. GESTION DES CRISES -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-red">🚨</div>
+            <div class="section-title">4. Gérer l'Insatisfaction et les Clients Difficiles</div>
+        </div>
+        <div class="highlight-box highlight-blue" style="margin-top:0; border-color: var(--red); color: var(--text);">
+            <strong>Le Paradoxe du Service Recovery :</strong> Un client dont le problème a été résolu de manière
+            exceptionnelle devient souvent <em>plus fidèle</em> qu'un client n'ayant jamais rencontré de problème[cite:
+            26].
+        </div>
+
+        <div class="card-title red" style="margin-top:12px; margin-bottom:8px">La Méthode CARP[cite: 26]</div>
+        <ul class="fiche-list">
+            <li><strong style="color:var(--red)">C - Contrôler :</strong> Maîtriser ses propres émotions, garder son
+                calme, ne pas le prendre personnellement[cite: 26].</li>
+            <li><strong style="color:var(--red)">A - Acknowledge (Reconnaître) :</strong> Écouter activement et valider
+                les émotions du client ("Je comprends votre frustration")[cite: 26].</li>
+            <li><strong style="color:var(--red)">R - Responsabilité :</strong> Assumer l'erreur au nom de l'entreprise
+                sans chercher d'excuses ("C'est notre responsabilité")[cite: 26].</li>
+            <li><strong style="color:var(--red)">P - Proposer une solution :</strong> Agir concrètement, donner un délai
+                réaliste et compenser (remboursement, bon d'achat)[cite: 26].</li>
+        </ul>
+    </div>
+
+    <!-- PIÈGES QCM -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-yellow">⚠️</div>
+            <div class="section-title">Pièges classiques QCM</div>
+        </div>
+        <div class="piege-box" style="margin-top:0;">
+            <div class="piege-title">À mémoriser sans faute !</div>
+            <ul class="fiche-list">
+                <li><strong>NPS :</strong> La question type est "Recommanderiez-vous notre entreprise ?". Les notes de 7
+                    et 8 sont des <strong>Passifs</strong> et comptent pour 0 dans le calcul[cite: 24, 26].</li>
+                <li><strong>CES vs CSAT :</strong> Le <em>CSAT</em> mesure la satisfaction ("Êtes-vous satisfait ?"), le
+                    <em>CES</em> mesure l'effort ("A-t-il été facile de résoudre votre problème ?")[cite: 26].</li>
+                <li><strong>CRM vs CX :</strong> Le CRM est l'outil technologique (centré sur l'entreprise). La CX est
+                    le ressenti global (centré sur le client)[cite: 26].</li>
+                <li><strong>CLV vs CAC :</strong> Pour être rentable, la Valeur Vie Client (CLV) doit être supérieure au
+                    Coût d'Acquisition Client (CAC). L'idéal est un ratio CLV/CAC supérieur à 3[cite: 26].</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================= QCM INTERACTIF ALÉATOIRE ================= -->
+    <div class="qcm-section" id="qcm">
+        <div class="qcm-header">
+            🎯 QCM d'entraînement (Banque de 30 questions)
+            <button class="reset-qcm-btn" onclick="initQuiz()">↺ Refaire le QCM (Tirage au sort)</button>
+            <span class="qcm-score-display" id="score-display">Score : 0/10</span>
+        </div>
+
+        <div id="qcm-questions-container">
+            <!-- Les 10 questions seront générées ici par JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const SUBJECT_ID = 's5'; // ID pour Management de la Relation Client (à créer dans index.html)
+        const TOTAL_QUESTIONS = 10;
+        let score = 0;
+        let answeredQuestions = new Set();
+
+        // BANQUE DE 30 QUESTIONS RELATION CLIENT
+        const questionPool = [
+            { q: "Quelle est la principale différence entre le CRM et la CX (Customer Experience) ?[cite: 26]", options: ["Le CRM est centré sur le B2B, la CX sur le B2C", "Le CRM est l'outil technologique géré par l'entreprise, la CX est le ressenti émotionnel et global du client", "Le CRM remplace totalement la CX"], correct: 1 },
+            { q: "Comment se calcule le Net Promoter Score (NPS) ?[cite: 24, 26]", options: ["% Promoteurs (9-10) - % Détracteurs (0-6)", "Nombre total d'avis positifs / Nombre total d'avis", "Le pourcentage de clients qui rachètent un produit"], correct: 0 },
+            { q: "Quel est le principe du 'Paradoxe du Service Recovery' ?[cite: 26]", options: ["Plus on compense un client, plus il se plaint", "Un client mécontent dont le problème a été résolu de façon exceptionnelle devient souvent plus fidèle qu'un client n'ayant eu aucun problème", "Il est impossible de récupérer un client insatisfait"], correct: 1 },
+            { q: "Dans la méthode CARP pour gérer un client difficile, que signifie la lettre 'A' ?[cite: 26]", options: ["Abandonner (si le client a tort)", "Acknowledge (Reconnaître l'émotion et le problème du client)", "Attaquer (pour se défendre)"], correct: 1 },
+            { q: "Combien coûte en moyenne l'acquisition d'un nouveau client par rapport à la fidélisation d'un client existant ?[cite: 26]", options: ["C'est le même prix", "Fidéliser coûte 2 fois plus cher", "Acquérir coûte environ 5 fois plus cher"], correct: 2 },
+            { q: "Que mesure exactement le Customer Effort Score (CES) ?[cite: 26]", options: ["L'effort financier fourni par le client", "La facilité avec laquelle le client a pu interagir avec l'entreprise ou résoudre son problème", "La satisfaction globale vis-à-vis du produit"], correct: 1 },
+            { q: "Dans l'évolution du marketing, qu'est-ce qui caractérise l'ère du 'Marketing Transactionnel' (1960-1980) ?[cite: 24, 26]", options: ["Une focalisation sur la fidélisation à long terme", "Une hyper-personnalisation digitale", "Une focalisation exclusive sur le produit, le volume de ventes et l'acte de vente immédiat"], correct: 2 },
+            { q: "Que représente le sigle 'CLV' (Customer Lifetime Value) ?[cite: 25, 26]", options: ["Le coût total des logiciels CRM", "Le profit net total qu'une entreprise espère générer d'un client tout au long de sa relation avec elle", "Le temps moyen passé par un client sur le site web"], correct: 1 },
+            { q: "Pour être considérée comme saine, quel doit être le ratio idéal entre la CLV (Valeur Client) et le CAC (Coût d'Acquisition) ?[cite: 26]", options: ["CLV = CAC (1:1)", "La CLV doit être au moins 3 fois supérieure au CAC (>3:1)", "Le CAC doit être supérieur à la CLV"], correct: 1 },
+            { q: "En termes de NPS, comment qualifie-t-on les clients qui répondent 7 ou 8 ?[cite: 24, 26]", options: ["Détracteurs", "Promoteurs", "Passifs (neutres)"], correct: 2 },
+            { q: "Quelle entreprise est célèbre pour son hyper-personnalisation algorithmique, analysant plus de 1300 paramètres pour adapter son interface ?[cite: 26]", options: ["Carrefour", "Netflix", "La Fnac"], correct: 1 },
+            { q: "Qu'est-ce que le 'Churn Rate' (Taux d'attrition) ?[cite: 26]", options: ["Le pourcentage de clients perdus sur une période donnée", "Le taux d'ouverture des emails marketing", "Le taux de conversion d'un site e-commerce"], correct: 0 },
+            { q: "Quelle méthode de segmentation est basée sur les valeurs, le style de vie et la personnalité des clients ?[cite: 26]", options: ["Démographique", "Géographique", "Psychographique"], correct: 2 },
+            { q: "Quelles sont les trois composantes de la segmentation par valeur RFM ?[cite: 26]", options: ["Raison, Finance, Motivation", "Récence, Fréquence, Montant", "Région, Famille, Métier"], correct: 1 },
+            { q: "Parmi ces phrases face à un client mécontent, laquelle est À ÉVITER absolument ?[cite: 26]", options: ["Je comprends votre situation", "Laissez-moi trouver une solution", "C'est la politique de notre entreprise, ce n'est pas ma faute"], correct: 2 },
+            { q: "L'approche 'Customer Journey Map' sert principalement à :[cite: 26]", options: ["Calculer le salaire des commerciaux", "Cartographier et visualiser toutes les étapes du parcours client pour identifier les points de friction", "Générer des factures automatiquement"], correct: 1 },
+            { q: "Quel est l'indicateur clé (KPI) qui mesure la satisfaction immédiate d'un client suite à une interaction spécifique ?[cite: 26]", options: ["Le CSAT (Customer Satisfaction Score)", "Le ROI (Return On Investment)", "L'EBITDA"], correct: 0 },
+            { q: "Quelle marque a révolutionné l'expérience client dans le commerce physique en supprimant les caisses traditionnelles et en misant sur l'accompagnement (Genius Bar) ?[cite: 26]", options: ["Darty", "Apple (Apple Store)", "Sephora"], correct: 1 },
+            { q: "Dans la méthode CARP, que veut dire le 'C' (Contrôle) ?[cite: 26]", options: ["Contrôler la carte bancaire du client", "Prendre le contrôle de la discussion en élevant la voix", "Garder son calme, maîtriser ses émotions et ne pas prendre les critiques personnellement"], correct: 2 },
+            { q: "Que signifie un 'NPS' négatif (par exemple -10) ?[cite: 26]", options: ["Il y a plus de détracteurs que de promoteurs", "L'entreprise fait faillite", "Les clients dépensent moins d'argent"], correct: 0 },
+            { q: "À quelle étape de l'évolution de la relation client correspond l'émergence des programmes de fidélité et des bases de données (1990-2000) ?[cite: 24, 26]", options: ["Le marketing expérientiel", "Le marketing relationnel", "Le marketing transactionnel"], correct: 1 },
+            { q: "Pourquoi dit-on que le Service Après-Vente (SAV) n'est pas seulement un centre de coûts ?[cite: 26]", options: ["Parce qu'on y vend toujours plus cher", "Parce qu'une réclamation bien gérée est un investissement stratégique dans la fidélisation et la réputation", "Ce n'est pas vrai, c'est toujours une perte sèche"], correct: 1 },
+            { q: "Comment Sephora personnalise-t-elle l'expérience de ses clientes ?[cite: 26]", options: ["En proposant un prix unique sur tout le magasin", "Via son programme Beauty Insider à trois niveaux (Insider, VIB, Rouge) et des outils de réalité augmentée (Virtual Artist)", "En refusant les retours de produits"], correct: 1 },
+            { q: "Quelle statistique montre l'importance de répondre aux avis en ligne ?[cite: 26]", options: ["Seulement 10% des clients les lisent", "89% des consommateurs lisent les réponses des entreprises aux avis avant de réserver ou acheter", "Les réponses aux avis font baisser le SEO"], correct: 1 },
+            { q: "Quel KPI marketing (et non purement relationnel) indique le coût de génération d'un contact qualifié ?[cite: 25]", options: ["Le CPL (Coût Par Lead)", "Le ROE (Return On Equity)", "Le Taux de rotation des stocks"], correct: 0 },
+            { q: "Selon le modèle d'excellence d'Amazon, quel élément est crucial dans leur expérience client ?[cite: 24, 26]", options: ["Un parcours sans friction (1-click) couplé à une politique de retour ultra-souple", "L'absence totale de service client humain", "L'envoi de catalogues papier"], correct: 0 },
+            { q: "Le 'Social Listening' consiste à :[cite: 26]", options: ["Écouter de la musique au travail", "Monitorer en temps réel les mentions de la marque sur les réseaux sociaux pour analyser les sentiments", "Faire des appels de prospection à froid"], correct: 1 },
+            { q: "Une réduction de 5% du taux de churn (attrition) peut augmenter la rentabilité de :[cite: 26]", options: ["1 à 2%", "5%", "25% à 95%"], correct: 2 },
+            { q: "Dans l'écosystème CRM, quel logiciel est réputé pour son approche 'Inbound Marketing' et ses outils gratuits adaptés aux PME ?[cite: 26]", options: ["Salesforce", "SAP", "HubSpot"], correct: 2 },
+            { q: "Que démontre l'exemple de Fnac/Darty concernant la gestion des avis négatifs en ligne ?[cite: 26]", options: ["Qu'il faut les supprimer immédiatement", "Qu'une transparence radicale et une gestion professionnelle des avis négatifs renforcent la confiance des consommateurs", "Que les avis négatifs n'ont aucun impact sur les ventes"], correct: 1 }
+        ];
+
+        function shuffleArray(array) {
+            let curId = array.length;
+            while (0 !== curId) {
+                let randId = Math.floor(Math.random() * curId);
+                curId -= 1;
+                let tmp = array[curId];
+                array[curId] = array[randId];
+                array[randId] = tmp;
+            }
+            return array;
+        }
+
+        function initQuiz() {
+            const container = document.getElementById('qcm-questions-container');
+            container.innerHTML = '';
+            score = 0;
+            answeredQuestions.clear();
+            document.getElementById('score-display').textContent = `Score : 0/${TOTAL_QUESTIONS}`;
+
+            let shuffled = shuffleArray([...questionPool]).slice(0, TOTAL_QUESTIONS);
+
+            shuffled.forEach((qObj, index) => {
+                let html = `
+        <div class="question-box">
+          <div class="question-text">${index + 1}. ${qObj.q}</div>
+          <div class="options-grid">
+      `;
+                qObj.options.forEach((optText, optIndex) => {
+                    let isCorrect = (optIndex === qObj.correct);
+                    let letter = ['A', 'B', 'C'][optIndex];
+                    html += `
+          <button class="option-btn" onclick="handleAnswer(this, ${isCorrect}, ${index})">
+            <span>${letter}. ${optText}</span>
+            <span class="feedback-icon"></span>
+          </button>
+        `;
+                });
+                html += `</div></div>`;
+                container.innerHTML += html;
+            });
+
+            updateDashboardScore(0);
+        }
+
+        function handleAnswer(btn, isCorrect, qIndex) {
+            if (answeredQuestions.has(qIndex)) return;
+            answeredQuestions.add(qIndex);
+
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.option-btn').forEach(b => b.style.pointerEvents = 'none');
+
+            if (isCorrect) {
+                btn.classList.add('correct');
+                btn.querySelector('.feedback-icon').textContent = '✓';
+                score++;
+            } else {
+                btn.classList.add('wrong');
+                btn.querySelector('.feedback-icon').textContent = '✗';
+                parent.querySelectorAll('.option-btn').forEach(b => {
+                    if (b.getAttribute('onclick').includes('true')) {
+                        b.classList.add('correct');
+                        b.querySelector('.feedback-icon').textContent = '✓';
+                    }
+                });
+            }
+
+            document.getElementById('score-display').textContent = `Score : ${score}/${TOTAL_QUESTIONS}`;
+            updateDashboardScore(score);
+        }
+
+        function updateDashboardScore(newScore) {
+            try {
+                let state = JSON.parse(localStorage.getItem('revision_state')) || {};
+                if (!state[SUBJECT_ID]) { state[SUBJECT_ID] = { fiche: true, maitrise: -1, score: '', notes: '' }; }
+                state[SUBJECT_ID].score = newScore;
+                state[SUBJECT_ID].fiche = true;
+                localStorage.setItem('revision_state', JSON.stringify(state));
+            } catch (e) { console.error("Erreur de sauvegarde", e); }
+        }
+
+        window.onload = initQuiz;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de révision — Management de la Force de Vente (Haute Densité)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+        :root {
+            --bg: #0d0f14;
+            --surface: #151820;
+            --surface2: #1c2030;
+            --border: #252a3a;
+            --accent: #4f7cff;
+            --accent2: #a78bfa;
+            --green: #22d3a0;
+            --yellow: #fbbf24;
+            --red: #f87171;
+            --orange: #fb923c;
+            --text: #e2e8f0;
+            --text-muted: #64748b;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 32px 24px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0d0f14 0%, #151a2e 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-badge {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--yellow);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .header-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .meta-pill {
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .pill-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .pill-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .pill-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .pill-yellow {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--yellow);
+        }
+
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-bottom: 16px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .icon-blue {
+            background: rgba(79, 124, 255, 0.15);
+        }
+
+        .icon-green {
+            background: rgba(34, 211, 160, 0.15);
+        }
+
+        .icon-purple {
+            background: rgba(167, 139, 250, 0.15);
+        }
+
+        .icon-yellow {
+            background: rgba(251, 191, 36, 0.15);
+        }
+
+        .icon-orange {
+            background: rgba(251, 146, 60, 0.15);
+        }
+
+        .icon-red {
+            background: rgba(248, 113, 113, 0.15);
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .card {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .card-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+        }
+
+        .card-title.blue {
+            color: var(--accent);
+        }
+
+        .card-title.green {
+            color: var(--green);
+        }
+
+        .card-title.purple {
+            color: var(--accent2);
+        }
+
+        .card-title.yellow {
+            color: var(--yellow);
+        }
+
+        .card-title.orange {
+            color: var(--orange);
+        }
+
+        .card-title.red {
+            color: var(--red);
+        }
+
+        ul.fiche-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        ul.fiche-list li {
+            font-size: 13px;
+            color: var(--text-dim);
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        ul.fiche-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--yellow);
+            font-weight: 700;
+        }
+
+        ul.fiche-list li strong {
+            color: var(--text);
+        }
+
+        .highlight-box {
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-top: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .highlight-yellow {
+            background: rgba(251, 191, 36, 0.08);
+            border: 1px solid rgba(251, 191, 36, 0.25);
+            color: #fde68a;
+        }
+
+        .piege-box {
+            background: rgba(248, 113, 113, 0.06);
+            border: 1px solid rgba(248, 113, 113, 0.2);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-top: 14px;
+        }
+
+        .piege-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        .tag-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .tag-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .tag-red {
+            background: rgba(248, 113, 113, 0.15);
+            color: var(--red);
+        }
+
+        .tag-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .tag-yellow {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--yellow);
+        }
+
+        .flow {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .flow-item {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 7px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .flow-arrow {
+            color: var(--yellow);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .qcm-section {
+            background: linear-gradient(135deg, var(--surface), var(--surface2));
+            border: 1px solid var(--yellow);
+            border-radius: 14px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .qcm-header {
+            font-family: 'Syne', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .reset-qcm-btn {
+            margin-left: 10px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-muted);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reset-qcm-btn:hover {
+            border-color: var(--yellow);
+            color: #0d0f14;
+            background: var(--yellow);
+        }
+
+        .qcm-score-display {
+            margin-left: auto;
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--yellow);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .question-box {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-box:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .question-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 8px;
+        }
+
+        .option-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--text-dim);
+            font-size: 13px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .option-btn:hover {
+            border-color: var(--yellow);
+            color: #fff;
+        }
+
+        .option-btn.correct {
+            background: rgba(34, 211, 160, 0.15);
+            border-color: var(--green);
+            color: var(--green);
+            pointer-events: none;
+        }
+
+        .option-btn.wrong {
+            background: rgba(248, 113, 113, 0.15);
+            border-color: var(--red);
+            color: var(--red);
+            pointer-events: none;
+        }
+
+        .feedback-icon {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 16px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="javascript:history.back()"
+        style="display:inline-block; margin-bottom: 20px; color: var(--yellow); text-decoration: none; font-size: 13px; font-weight: 500;">←
+        Retour au tableau de bord</a>
+
+    <div class="header">
+        <div class="header-badge">Fiche de révision Haute Densité · INSEEC MSc</div>
+        <div class="header-title">Management de la Force de Vente</div>
+        <div class="header-sub">Recrutement, Formation, Stratégies B2B/B2C, Gestion de Territoire, KPI[cite: 21, 22, 23]
+        </div>
+        <div class="header-meta">
+            <span class="meta-pill pill-purple">📅 Module 04</span>
+            <span class="meta-pill pill-yellow">🎯 QCM Interactif Aléatoire</span>
+            <span class="meta-pill pill-blue">Prof. Eduardo Stepanski</span>
+        </div>
+    </div>
+
+    <!-- 1. RECRUTEMENT ET SÉLECTION -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-blue">👥</div>
+            <div class="section-title">1. Recrutement et Sélection des Vendeurs</div>
+        </div>
+        <div class="highlight-box highlight-yellow" style="margin-top:0; margin-bottom:12px;">
+            <strong>Enjeux majeurs :</strong> Le recrutement détermine la qualité de l'équipe, impacte la performance
+            (ventes et fidélisation), renforce la culture d'entreprise et limite les coûts liés aux erreurs
+            d'embauche[cite: 23].
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title blue">Processus de Recrutement[cite: 23]</div>
+                <div class="flow" style="font-size:10px; justify-content: flex-start;">
+                    <div class="flow-item">Planification</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item">Recherche</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item">Sélection</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item">Entretiens</div>
+                </div>
+                <ul class="fiche-list" style="margin-top: 10px;">
+                    <li><strong>Planification :</strong> Identifier les besoins et définir le profil idéal[cite: 23].
+                    </li>
+                    <li><strong>Sélection & Entretiens :</strong> Tri des CV, entretiens préliminaires (mises en
+                        situation), entretiens comportementaux et basés sur les compétences[cite: 23].</li>
+                    <li><strong>Vérification des références :</strong> Confirmer les compétences, la fiabilité et
+                        l'intégrité auprès des anciens employeurs[cite: 23].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title blue">Tests & Compétences[cite: 23]</div>
+                <ul class="fiche-list">
+                    <li><strong>Tests Psychométriques :</strong> Évaluent les aptitudes cognitives et émotionnelles.
+                        <br><em>Exemples :</em> Model Insights, Inventaire de Strong, Inventaire de Hogan[cite: 23].
+                    </li>
+                    <li><strong>Compétences clés du vendeur :</strong>
+                        <br>- <span class="tag tag-blue">Communication</span> (verbale et non verbale)
+                        <br>- <span class="tag tag-green">Empathie</span> (comprendre émotions/besoins)
+                        <br>- <span class="tag tag-yellow">Négociation</span> (conclure des accords)
+                        <br>- <span class="tag tag-purple">Adaptabilité</span> (suivre les évolutions marché)[cite: 23].
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. FORMATION ET DÉVELOPPEMENT -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-green">📈</div>
+            <div class="section-title">2. Formation et Développement</div>
+        </div>
+        <div class="grid-2">
+            <div>
+                <div class="card-title green" style="margin-bottom:8px">Évaluation des Besoins[cite: 21]</div>
+                <ul class="fiche-list">
+                    <li>Identifier les lacunes via des <strong>entretiens avec les vendeurs</strong> et
+                        l'<strong>analyse des performances passées</strong>[cite: 21].</li>
+                    <li>Comprendre le marché via des <strong>enquêtes clients</strong> et une <strong>veille
+                            concurrentielle</strong> (meilleures pratiques)[cite: 21].</li>
+                </ul>
+            </div>
+            <div>
+                <div class="card-title green" style="margin-bottom:8px">Techniques de Formation[cite: 21]</div>
+                <ul class="fiche-list">
+                    <li><strong>Jeux de rôle :</strong> Mettre en pratique des compétences[cite: 21].</li>
+                    <li><strong>Études de cas réels :</strong> Résoudre des défis de vente spécifiques[cite: 21].</li>
+                    <li><strong>Ateliers pratiques & Discussions :</strong> Partage d'expertise[cite: 21].</li>
+                    <li>Le plan de formation doit inclure des objectifs clairs, des méthodes précises et un système
+                        d'<strong>évaluation de l'efficacité</strong>[cite: 21].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. STRATÉGIES, TERRITOIRES & NÉGOCIATION -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-title">3. Stratégies de Vente, Territoires & Négociation</div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title purple">B2B vs B2C[cite: 22]</div>
+                <ul class="fiche-list">
+                    <li><strong style="color:var(--accent2)">B2B (Business to Business) :</strong> Processus complexe,
+                        plusieurs décideurs, relations à <strong>long terme</strong> basées sur le ROI et la
+                        confiance[cite: 22].</li>
+                    <li><strong style="color:var(--accent2)">B2C (Business to Consumer) :</strong> Processus
+                        simple/individuel, basé sur des facteurs <strong>émotionnels</strong>, le prix et la
+                        commodité[cite: 22].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title orange">Segmentation du Marché[cite: 22]</div>
+                <ul class="fiche-list">
+                    <li><strong>Géographique :</strong> Pays, région, ville[cite: 22].</li>
+                    <li><strong>Démographique :</strong> Âge, sexe, revenu, profession[cite: 22].</li>
+                    <li><strong>Comportementale :</strong> Fréquence/montant d'achat, fidélité[cite: 22].</li>
+                    <li><strong>Psychographique :</strong> Valeurs, attitudes, style de vie, personnalité[cite: 22].
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider" style="height:1px; background:var(--border); margin:16px 0;"></div>
+
+        <div class="card-title yellow">Affectation et Planification des Visites[cite: 22]</div>
+        <ul class="fiche-list">
+            <li><strong>Affectation des territoires :</strong> Optimiser la couverture client et équilibrer la charge de
+                travail (quotas)[cite: 22].</li>
+            <li><strong>Types de visites stratégiques :</strong>
+                <br>- <span class="tag tag-blue">Prospection :</span> Trouver de nouveaux clients[cite: 22].
+                <br>- <span class="tag tag-green">Suivi Client :</span> Maintenir la satisfaction et la fidélité[cite:
+                22].
+                <br>- <span class="tag tag-yellow">Vente Croisée (Cross-selling) :</span> Vendre des produits
+                supplémentaires aux clients existants (augmenter le panier moyen)[cite: 22].
+                <br>- <span class="tag tag-red">Réactivation :</span> Réengager des clients inactifs ou dormants[cite:
+                22].
+            </li>
+        </ul>
+
+        <div class="divider" style="height:1px; background:var(--border); margin:16px 0;"></div>
+
+        <div class="card-title yellow">Techniques de Négociation[cite: 22]</div>
+        <ul class="fiche-list">
+            <li><strong>Préparation :</strong> Recherche d'infos, fixation d'objectifs, définition de <em>ses
+                    limites</em> (point de non-retour)[cite: 22].</li>
+            <li><strong>Dynamique :</strong> Pratiquer l'<strong>écoute active</strong>, gérer les concessions (évaluer
+                ce qu'on cède en échange de quoi)[cite: 22].</li>
+            <li><strong>Conclusion :</strong> Rédiger des accords clairs, clôturer et maintenir la relation
+                post-négociation[cite: 22].</li>
+        </ul>
+    </div>
+
+    <!-- 4. MESURE DE LA PERFORMANCE -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-red">📊</div>
+            <div class="section-title">4. Mesure de la Performance et KPIs</div>
+        </div>
+        <div class="grid-2">
+            <div>
+                <div class="card-title red" style="margin-bottom:8px">Les KPI (Indicateurs Clés)[cite: 22]</div>
+                <ul class="fiche-list">
+                    <li><strong>Taux de conversion :</strong> Capacité à transformer les prospects en clients[cite: 22].
+                    </li>
+                    <li><strong>Panier moyen :</strong> Valeur moyenne des transactions[cite: 22].</li>
+                    <li><strong>Cycle de vente :</strong> Temps nécessaire pour conclure (plus il est court, mieux
+                        c'est)[cite: 22].</li>
+                    <li><strong>Taux de rétention :</strong> Capacité à fidéliser les clients existants[cite: 22].</li>
+                    <li><strong>CA généré & Nouvelles affaires.</strong>[cite: 22]</li>
+                </ul>
+            </div>
+            <div>
+                <div class="card-title red" style="margin-bottom:8px">Suivi et Analyse[cite: 22]</div>
+                <ul class="fiche-list">
+                    <li><strong>Tableaux de bord (Dashboards) :</strong> Outils visuels en temps réel pour une prise de
+                        décision éclairée[cite: 22].</li>
+                    <li><strong>Analyses clés :</strong>
+                        <br>- <span class="tag tag-red">Cohorte :</span> Comportement des clients dans le temps[cite:
+                        22].
+                        <br>- <span class="tag tag-red">Segmentation :</span> Identifier des groupes spécifiques[cite:
+                        22].
+                        <br>- <span class="tag tag-red">Rentabilité :</span> Évaluer la performance des produits[cite:
+                        22].
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PIÈGES QCM -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-yellow">⚠️</div>
+            <div class="section-title">Pièges classiques QCM</div>
+        </div>
+        <div class="piege-box" style="margin-top:0;">
+            <div class="piege-title">Attention aux confusions !</div>
+            <ul class="fiche-list">
+                <li><strong>B2B vs B2C :</strong> B2B = cycles longs, ROI, plusieurs décideurs. B2C = cycle court,
+                    impulsif/émotionnel[cite: 22].</li>
+                <li><strong>Vente Croisée vs Réactivation :</strong> Vente croisée = vendre PLUS à un client ACTIF.
+                    Réactivation = cibler un client DORMAT/INACTIF[cite: 22].</li>
+                <li><strong>Segmentation Comportementale vs Psychographique :</strong> Comportement = <em>Ce qu'il
+                        fait</em> (fréquence, fidélité). Psychographique = <em>Ce qu'il pense/est</em> (valeurs,
+                    personnalité)[cite: 22].</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================= QCM INTERACTIF ALÉATOIRE ================= -->
+    <div class="qcm-section" id="qcm">
+        <div class="qcm-header" style="color:#fff;">
+            🎯 QCM d'entraînement (Banque de 30 questions)
+            <button class="reset-qcm-btn" onclick="initQuiz()">↺ Refaire le QCM (Tirage au sort)</button>
+            <span class="qcm-score-display" id="score-display">Score : 0/10</span>
+        </div>
+
+        <div id="qcm-questions-container">
+            <!-- Les 10 questions seront générées ici par JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const SUBJECT_ID = 's4'; // ID pour Management de la Force de Vente
+        const TOTAL_QUESTIONS = 10;
+        let score = 0;
+        let answeredQuestions = new Set();
+
+        // BANQUE DE 30 QUESTIONS MANAGEMENT FORCE DE VENTE
+        const questionPool = [
+            { q: "Quel est l'objectif principal de la segmentation psychographique ?[cite: 22]", options: ["Cibler selon le pays ou la ville", "Comprendre les motivations, valeurs et styles de vie", "Analyser la fréquence d'achat"], correct: 1 },
+            { q: "Lors de la sélection d'un vendeur, à quoi servent les tests psychométriques ?[cite: 23]", options: ["Vérifier le casier judiciaire", "Évaluer les aptitudes cognitives, émotionnelles et comportementales", "Mesurer uniquement la vitesse de frappe"], correct: 1 },
+            { q: "Quelle stratégie de visite vise à vendre des produits supplémentaires à un client existant ?[cite: 22]", options: ["Visite de prospection", "Visite de vente croisée (Cross-selling)", "Visite de réactivation"], correct: 1 },
+            { q: "Dans la mesure de la performance, que représente le 'panier moyen' ?[cite: 22]", options: ["La valeur moyenne des transactions réalisées", "Le nombre total de ventes", "Le taux de conversion des prospects"], correct: 0 },
+            { q: "Quelle est la principale différence entre la vente B2B et B2C concernant le processus d'achat ?[cite: 22]", options: ["Le B2C est beaucoup plus complexe et long", "Le B2B est plus complexe et implique souvent plusieurs décideurs", "Il n'y a aucune différence de processus"], correct: 1 },
+            { q: "Qu'est-ce qu'une 'analyse de cohorte' dans le traitement des données de vente ?[cite: 22]", options: ["L'analyse du comportement des clients au fil du temps", "Le calcul du chiffre d'affaires quotidien", "La vérification des références des vendeurs"], correct: 0 },
+            { q: "À quoi sert principalement le 'plan de formation' pour une équipe de vente ?[cite: 21]", options: ["Sanctionner les mauvais vendeurs", "Définir des objectifs clairs et établir une voie pour acquérir des compétences", "Rédiger les contrats de travail"], correct: 1 },
+            { q: "Quelle compétence clé permet au vendeur de comprendre les émotions et besoins du client ?[cite: 23]", options: ["La négociation", "La prospection", "L'empathie"], correct: 2 },
+            { q: "Lors d'une négociation, que signifie 'gérer les concessions' ?[cite: 22]", options: ["Accepter immédiatement toutes les demandes du client", "Évaluer ce que l'on cède pour obtenir quelque chose en retour", "Refuser catégoriquement de négocier"], correct: 1 },
+            { q: "Quel est l'avantage principal de l'affectation stratégique des territoires de vente ?[cite: 22]", options: ["Réduire les salaires des vendeurs", "Optimiser la couverture client et équilibrer la charge de travail", "Augmenter les prix des produits"], correct: 1 },
+            { q: "Parmi ces KPI, lequel mesure la capacité d'une équipe à conserver ses clients existants ?[cite: 22]", options: ["Le taux de rétention", "Le cycle de vente", "Le taux de conversion"], correct: 0 },
+            { q: "Pourquoi l'étape de vérification des références est-elle cruciale en recrutement ?[cite: 23]", options: ["Pour espionner la concurrence", "Pour confirmer les compétences, la fiabilité et l'intégrité du candidat", "Pour négocier le salaire à la baisse"], correct: 1 },
+            { q: "Quel type de visite a pour but de ramener dans le cycle d'achat des clients dormants ?[cite: 22]", options: ["Visite de vente croisée", "Visite de réactivation", "Visite de formation"], correct: 1 },
+            { q: "Quel est l'objectif des 'jeux de rôle' lors de la formation des vendeurs ?[cite: 21]", options: ["Mettre en pratique des compétences concrètes dans un cadre simulé", "Évaluer le QI des vendeurs", "Détendre l'atmosphère sans but pédagogique"], correct: 0 },
+            { q: "Quel outil visuel regroupe les KPI pour une évaluation rapide des performances de vente ?[cite: 22]", options: ["Le tableau de bord de suivi (Dashboard)", "L'analyse de cohorte", "Le plan de formation"], correct: 0 },
+            { q: "En négociation, quelle est l'utilité première de l'écoute active ?[cite: 22]", options: ["Préparer sa prochaine réponse pendant que l'autre parle", "Comprendre précisément les besoins et préoccupations de l'autre partie", "Intimider le prospect"], correct: 1 },
+            { q: "Dans la préparation à la négociation, que signifie 'définir ses limites' ?[cite: 22]", options: ["Fixer le prix le plus élevé possible", "Identifier le point au-delà duquel on n'est pas prêt à accepter un accord", "Limiter le temps de la réunion à 10 minutes"], correct: 1 },
+            { q: "Lequel de ces outils est un test psychométrique utilisé dans la sélection des vendeurs ?[cite: 23]", options: ["Le test de Turing", "L'Inventaire de Hogan", "L'analyse de cohorte"], correct: 1 },
+            { q: "Que mesure exactement le 'taux de conversion' ?[cite: 22]", options: ["La capacité de l'équipe à transformer les prospects en clients", "Le temps nécessaire pour conclure une vente", "Le montant total des ventes réalisées"], correct: 0 },
+            { q: "Quelle caractéristique définit généralement les achats B2C par rapport au B2B ?[cite: 22]", options: ["Des contrats à très long terme", "Des décisions souvent basées sur des préférences individuelles et des émotions", "L'implication d'un grand nombre de décideurs"], correct: 1 },
+            { q: "Comment s'appelle l'indicateur mesurant le temps nécessaire pour conclure une vente ?[cite: 22]", options: ["Le cycle de vente", "Le taux de rétention", "Le temps de prospection"], correct: 0 },
+            { q: "Pourquoi mener des enquêtes auprès des clients pour évaluer les besoins en formation ?[cite: 21]", options: ["Pour leur vendre de nouveaux produits", "Pour révéler les domaines où les vendeurs doivent s'améliorer pour répondre à leurs attentes", "Pour vérifier que les clients lisent leurs emails"], correct: 1 },
+            { q: "Quel est l'objectif premier d'une visite de prospection ?[cite: 22]", options: ["Résoudre un problème technique", "Vendre un produit complémentaire à un client fidèle", "Rechercher de nouveaux clients et de nouvelles opportunités"], correct: 2 },
+            { q: "Quelle est la toute première étape d'un processus de recrutement ?[cite: 23]", options: ["Trier les CV", "Planifier en identifiant les besoins en personnel", "Faire passer des tests psychométriques"], correct: 1 },
+            { q: "Qu'est-ce qui caractérise particulièrement les relations clients en B2B ?[cite: 22]", options: ["Elles sont très éphémères et axées uniquement sur le prix", "Elles sont généralement à long terme et basées sur la confiance et le soutien continu", "Elles se font exclusivement par e-commerce sans interaction humaine"], correct: 1 },
+            { q: "Quelle conséquence un mauvais processus de sélection a-t-il sur l'entreprise ?[cite: 23]", options: ["Il augmente mécaniquement le taux de rétention client", "Il engendre des coûts importants liés aux erreurs de recrutement", "Il améliore la culture d'entreprise"], correct: 1 },
+            { q: "Lors de l'évaluation des besoins en formation, à quoi sert la veille concurrentielle ?[cite: 21]", options: ["À copier les prix des concurrents", "À rester au fait des meilleures pratiques et tendances de l'industrie", "À débaucher les vendeurs des autres entreprises"], correct: 1 },
+            { q: "Quel type d'entretien permet d'évaluer la compatibilité d'un candidat avec la culture de l'entreprise ?[cite: 23]", options: ["L'entretien basé sur les compétences comportementales", "L'entretien strictement technique", "Le test psychométrique uniquement"], correct: 0 },
+            { q: "En gestion de territoire, sur quels critères se base l'affectation des territoires aux vendeurs ?[cite: 22]", options: ["Uniquement sur l'ancienneté du vendeur", "Sur des facteurs comme la taille du marché, le potentiel de vente et la concurrence", "De manière totalement aléatoire"], correct: 1 },
+            { q: "Quelle étape marque la conclusion formelle d'une négociation ?[cite: 22]", options: ["Le marchandage initial", "L'écoute active du client", "La rédaction d'un accord clair et complet accepté par tous"], correct: 2 }
+        ];
+
+        function shuffleArray(array) {
+            let curId = array.length;
+            while (0 !== curId) {
+                let randId = Math.floor(Math.random() * curId);
+                curId -= 1;
+                let tmp = array[curId];
+                array[curId] = array[randId];
+                array[randId] = tmp;
+            }
+            return array;
+        }
+
+        function initQuiz() {
+            const container = document.getElementById('qcm-questions-container');
+            container.innerHTML = '';
+            score = 0;
+            answeredQuestions.clear();
+            document.getElementById('score-display').textContent = `Score : 0/${TOTAL_QUESTIONS}`;
+
+            let shuffled = shuffleArray([...questionPool]).slice(0, TOTAL_QUESTIONS);
+
+            shuffled.forEach((qObj, index) => {
+                let html = `
+        <div class="question-box">
+          <div class="question-text">${index + 1}. ${qObj.q}</div>
+          <div class="options-grid">
+      `;
+                qObj.options.forEach((optText, optIndex) => {
+                    let isCorrect = (optIndex === qObj.correct);
+                    let letter = ['A', 'B', 'C'][optIndex];
+                    html += `
+          <button class="option-btn" onclick="handleAnswer(this, ${isCorrect}, ${index})">
+            <span>${letter}. ${optText}</span>
+            <span class="feedback-icon"></span>
+          </button>
+        `;
+                });
+                html += `</div></div>`;
+                container.innerHTML += html;
+            });
+
+            updateDashboardScore(0);
+        }
+
+        function handleAnswer(btn, isCorrect, qIndex) {
+            if (answeredQuestions.has(qIndex)) return;
+            answeredQuestions.add(qIndex);
+
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.option-btn').forEach(b => b.style.pointerEvents = 'none');
+
+            if (isCorrect) {
+                btn.classList.add('correct');
+                btn.querySelector('.feedback-icon').textContent = '✓';
+                score++;
+            } else {
+                btn.classList.add('wrong');
+                btn.querySelector('.feedback-icon').textContent = '✗';
+                parent.querySelectorAll('.option-btn').forEach(b => {
+                    if (b.getAttribute('onclick').includes('true')) {
+                        b.classList.add('correct');
+                        b.querySelector('.feedback-icon').textContent = '✓';
+                    }
+                });
+            }
+
+            document.getElementById('score-display').textContent = `Score : ${score}/${TOTAL_QUESTIONS}`;
+            updateDashboardScore(score);
+        }
+
+        function updateDashboardScore(newScore) {
+            try {
+                let state = JSON.parse(localStorage.getItem('revision_state')) || {};
+                if (!state[SUBJECT_ID]) { state[SUBJECT_ID] = { fiche: true, maitrise: -1, score: '', notes: '' }; }
+                state[SUBJECT_ID].score = newScore;
+                state[SUBJECT_ID].fiche = true;
+                localStorage.setItem('revision_state', JSON.stringify(state));
+            } catch (e) { console.error("Erreur de sauvegarde", e); }
+        }
+
+        window.onload = initQuiz;
+    </script>
+</body>
+
+</html>

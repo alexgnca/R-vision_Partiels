@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de révision — Marketing BtoB (Haute Densité)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+        :root {
+            --bg: #0d0f14;
+            --surface: #151820;
+            --surface2: #1c2030;
+            --border: #252a3a;
+            --accent: #4f7cff;
+            --accent2: #a78bfa;
+            --green: #22d3a0;
+            --yellow: #fbbf24;
+            --red: #f87171;
+            --orange: #fb923c;
+            --text: #e2e8f0;
+            --text-muted: #64748b;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 32px 24px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0d0f14 0%, #151a2e 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(251, 146, 60, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-badge {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--orange);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .header-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .meta-pill {
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .pill-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .pill-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .pill-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .pill-orange {
+            background: rgba(251, 146, 60, 0.15);
+            color: var(--orange);
+        }
+
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-bottom: 16px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .icon-blue {
+            background: rgba(79, 124, 255, 0.15);
+        }
+
+        .icon-green {
+            background: rgba(34, 211, 160, 0.15);
+        }
+
+        .icon-purple {
+            background: rgba(167, 139, 250, 0.15);
+        }
+
+        .icon-orange {
+            background: rgba(251, 146, 60, 0.15);
+        }
+
+        .icon-red {
+            background: rgba(248, 113, 113, 0.15);
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .card {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .card-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+        }
+
+        .card-title.blue {
+            color: var(--accent);
+        }
+
+        .card-title.green {
+            color: var(--green);
+        }
+
+        .card-title.purple {
+            color: var(--accent2);
+        }
+
+        .card-title.orange {
+            color: var(--orange);
+        }
+
+        .card-title.red {
+            color: var(--red);
+        }
+
+        ul.fiche-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        ul.fiche-list li {
+            font-size: 13px;
+            color: var(--text-dim);
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        ul.fiche-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+            font-weight: 700;
+        }
+
+        ul.fiche-list li strong {
+            color: var(--text);
+        }
+
+        .highlight-box {
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-top: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .highlight-orange {
+            background: rgba(251, 146, 60, 0.08);
+            border: 1px solid rgba(251, 146, 60, 0.25);
+            color: #fdba74;
+        }
+
+        .piege-box {
+            background: rgba(248, 113, 113, 0.06);
+            border: 1px solid rgba(248, 113, 113, 0.2);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-top: 14px;
+        }
+
+        .piege-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        .tag-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .tag-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .tag-red {
+            background: rgba(248, 113, 113, 0.15);
+            color: var(--red);
+        }
+
+        .tag-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .tag-orange {
+            background: rgba(251, 146, 60, 0.15);
+            color: var(--orange);
+        }
+
+        .flow {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .flow-item {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 7px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .flow-arrow {
+            color: var(--orange);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .qcm-section {
+            background: linear-gradient(135deg, var(--surface), var(--surface2));
+            border: 1px solid var(--orange);
+            border-radius: 14px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .qcm-header {
+            font-family: 'Syne', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .reset-qcm-btn {
+            margin-left: 10px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-muted);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reset-qcm-btn:hover {
+            border-color: var(--orange);
+            color: #0d0f14;
+            background: var(--orange);
+        }
+
+        .qcm-score-display {
+            margin-left: auto;
+            background: rgba(251, 146, 60, 0.15);
+            color: var(--orange);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .question-box {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-box:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .question-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 8px;
+        }
+
+        .option-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--text-dim);
+            font-size: 13px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .option-btn:hover {
+            border-color: var(--orange);
+            color: #fff;
+        }
+
+        .option-btn.correct {
+            background: rgba(34, 211, 160, 0.15);
+            border-color: var(--green);
+            color: var(--green);
+            pointer-events: none;
+        }
+
+        .option-btn.wrong {
+            background: rgba(248, 113, 113, 0.15);
+            border-color: var(--red);
+            color: var(--red);
+            pointer-events: none;
+        }
+
+        .feedback-icon {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 16px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="javascript:history.back()"
+        style="display:inline-block; margin-bottom: 20px; color: var(--orange); text-decoration: none; font-size: 13px; font-weight: 500;">←
+        Retour au tableau de bord</a>
+
+    <div class="header">
+        <div class="header-badge">Fiche de révision Haute Densité · INSEEC MSc</div>
+        <div class="header-title">Marketing BtoB</div>
+        <div class="header-sub">Taille du marché, Services BtoB, Spécificités du cycle d'achat, Stratégie des 4P[cite:
+            27]</div>
+        <div class="header-meta">
+            <span class="meta-pill pill-purple">📅 Module 06</span>
+            <span class="meta-pill pill-orange">🎯 QCM Interactif Aléatoire</span>
+            <span class="meta-pill pill-blue">Prof. Stéphane Tondenier</span>
+        </div>
+    </div>
+
+    <!-- BLOC 1: DÉFINITION & CARACTÉRISTIQUES -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-blue">🏢</div>
+            <div class="section-title">Bloc 1 : Définition, Taille et Caractéristiques BtoB</div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title blue">Définition & Frontières[cite: 27]</div>
+                <ul class="fiche-list">
+                    <li><strong>BtoB (Business to Business) :</strong> S'adresse aux entreprises (sociétés, artisans,
+                        professions libérales, assos, secteur public) par opposition au consommateur final (BtoC)[cite:
+                        27].</li>
+                    <li><strong>Frontière poreuse :</strong> La distinction se fait souvent à l'intérieur même de
+                        l'entreprise. Quand le BtoB s'adresse *in fine* aux consommateurs, on parle de
+                        <strong>BtoBtoC</strong> (ex: L'Oréal, Bouygues)[cite: 27].</li>
+                    <li><strong>Faible notoriété :</strong> Souvent, de très puissantes entreprises BtoB restent
+                        inconnues du grand public[cite: 27].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title blue">Taille du Marché Français[cite: 27]</div>
+                <ul class="fiche-list">
+                    <li><strong>Microentreprises (TPE) :</strong> 4,7 millions (17% de l'emploi)[cite: 27].</li>
+                    <li><strong>PME (10-249 salariés) :</strong> ~172 000 entreprises (29% de l'emploi)[cite: 27].</li>
+                    <li><strong>ETI (250-5000 salariés) :</strong> ~7 200 entreprises (25% de l'emploi)[cite: 27].</li>
+                    <li><strong>Grandes Entreprises (GE) :</strong> 331 entreprises qui représentent <strong>28% de
+                            l'emploi</strong>[cite: 27].</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight-box highlight-orange" style="margin-top:12px;">
+            <strong>Les marchés BtoB concernent principalement :</strong> Les matières premières, les biens d'équipement
+            lourds/légers, les produits intermédiaires (semi-finis à incorporer), les composants/accessoires et les
+            <strong>services</strong> (banque, distribution, conseil...)[cite: 27].
+        </div>
+    </div>
+
+    <!-- BLOC 2: LES SERVICES EN BTOB -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-green">⚙️</div>
+            <div class="section-title">Bloc 2 : Marketing des Services BtoB</div>
+        </div>
+        <div class="grid-2">
+            <div>
+                <div class="card-title green" style="margin-bottom:8px">Définition & Explosion du Service[cite: 27]
+                </div>
+                <ul class="fiche-list">
+                    <li><strong>Définition humoristique :</strong> <em>"Toute chose vendue dans le commerce que l'on ne
+                            peut faire tomber sur son pied."</em>[cite: 27]</li>
+                    <li><strong>Définition tri-sectorielle :</strong> Le secteur tertiaire. Pas de bien physique, et
+                        <strong>simultanéité</strong> de la consommation et de la production[cite: 27].</li>
+                    <li><strong>Poids éco :</strong> En France/US, les services représentent <strong>≥ 75% du
+                            PIB</strong>[cite: 27].</li>
+                    <li><strong>Exemples de services BtoB :</strong> Co-working (WeWork), cloud, nettoyage, intérim,
+                        formation, logistique, facturation...[cite: 27]</li>
+                </ul>
+            </div>
+            <div>
+                <div class="card-title green" style="margin-bottom:8px">Impacts Stratégiques (Pourquoi externaliser
+                    ?)[cite: 27]</div>
+                <ul class="fiche-list">
+                    <li><strong>Impact financier ("Cash is king") :</strong> Éviter l'investissement matériel et les
+                        embauches fixes. Se concentrer sur son cœur de métier et profiter de l'effet volume du
+                        sous-traitant[cite: 27].</li>
+                    <li><strong>Agilité ("Make or buy") :</strong> Adapter rapidement l'offre à la demande, faciliter
+                        l'expansion géo et utiliser les dernières technologies[cite: 27].</li>
+                    <li><strong>Mondialisation :</strong> La digitalisation (ex: Zoom) et le développement des
+                        infrastructures rendent les services globaux[cite: 27].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOC 3: L'APPROCHE SPÉCIFIQUE DU BTOB -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-title">Bloc 3 : La spécificité de l'approche BtoB</div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title purple">Cible, Offre et Prix[cite: 27]</div>
+                <ul class="fiche-list">
+                    <li><strong>Cible :</strong> Moins de clients qu'en BtoC, ce qui rend la <strong>segmentation plus
+                            facile</strong>[cite: 27].</li>
+                    <li><strong>L'Offre :</strong> Très <strong>personnalisée</strong> et souvent associée à des
+                        services complémentaires (formation, livraison, SAV)[cite: 27].</li>
+                    <li><strong>Le Prix et la Promo :</strong> Le prix est personnalisé, <strong>justifié</strong> et
+                        constamment ré-évalué. La promotion est hautement spécifique[cite: 27].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title orange">Le Processus de Vente (La Patience !)[cite: 27]</div>
+                <ul class="fiche-list">
+                    <li>C'est un processus <strong>rationnel, multi-étapes et long</strong> avec une <strong>décision
+                            collective</strong>[cite: 27].</li>
+                    <li><strong>75%</strong> des entreprises ont un processus de décision > 1 mois (36% > 3 mois, 9% > 6
+                        mois)[cite: 27].</li>
+                    <li>Dans <strong>52%</strong> des cas, <strong>au moins 7 personnes</strong> sont impliquées dans la
+                        décision[cite: 27].</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider" style="height:1px; background:var(--border); margin:16px 0;"></div>
+
+        <div class="card-title yellow">Le Parcours d'Achat (Buyer's Journey)[cite: 27]</div>
+        <div class="flow">
+            <div class="flow-item" style="border-color:var(--red);">ARGH! <br><span
+                    style="font-size:9px;color:var(--text-dim)">I have a big problem</span></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item" style="border-color:var(--orange);">AHA! <br><span
+                    style="font-size:9px;color:var(--text-dim)">There are solutions</span></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item" style="border-color:var(--accent);">WOW! <br><span
+                    style="font-size:9px;color:var(--text-dim)">This is the solution</span></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item" style="border-color:var(--green);">BOOM! <br><span
+                    style="font-size:9px;color:var(--text-dim)">It works as promised</span></div>
+        </div>
+    </div>
+
+    <!-- BLOC 4: MISE EN ŒUVRE DE LA STRATÉGIE -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-red">🎯</div>
+            <div class="section-title">Bloc 4 : Mise en œuvre (Marketing Mix BtoB)</div>
+        </div>
+
+        <div class="card-title red" style="margin-bottom:8px">Le Processus de Sélection des Fournisseurs (3
+            Rounds)[cite: 27]</div>
+        <div class="flow" style="margin-bottom: 16px;">
+            <div class="flow-item"><span class="tag tag-red">R1</span> Sélection<br><span
+                    style="font-size:10px;font-weight:normal;color:var(--text-dim)">Dev (Technique) & Achat
+                    (Perf)</span></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item"><span class="tag tag-red">R2</span> Proposal Reviews<br><span
+                    style="font-size:10px;font-weight:normal;color:var(--text-dim)">Éval Technique/Prix + Short
+                    list</span></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item"><span class="tag tag-red">R3</span> 2nd Round & Décision<br><span
+                    style="font-size:10px;font-weight:normal;color:var(--text-dim)">Dernière négo & Choix (CPO)</span>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div>
+                <div class="card-title red" style="margin-bottom:8px">Produit, Prix et Cible[cite: 27]</div>
+                <ul class="fiche-list">
+                    <li><strong>Produit (Value) :</strong> Enjeu = Expliquer l'apport du produit sur son marché
+                        (Création, concurrence, services associés)[cite: 27].</li>
+                    <li><strong>Prix :</strong> Enjeu = Combien le marché est-il prêt à payer ? Dépend des coûts, du
+                        positionnement, de l'offre de valeur et de la concurrence[cite: 27].</li>
+                    <li><strong>Cible :</strong> Sectorielle, par taille d'entreprise, localisation et <em>urgence de la
+                            problématique</em>[cite: 27].</li>
+                </ul>
+            </div>
+            <div>
+                <div class="card-title red" style="margin-bottom:8px">Promotion et Distribution[cite: 27]</div>
+                <ul class="fiche-list">
+                    <li><strong>Promotion (Contacts) :</strong> SEO, LinkedIn, Cold-calling, Salons, Apporteurs
+                        d'affaires, Webinars, PR. <em>Il faut mesurer le Coût par Lead et par Client Acquis</em>[cite:
+                        27].</li>
+                    <li><strong>Distribution (Place) :</strong>
+                        <br>- Directe (livraison, formation chez le client).
+                        <br>- Indirecte (grossistes, revendeurs).
+                        <br>- Hybride ou Digitale (SaaS, Teams...)[cite: 27].
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PIÈGES QCM -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-orange">⚠️</div>
+            <div class="section-title">Pièges classiques et Astuces (QCM / Oral)</div>
+        </div>
+        <div class="piege-box" style="margin-top:0;">
+            <div class="piege-title">Les chiffres à connaître par cœur[cite: 27]</div>
+            <ul class="fiche-list">
+                <li><strong>52%</strong> des décisions d'achat BtoB impliquent <strong>au moins 7
+                        personnes</strong>[cite: 27].</li>
+                <li><strong>75%</strong> des processus de vente durent <strong>plus d'un mois</strong>[cite: 27].</li>
+                <li>Dans les règles de la présentation orale : <em>"Je tue les éléphants immédiatement"</em> = on
+                    adresse les problèmes évidents (ex: un chiffre en baisse) dès le début sans les cacher[cite: 27].
+                </li>
+                <li>L'acronyme CPO dans le process d'achat = <strong>Chief Procurement Officer</strong> (Directeur des
+                    Achats)[cite: 27].</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================= QCM INTERACTIF ALÉATOIRE ================= -->
+    <div class="qcm-section" id="qcm">
+        <div class="qcm-header">
+            🎯 QCM d'entraînement (Banque de 30 questions)
+            <button class="reset-qcm-btn" onclick="initQuiz()">↺ Refaire le QCM (Tirage au sort)</button>
+            <span class="qcm-score-display" id="score-display">Score : 0/10</span>
+        </div>
+
+        <div id="qcm-questions-container">
+            <!-- Les 10 questions seront générées ici par JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const SUBJECT_ID = 's6'; // ID pour Marketing BtoB (à créer dans index.html)
+        const TOTAL_QUESTIONS = 10;
+        let score = 0;
+        let answeredQuestions = new Set();
+
+        // BANQUE DE 30 QUESTIONS MARKETING BTOB
+        const questionPool = [
+            { q: "À qui s'adresse principalement le commerce BtoB ?[cite: 27]", options: ["Au consommateur final", "Aux entreprises, artisans, professions libérales et organisations publiques", "Exclusivement aux sociétés du CAC 40"], correct: 1 },
+            { q: "Comment le cours définit-il avec humour un 'service' en BtoB ?[cite: 27]", options: ["Un coût inutile pour l'entreprise", "Toute chose vendue dans le commerce que l'on ne peut faire tomber sur son pied", "Une transaction purement digitale"], correct: 1 },
+            { q: "Quelle est la part du secteur des services (tertiaire) dans le PIB en France et aux US ?[cite: 27]", options: ["Moins de 40%", "Entre 50 et 60%", "Supérieur ou égal à 75%"], correct: 2 },
+            { q: "En matière d'impact financier, pourquoi les entreprises privilégient-elles l'achat de services BtoB ('Cash is king') ?[cite: 27]", options: ["Pour augmenter leur masse salariale", "Pour éviter l'investissement matériel lourd et les embauches", "Pour payer plus d'impôts"], correct: 1 },
+            { q: "Qu'est-ce qu'une stratégie 'BtoBtoC' ?[cite: 27]", options: ["Une entreprise BtoB qui vend à des distributeurs qui vendent ensuite aux consommateurs finaux", "Une vente directe d'usine au client sans intermédiaire", "Un service exclusivement inter-entreprises"], correct: 0 },
+            { q: "En BtoB, l'une des caractéristiques de la cible est :[cite: 27]", options: ["Un nombre de clients immense rendant la segmentation impossible", "Moins de clients, ce qui rend la segmentation plus facile", "L'absence totale d'interaction humaine"], correct: 1 },
+            { q: "Quelle est la particularité du processus de vente en BtoB ?[cite: 27]", options: ["Il est très rapide et souvent impulsif", "Il est purement émotionnel", "C'est un processus rationnel, multi-étapes et souvent long"], correct: 2 },
+            { q: "Selon l'étude citée dans le cours, quel pourcentage des processus d'achat BtoB dure plus d'un mois ?[cite: 27]", options: ["36%", "52%", "75%"], correct: 2 },
+            { q: "Dans combien de cas le processus d'achat BtoB implique-t-il au moins 7 personnes (décision collective) ?[cite: 27]", options: ["9%", "52%", "75%"], correct: 1 },
+            { q: "Dans le 'Buyer's Journey' (Parcours d'achat), quelle étape suit immédiatement le stade 'AHA! there are solutions' ?[cite: 27]", options: ["ARGH! I have a big problem", "WOW! this is the solution", "BOOM! it works as promised"], correct: 1 },
+            { q: "Lors du processus de sélection fournisseur, que se passe-t-il lors de la phase 2 ('Proposal reviews') ?[cite: 27]", options: ["La dernière négociation avec le CPO", "L'évaluation technique/prix et la création d'une short list", "La définition du besoin initial par le service développement"], correct: 1 },
+            { q: "Qui prend généralement la décision finale lors du 3ème round de sélection des fournisseurs ?[cite: 27]", options: ["Le service R&D", "Le Managing ou le CPO (Chief Procurement Officer)", "Le service Marketing"], correct: 1 },
+            { q: "Dans le Marketing Mix, quel est l'enjeu principal lors de la définition du 'Prix' en BtoB ?[cite: 27]", options: ["Être systématiquement le moins cher du marché", "Savoir combien le marché est prêt à payer en fonction de l'offre de valeur", "Ignorer les coûts de fabrication"], correct: 1 },
+            { q: "Qu'est-ce qu'une distribution 'hybride' en BtoB ?[cite: 27]", options: ["Une distribution exclusivement digitale via des plateformes SaaS", "Une distribution qui mixe vente directe et vente indirecte (via revendeurs) selon la localisation ou le client", "Une distribution réservée aux matières premières"], correct: 1 },
+            { q: "Quel est l'un des indicateurs clés à mesurer pour évaluer l'efficacité de la stratégie de 'Promotion' ?[cite: 27]", options: ["Le coût de fabrication du produit", "Le coût par lead et le coût par client acquis", "Le nombre de salariés de l'entreprise cible"], correct: 1 },
+            { q: "Combien compte-t-on environ de Grandes Entreprises (> 5000 salariés) en France ?[cite: 27]", options: ["Environ 331", "Environ 7 200", "Plus de 172 000"], correct: 0 },
+            { q: "Parmi les 10 règles d'or de la présentation orale, que signifie 'tuer les éléphants immédiatement' ?[cite: 27]", options: ["Parler de sujets écologiques", "Cacher les mauvais résultats à la fin de la présentation", "Aborder et expliquer immédiatement les problèmes évidents (ex: un chiffre en baisse)"], correct: 2 },
+            { q: "Quel est l'impact de la mondialisation sur les services BtoB selon le cours ?[cite: 27]", options: ["Elle a réduit la demande", "Elle a eu un effet booster grâce au développement des infrastructures et à la digitalisation", "Elle a interdit l'externalisation"], correct: 1 },
+            { q: "Quelle est la définition stricte du BtoC (Business to Consumer) par rapport au BtoB ?[cite: 27]", options: ["Il s'adresse aux professions libérales", "Il s'adresse aux associations", "Il s'adresse aux consommateurs finaux"], correct: 2 },
+            { q: "Comment le prix est-il géré en BtoB ?[cite: 27]", options: ["Il est fixe et public pour tous", "Il est personnalisé, justifié et constamment ré-évalué", "Il n'est jamais discuté lors des négociations"], correct: 1 },
+            { q: "Quel canal de promotion N'EST PAS typiquement cité pour le BtoB dans ce cours ?[cite: 27]", options: ["Cold-calling (appels à froid)", "LinkedIn", "Publicité télévisée pour jouets d'enfants"], correct: 2 },
+            { q: "Dans l'exercice de modélisation du Business Plan, si la ligne 'Volume' est de 200 000 et le 'Price' de 17€, quel est le Chiffre d'Affaires ?[cite: 27]", options: ["1 800 000 €", "3 400 000 €", "1 300 000 €"], correct: 1 },
+            { q: "Lequel de ces éléments fait partie de la 'spécificité de l'offre' en BtoB ?[cite: 27]", options: ["Elle est standardisée au maximum", "Elle est souvent associée à une offre de services complémentaires (livraison, réparation)", "Elle refuse toute personnalisation"], correct: 1 },
+            { q: "L'abréviation PME signifie :[cite: 27]", options: ["Petites et Moyennes Entreprises", "Professions Médicales d'Entreprise", "Produits Manufacturés Étrangers"], correct: 0 },
+            { q: "Que signifie le concept de 'Make or buy' en stratégie BtoB ?[cite: 27]", options: ["Vendre ou détruire", "Faire soi-même en interne ou sous-traiter/acheter à un tiers", "Produire uniquement sur commande"], correct: 1 },
+            { q: "Quel est le pourcentage d'entreprises ayant un processus de vente supérieur à 6 mois en BtoB ?[cite: 27]", options: ["9%", "36%", "75%"], correct: 0 },
+            { q: "Dans la séquence 'Promotion -> Contacts -> Vente', quelle est la toute dernière étape du processus commercial ?[cite: 27]", options: ["La Livraison", "La Facturation", "La mesure de la Satisfaction"], correct: 2 },
+            { q: "Lequel de ces films est cité dans la filmographie d'introduction du cours ?[cite: 27]", options: ["Le Loup de Wall Street", "Thank You for Smoking", "The Social Network"], correct: 1 },
+            { q: "Quelle erreur faut-il absolument éviter lors d'une présentation selon les 10 règles d'or ?[cite: 27]", options: ["Utiliser des puces (bullet points)", "Lire ses diapositives au lieu de les commenter", "Sourire"], correct: 1 },
+            { q: "Quel type d'outil digital est spécifiquement mentionné pour la distribution de services BtoB en ligne ?[cite: 27]", options: ["Les plateformes SaaS (ex: Zoom, Teams)", "Les consoles de jeux", "Les montres connectées"], correct: 0 }
+        ];
+
+        function shuffleArray(array) {
+            let curId = array.length;
+            while (0 !== curId) {
+                let randId = Math.floor(Math.random() * curId);
+                curId -= 1;
+                let tmp = array[curId];
+                array[curId] = array[randId];
+                array[randId] = tmp;
+            }
+            return array;
+        }
+
+        function initQuiz() {
+            const container = document.getElementById('qcm-questions-container');
+            container.innerHTML = '';
+            score = 0;
+            answeredQuestions.clear();
+            document.getElementById('score-display').textContent = `Score : 0/${TOTAL_QUESTIONS}`;
+
+            let shuffled = shuffleArray([...questionPool]).slice(0, TOTAL_QUESTIONS);
+
+            shuffled.forEach((qObj, index) => {
+                let html = `
+        <div class="question-box">
+          <div class="question-text">${index + 1}. ${qObj.q}</div>
+          <div class="options-grid">
+      `;
+                qObj.options.forEach((optText, optIndex) => {
+                    let isCorrect = (optIndex === qObj.correct);
+                    let letter = ['A', 'B', 'C'][optIndex];
+                    html += `
+          <button class="option-btn" onclick="handleAnswer(this, ${isCorrect}, ${index})">
+            <span>${letter}. ${optText}</span>
+            <span class="feedback-icon"></span>
+          </button>
+        `;
+                });
+                html += `</div></div>`;
+                container.innerHTML += html;
+            });
+
+            updateDashboardScore(0);
+        }
+
+        function handleAnswer(btn, isCorrect, qIndex) {
+            if (answeredQuestions.has(qIndex)) return;
+            answeredQuestions.add(qIndex);
+
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.option-btn').forEach(b => b.style.pointerEvents = 'none');
+
+            if (isCorrect) {
+                btn.classList.add('correct');
+                btn.querySelector('.feedback-icon').textContent = '✓';
+                score++;
+            } else {
+                btn.classList.add('wrong');
+                btn.querySelector('.feedback-icon').textContent = '✗';
+                parent.querySelectorAll('.option-btn').forEach(b => {
+                    if (b.getAttribute('onclick').includes('true')) {
+                        b.classList.add('correct');
+                        b.querySelector('.feedback-icon').textContent = '✓';
+                    }
+                });
+            }
+
+            document.getElementById('score-display').textContent = `Score : ${score}/${TOTAL_QUESTIONS}`;
+            updateDashboardScore(score);
+        }
+
+        function updateDashboardScore(newScore) {
+            try {
+                let state = JSON.parse(localStorage.getItem('revision_state')) || {};
+                if (!state[SUBJECT_ID]) { state[SUBJECT_ID] = { fiche: true, maitrise: -1, score: '', notes: '' }; }
+                state[SUBJECT_ID].score = newScore;
+                state[SUBJECT_ID].fiche = true;
+                localStorage.setItem('revision_state', JSON.stringify(state));
+            } catch (e) { console.error("Erreur de sauvegarde", e); }
+        }
+
+        window.onload = initQuiz;
+    </script>
+</body>
+
+</html>

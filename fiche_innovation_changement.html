@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de révision — Innovation & Conduite du Changement (Haute Densité)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+        :root {
+            --bg: #0d0f14;
+            --surface: #151820;
+            --surface2: #1c2030;
+            --border: #252a3a;
+            --accent: #4f7cff;
+            --accent2: #a78bfa;
+            --green: #22d3a0;
+            --yellow: #fbbf24;
+            --red: #f87171;
+            --orange: #fb923c;
+            --text: #e2e8f0;
+            --text-muted: #64748b;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 32px 24px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0d0f14 0%, #101820 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(34, 211, 160, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-badge {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--green);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .header-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .meta-pill {
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .pill-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .pill-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .pill-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-bottom: 16px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .icon-blue {
+            background: rgba(79, 124, 255, 0.15);
+        }
+
+        .icon-green {
+            background: rgba(34, 211, 160, 0.15);
+        }
+
+        .icon-purple {
+            background: rgba(167, 139, 250, 0.15);
+        }
+
+        .icon-orange {
+            background: rgba(251, 146, 60, 0.15);
+        }
+
+        .icon-red {
+            background: rgba(248, 113, 113, 0.15);
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .card {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .card-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+        }
+
+        .card-title.blue {
+            color: var(--accent);
+        }
+
+        .card-title.green {
+            color: var(--green);
+        }
+
+        .card-title.purple {
+            color: var(--accent2);
+        }
+
+        .card-title.orange {
+            color: var(--orange);
+        }
+
+        .card-title.red {
+            color: var(--red);
+        }
+
+        ul.fiche-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        ul.fiche-list li {
+            font-size: 13px;
+            color: var(--text-dim);
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        ul.fiche-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        ul.fiche-list li strong {
+            color: var(--text);
+        }
+
+        .highlight-box {
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-top: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .highlight-green {
+            background: rgba(34, 211, 160, 0.08);
+            border: 1px solid rgba(34, 211, 160, 0.25);
+            color: #6ee7c6;
+        }
+
+        .piege-box {
+            background: rgba(248, 113, 113, 0.06);
+            border: 1px solid rgba(248, 113, 113, 0.2);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-top: 14px;
+        }
+
+        .piege-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        .tag-purple {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--accent2);
+        }
+
+        .tag-blue {
+            background: rgba(79, 124, 255, 0.15);
+            color: var(--accent);
+        }
+
+        .tag-red {
+            background: rgba(248, 113, 113, 0.15);
+            color: var(--red);
+        }
+
+        .tag-green {
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+        }
+
+        .tag-orange {
+            background: rgba(251, 146, 60, 0.15);
+            color: var(--orange);
+        }
+
+        .flow {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .flow-item {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 7px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .flow-arrow {
+            color: var(--green);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .qcm-section {
+            background: linear-gradient(135deg, var(--surface), var(--surface2));
+            border: 1px solid var(--green);
+            border-radius: 14px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .qcm-header {
+            font-family: 'Syne', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .reset-qcm-btn {
+            margin-left: 10px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-muted);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reset-qcm-btn:hover {
+            border-color: var(--green);
+            color: #fff;
+        }
+
+        .qcm-score-display {
+            margin-left: auto;
+            background: rgba(34, 211, 160, 0.15);
+            color: var(--green);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .question-box {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-box:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .question-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 8px;
+        }
+
+        .option-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--text-dim);
+            font-size: 13px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .option-btn:hover {
+            border-color: var(--green);
+            color: #fff;
+        }
+
+        .option-btn.correct {
+            background: rgba(34, 211, 160, 0.15);
+            border-color: var(--green);
+            color: var(--green);
+            pointer-events: none;
+        }
+
+        .option-btn.wrong {
+            background: rgba(248, 113, 113, 0.15);
+            border-color: var(--red);
+            color: var(--red);
+            pointer-events: none;
+        }
+
+        .feedback-icon {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 16px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="javascript:history.back()"
+        style="display:inline-block; margin-bottom: 20px; color: var(--green); text-decoration: none; font-size: 13px; font-weight: 500;">←
+        Retour au tableau de bord</a>
+
+    <div class="header">
+        <div class="header-badge">Fiche de révision Haute Densité · INSEEC MSc</div>
+        <div class="header-title">Innovation & Conduite du Changement</div>
+        <div class="header-sub">Méthodes Agiles, Modèles de Kotter & ADKAR, IA/Superagence, Courbe de Rogers[cite: 14,
+            17, 20]</div>
+        <div class="header-meta">
+            <span class="meta-pill pill-purple">📅 Module 03</span>
+            <span class="meta-pill pill-green">🎯 QCM Interactif Aléatoire</span>
+            <span class="meta-pill pill-blue">Prof. Laurent Tiné</span>
+        </div>
+    </div>
+
+    <!-- 1. LES FONDEMENTS DE L'INNOVATION -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-blue">💡</div>
+            <div class="section-title">1. Les Fondements de l'Innovation</div>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title blue">Les 4 types d'Innovation[cite: 14]</div>
+                <ul class="fiche-list">
+                    <li><strong>Incrémentale :</strong> Optimisation continue d'un produit existant (ex: modèles
+                        Toyota)[cite: 14].</li>
+                    <li><strong>Adjacente :</strong> Application d'une technologie existante à un nouveau marché[cite:
+                        14].</li>
+                    <li><strong>Radicale :</strong> Création d'une nouvelle technologie pour un marché existant[cite:
+                        14].</li>
+                    <li><strong>Disruptive :</strong> Casse les modèles existants (Uber, Amazon, Tesla)[cite: 14].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title blue">Concepts & Auteurs Clés[cite: 14]</div>
+                <ul class="fiche-list">
+                    <li><strong>Joseph Schumpeter (1912) :</strong> Théorie de l'évolution économique. Il introduit la
+                        <strong>"Destruction Créatrice"</strong> et affirme que la situation normale de l'économie n'est
+                        pas l'équilibre, mais le déséquilibre créé par les innovations[cite: 14].</li>
+                    <li><strong>Open vs Closed Innovation :</strong> L'innovation fermée (R&D interne, secret) s'oppose
+                        à l'Open Innovation collaborative (ex: Lego Ideas qui co-crée avec ses clients)[cite: 14].</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight-box highlight-green" style="margin-bottom: 0;">
+            <strong style="color:var(--green)">La Courbe de Diffusion (Everett Rogers)[cite: 14] :</strong>
+            L'acceptation d'une innovation suit une courbe précise de la population globale :
+            <div style="margin-top: 8px;">
+                <span class="tag tag-red">Innovateurs (2,5%)</span>
+                <span class="tag tag-orange">Adeptes Précoces (13,5%)</span>
+                <span class="tag tag-blue">Majorité Précoce (34%)</span>
+                <span class="tag tag-purple">Majorité Tardive (34%)</span>
+                <span class="tag tag-green">Réfractaires (16%)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. CONDUITE DU CHANGEMENT (MODÈLES) -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-orange">🔄</div>
+            <div class="section-title">2. Les Modèles de Conduite du Changement</div>
+        </div>
+        <div class="grid-2">
+            <div>
+                <div class="card-title orange" style="margin-bottom:8px">La Courbe de Kübler-Ross[cite: 14]</div>
+                <ul class="fiche-list">
+                    <li>À l'origine appliquée aux étapes du deuil, elle modélise l'état moral et la productivité d'un
+                        individu face au changement[cite: 14].</li>
+                    <li><strong>Phase descendante :</strong> Déni → Choc → Colère → Négociation → Dépression[cite: 14].
+                    </li>
+                    <li><strong>Phase ascendante :</strong> Acceptation → Expérimentation → Décision → Intégration[cite:
+                        14].</li>
+                </ul>
+            </div>
+            <div>
+                <div class="card-title orange" style="margin-bottom:8px">Les 8 étapes de Kotter[cite: 14]</div>
+                <ul class="fiche-list">
+                    <li>1. Créer un sentiment d'<strong>Urgence</strong>[cite: 14].</li>
+                    <li>2. Construire une coalition directrice[cite: 14].</li>
+                    <li>3. Élaborer une <strong>Vision</strong> et 4. Communiquer cette vision[cite: 14].</li>
+                    <li>5. Lever les obstacles à l'action[cite: 14].</li>
+                    <li>6. Générer des victoires à court terme (Quick Wins)[cite: 14].</li>
+                    <li>7. Consolider les améliorations / 8. Ancrer le changement[cite: 14].</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider" style="height:1px; background:var(--border); margin:16px 0;"></div>
+
+        <div class="card-title orange">Le Modèle ADKAR & L'Hybridation[cite: 14]</div>
+        <ul class="fiche-list">
+            <li><strong>A</strong>wareness (Conscience), <strong>D</strong>esire (Désir), <strong>K</strong>nowledge
+                (Connaissance), <strong>A</strong>bility (Capacité), <strong>R</strong>einforcement (Renforcement)[cite:
+                14].</li>
+            <li><strong>L'hybridation (Mix Kotter + ADKAR en 4 étapes) :</strong>
+                <br>1. Créer l'adhésion (Urgence + Conscience/Désir)[cite: 14].
+                <br>2. Former et communiquer (Vision + Connaissance)[cite: 14].
+                <br>3. Accompagner (Victoires rapides + Capacité)[cite: 14].
+                <br>4. Pérenniser (Ancrage + Renforcement)[cite: 14].
+            </li>
+        </ul>
+    </div>
+
+    <!-- 3. L'ENTREPRISE AGILE & ORGANISATION -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-purple">🏢</div>
+            <div class="section-title">3. L'Entreprise Agile & Organisation du Travail</div>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title purple">Histoire de l'Organisation[cite: 14]</div>
+                <ul class="fiche-list">
+                    <li><strong>F.W. Taylor & H. Ford :</strong> Modèle OST (Organisation Scientifique du Travail) avec
+                        parcellisation extrême des tâches[cite: 14].</li>
+                    <li><strong>A. Escoffier :</strong> Crée la <em>Brigade de cuisine</em> en appliquant l'organisation
+                        militaire[cite: 14].</li>
+                    <li><strong>Taiichi Ohno :</strong> Père du Toyotisme. Introduit les méthodes agiles originelles :
+                        5S, Kaizen (amélioration continue), Kanban, PDCA[cite: 14].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title purple">La Loi de Dunbar & La Taille des Équipes[cite: 20]</div>
+                <ul class="fiche-list">
+                    <li><strong>Loi de Dunbar :</strong> 150 personnes est la limite cognitive maximale avec lesquelles
+                        un individu peut entretenir une relation de confiance stable[cite: 20].</li>
+                    <li><strong>Taille optimale d'une équipe agile :</strong> 7 personnes (plus ou moins 2)[cite: 20].
+                    </li>
+                    <li>L'objectif de l'agilité est de diviser la complexité en créant des structures autonomes à taille
+                        humaine[cite: 20].</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider" style="height:1px; background:var(--border); margin:16px 0;"></div>
+
+        <div class="card-title purple">Nouveaux Modèles Opérationnels (Deloitte)[cite: 20]</div>
+        <ul class="fiche-list">
+            <li><strong>Feature Team :</strong> Équipe informatique autonome orientée "Produit" qui possède toutes les
+                compétences de A à Z (met fin au fonctionnement en silos)[cite: 20].</li>
+            <li><strong>Holacratie :</strong> Modèle sans hiérarchie pyramidale (adopté par <em>Zappos</em>).
+                L'entreprise s'organise en "Cercles" autour des tâches et non des statuts[cite: 20].</li>
+            <li><strong>Agilité Comportementale (Agile Profile) :</strong> 6 leviers d'action : <em>Empathie systémique,
+                    Synchronisation, Intelligence de situation, Proaction, Rébellion constructive, Pédagogie</em>[cite:
+                20].</li>
+        </ul>
+    </div>
+
+    <!-- 4. TECHNOLOGIES, IA ET SUPERAGENCE -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-green">🤖</div>
+            <div class="section-title">4. Technologies, IA et "Superagence"</div>
+        </div>
+
+        <div class="highlight-box highlight-green" style="margin-top:0; margin-bottom:12px;">
+            <strong>Le concept de "Superagence" (McKinsey / Reid Hoffman) :</strong> État où les humains, habilités par
+            l'IA, amplifient considérablement leur créativité et productivité. L'IA n'est pas qu'un outil
+            d'automatisation, c'est un partenaire cognitif qui raisonne et fait des choix (IA Agentique)[cite: 17].
+        </div>
+
+        <div class="grid-2">
+            <div>
+                <div class="card-title green" style="margin-bottom:8px">Tendances IA & Marketing (2025)[cite: 15, 16,
+                    19]</div>
+                <ul class="fiche-list">
+                    <li><strong>IA Multimodale :</strong> Les modèles (ex: Gemini) traitent texte, image, audio et vidéo
+                        simultanément[cite: 17, 19].</li>
+                    <li><strong>Données Synthétiques :</strong> Face à l'épuisement des données réelles et aux procès
+                        (droits d'auteur), l'industrie génère des données artificielles pour entraîner les futurs
+                        modèles IA[cite: 19].</li>
+                    <li><strong>Pénurie de GPU :</strong> La dépendance aux puces Nvidia (ex: H100) force les startups à
+                        s'allier aux géants (Microsoft, Google) pour la puissance de calcul[cite: 19].</li>
+                    <li><strong>Marketing (Fnac Darty) :</strong> L'IA est utilisée pour calculer la valeur prédictive
+                        d'un client et personnaliser son niveau de promotion pour maximiser le ROI (projet FDOne)[cite:
+                        15].</li>
+                </ul>
+            </div>
+            <div>
+                <div class="card-title green" style="margin-bottom:8px">La Préparation des Collaborateurs[cite: 17]
+                </div>
+                <ul class="fiche-list">
+                    <li><strong>Les dirigeants sous-estiment les employés :</strong> Les salariés utilisent l'IA
+                        générative 3 fois plus que ne le pensent leurs dirigeants[cite: 17].</li>
+                    <li><strong>Les 4 Archétypes face à l'IA :</strong>
+                        <br>1. <span class="tag tag-blue">Zoomer</span> (Déploiement hyper-rapide, peu de freins)[cite:
+                        17].
+                        <br>2. <span class="tag tag-green">Bloomer</span> (Optimiste, IA itérative et
+                        collaborative)[cite: 17].
+                        <br>3. <span class="tag tag-orange">Gloomer</span> (Pessimiste, demande une forte
+                        régulation)[cite: 17].
+                        <br>4. <span class="tag tag-red">Doomer</span> (L'IA détruira les valeurs humaines)[cite: 17].
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PIÈGES QCM -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-red">⚠️</div>
+            <div class="section-title">Pièges classiques QCM</div>
+        </div>
+        <div class="piege-box" style="margin-top:0;">
+            <div class="piege-title">Attention aux confusions !</div>
+            <ul class="fiche-list">
+                <li><strong>Brainstorming vs Design Thinking :</strong> Le Brainstorming = focus <em>Idéation pure</em>.
+                    Le Design Thinking = focus <em>Humain/Empathie</em> (comprendre l'utilisateur avant
+                    d'imaginer)[cite: 14].</li>
+                <li><strong>Courbe de Rogers :</strong> Les <em>Réfractaires</em> représentent <strong>16%</strong> (pas
+                    34%). Les <em>Innovateurs</em> sont <strong>2.5%</strong>[cite: 14].</li>
+                <li><strong>Schumpeter :</strong> Pour lui, la norme de l'économie n'est <strong>PAS</strong>
+                    l'équilibre, mais le <em>déséquilibre</em> (destruction créatrice)[cite: 14].</li>
+                <li><strong>IA :</strong> L'IA <em>Agentique</em> signifie que l'IA peut planifier, raisonner et
+                    <em>agir de manière autonome</em> sans intervention continue[cite: 17].</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================= QCM INTERACTIF ALÉATOIRE ================= -->
+    <div class="qcm-section" id="qcm">
+        <div class="qcm-header">
+            🎯 QCM d'entraînement (Banque de 30 questions)
+            <button class="reset-qcm-btn" onclick="initQuiz()">↺ Refaire le QCM (Tirage au sort)</button>
+            <span class="qcm-score-display" id="score-display">Score : 0/10</span>
+        </div>
+
+        <div id="qcm-questions-container">
+            <!-- Les 10 questions seront générées ici par JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const SUBJECT_ID = 's3'; // ID pour Innovation & Conduite du Changement
+        const TOTAL_QUESTIONS = 10;
+        let score = 0;
+        let answeredQuestions = new Set();
+
+        // BANQUE DE 30 QUESTIONS INNOVATION & CHANGEMENT
+        const questionPool = [
+            { q: "Selon la courbe de diffusion des innovations d'Everett Rogers, quel pourcentage représente les 'Réfractaires' ?[cite: 14]", options: ["2,5%", "16%", "34%"], correct: 1 },
+            { q: "Que signifie le 'A' et le 'D' dans le modèle de changement ADKAR ?[cite: 14]", options: ["Action et Décision", "Awareness (Conscience) et Desire (Désir)", "Agility et Development"], correct: 1 },
+            { q: "En matière d'innovation, comment Joseph Schumpeter qualifie-t-il la situation normale de l'économie ?[cite: 14]", options: ["L'équilibre parfait du marché", "Le déséquilibre créé par la fréquence des innovations", "La stagnation technologique"], correct: 1 },
+            { q: "Quel est l'objectif premier du 'Design Thinking' par rapport au Brainstorming classique ?[cite: 14]", options: ["Générer des idées le plus vite possible sans filtre", "Comprendre le client et ses besoins par l'Empathie avant d'idéer", "Calculer le ROI d'une idée directement"], correct: 1 },
+            { q: "Dans le rapport McKinsey, qu'est-ce que la 'Superagence' ?[cite: 17]", options: ["Une grande entreprise de communication globale", "Un état où les humains, habilités par l'IA, amplifient leur créativité et productivité", "Un organisme gouvernemental régulant l'IA"], correct: 1 },
+            { q: "Quelle est la première étape du modèle de conduite du changement de Kotter ?[cite: 14]", options: ["Créer un sentiment d'urgence", "Élaborer une vision", "Générer des victoires à court terme"], correct: 0 },
+            { q: "Qu'est-ce qu'une innovation 'Disruptive' ?[cite: 14]", options: ["Une optimisation continue d'un produit chaque année (ex: Toyota)", "Une innovation qui casse et remplace les modèles existants (ex: Uber, Amazon)", "L'application d'une technologie à un marché voisin"], correct: 1 },
+            { q: "Dans l'étude McKinsey sur l'adoption de l'IA, que révèle la perception des dirigeants vis-à-vis des employés ?[cite: 17]", options: ["Les dirigeants surestiment la peur de l'IA chez les employés", "Les employés utilisent l'IA générative 3 fois plus que ne le pensent les dirigeants", "Les dirigeants pensent que les employés sont prêts, mais ce n'est pas le cas"], correct: 1 },
+            { q: "Selon l'anthropologue Robin Dunbar, quel est le nombre maximum de personnes pour qu'un groupe maintienne une cohésion stable ?[cite: 20]", options: ["50 personnes", "150 personnes", "500 personnes"], correct: 1 },
+            { q: "Qu'est-ce que l'Holacratie, modèle adopté par l'entreprise Zappos ?[cite: 20]", options: ["Un modèle où le leader a le pouvoir absolu", "Un modèle strictement pyramidal et tayloriste", "Un modèle sans hiérarchie pyramidale, organisé en 'cercles' autour des tâches"], correct: 2 },
+            { q: "Parmi les archétypes face à l'IA, comment se définit le 'Gloomer' ?[cite: 17]", options: ["Il veut déployer l'IA sans aucune limite ou garde-fou", "Il est pessimiste et demande une stricte surveillance et réglementation", "Il pense que l'IA est une pure mode passagère"], correct: 1 },
+            { q: "En logistique et innovation, qu'est-ce que la pénurie de GPU (comme les puces Nvidia H100) a provoqué ?[cite: 19]", options: ["L'arrêt total du développement de l'IA", "Les startups s'associent aux GAFAM pour accéder à leur puissance de calcul", "Le retour aux serveurs sur site (on-premise) traditionnels"], correct: 1 },
+            { q: "Comment s'appelle l'approche où une entreprise co-crée des produits avec l'extérieur (ex: Lego Ideas) ?[cite: 14]", options: ["Closed Innovation", "Open Innovation", "Disruptive Innovation"], correct: 1 },
+            { q: "Que signifie 'IA Agentique' ?[cite: 17]", options: ["Une IA qui ne peut traiter que du texte", "Une IA capable d'agir de manière autonome, de planifier et de prendre des décisions", "Une IA exclusivement dédiée au recrutement"], correct: 1 },
+            { q: "Dans la courbe de Kübler-Ross, quelle est la première réaction face à un changement majeur ?[cite: 14]", options: ["L'Acceptation", "La Négociation", "Le Choc et le Déni"], correct: 2 },
+            { q: "Quelle solution technique les développeurs d'IA utilisent-ils face à l'épuisement prévu des données réelles de qualité ?[cite: 19]", options: ["L'informatique quantique exclusive", "La génération de données synthétiques", "Le piratage massif de données privées"], correct: 1 },
+            { q: "Selon l'étude Deloitte, quelle est la taille optimale d'une équipe agile (Feature team) ?[cite: 20]", options: ["3 personnes", "7 personnes (+ ou - 2)", "15 personnes"], correct: 1 },
+            { q: "Quel chef cuisinier a transposé l'organisation militaire pour créer la 'Brigade' dans les cuisines ?[cite: 14]", options: ["Paul Bocuse", "Auguste Escoffier", "Alain Ducasse"], correct: 1 },
+            { q: "Dans l'Agile Profile (agilité comportementale), à quoi correspond la 'Proaction' ?[cite: 20]", options: ["Refuser systématiquement les ordres", "Agir en analysant formellement les risques et conséquences pour organiser son action", "Se coordonner simultanément avec les autres"], correct: 1 },
+            { q: "Qu'est-ce qu'une 'Feature Team' dans une organisation agile ?[cite: 20]", options: ["Une équipe spécialisée uniquement dans le test de logiciels", "Une équipe autonome et pluridisciplinaire responsable de la création d'un produit de A à Z", "Le comité de direction informatique"], correct: 1 },
+            { q: "Dans le cadre de Fnac Darty, pourquoi utiliser l'IA générative pour le marketing CRM ?[cite: 15]", options: ["Pour licencier l'équipe marketing", "Pour calculer la valeur prédictive d'un client et personnaliser son niveau de promotion", "Pour envoyer les mêmes emails à tout le monde"], correct: 1 },
+            { q: "Le modèle d'Organisation Scientifique du Travail (OST) basé sur la parcellisation extrême des tâches a été théorisé par :[cite: 14]", options: ["Joseph Schumpeter", "Taiichi Ohno", "Frederick Winslow Taylor"], correct: 2 },
+            { q: "L'IA multimodale (ex: Gemini, GPT-4V) se caractérise par sa capacité à :[cite: 17, 19]", options: ["Gérer uniquement de très grandes bases de texte", "Traiter simultanément le texte, l'image, la vidéo et l'audio", "Être hébergée sans aucune connexion internet"], correct: 1 },
+            { q: "Dans le modèle de Kotter, que doit-on faire juste après avoir créé un sentiment d'urgence ?[cite: 14]", options: ["Générer des victoires rapides", "Construire une coalition directrice", "Ancrer le changement"], correct: 1 },
+            { q: "Que stipule le concept de 'Destruction Créatrice' ?[cite: 14]", options: ["Détruire les anciens modèles et entreprises obsolètes pour laisser place à l'innovation", "Recycler physiquement les déchets d'usine", "Créer des logiciels malveillants pour tester la sécurité"], correct: 0 },
+            { q: "Quelles sont les attentes de la génération Y envers l'entreprise selon l'étude Deloitte ?[cite: 20]", options: ["Une stricte hiérarchie pyramidale", "L'innovation comme critère numéro 1 dans le choix de leur employeur", "Des horaires fixes de bureau sans télétravail"], correct: 1 },
+            { q: "Parmi ces entreprises, laquelle est un exemple historique d'échec face à une innovation disruptive ?[cite: 14]", options: ["Apple", "Kodak", "Toyota"], correct: 1 },
+            { q: "Dans les projets fous liés à l'innovation urbaine, comment s'appelle la ville linéaire de 170 km prévue en Arabie Saoudite ?[cite: 14]", options: ["The Loop", "The Circle", "The Line"], correct: 2 },
+            { q: "L'une des limites du modèle d'organisation en 'Tribu' (structurée autour d'un seul leader) est :[cite: 20]", options: ["Son inapplicabilité sur des très grandes structures sans sous-division", "Sa trop forte sensibilité à la réglementation", "L'impossibilité d'y créer de la culture commune"], correct: 0 },
+            { q: "Comment le rapport de McKinsey décrit-il l'écart de maturité IA en entreprise ?[cite: 17]", options: ["92% des entreprises investissent en IA, mais seulement 1% s'estiment 'matures'", "Toutes les entreprises sont matures", "Aucune entreprise ne prévoit d'investir"], correct: 0 }
+        ];
+
+        function shuffleArray(array) {
+            let curId = array.length;
+            while (0 !== curId) {
+                let randId = Math.floor(Math.random() * curId);
+                curId -= 1;
+                let tmp = array[curId];
+                array[curId] = array[randId];
+                array[randId] = tmp;
+            }
+            return array;
+        }
+
+        function initQuiz() {
+            const container = document.getElementById('qcm-questions-container');
+            container.innerHTML = '';
+            score = 0;
+            answeredQuestions.clear();
+            document.getElementById('score-display').textContent = `Score : 0/${TOTAL_QUESTIONS}`;
+
+            let shuffled = shuffleArray([...questionPool]).slice(0, TOTAL_QUESTIONS);
+
+            shuffled.forEach((qObj, index) => {
+                let html = `
+        <div class="question-box">
+          <div class="question-text">${index + 1}. ${qObj.q}</div>
+          <div class="options-grid">
+      `;
+                qObj.options.forEach((optText, optIndex) => {
+                    let isCorrect = (optIndex === qObj.correct);
+                    let letter = ['A', 'B', 'C'][optIndex];
+                    html += `
+          <button class="option-btn" onclick="handleAnswer(this, ${isCorrect}, ${index})">
+            <span>${letter}. ${optText}</span>
+            <span class="feedback-icon"></span>
+          </button>
+        `;
+                });
+                html += `</div></div>`;
+                container.innerHTML += html;
+            });
+
+            updateDashboardScore(0);
+        }
+
+        function handleAnswer(btn, isCorrect, qIndex) {
+            if (answeredQuestions.has(qIndex)) return;
+            answeredQuestions.add(qIndex);
+
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.option-btn').forEach(b => b.style.pointerEvents = 'none');
+
+            if (isCorrect) {
+                btn.classList.add('correct');
+                btn.querySelector('.feedback-icon').textContent = '✓';
+                score++;
+            } else {
+                btn.classList.add('wrong');
+                btn.querySelector('.feedback-icon').textContent = '✗';
+                parent.querySelectorAll('.option-btn').forEach(b => {
+                    if (b.getAttribute('onclick').includes('true')) {
+                        b.classList.add('correct');
+                        b.querySelector('.feedback-icon').textContent = '✓';
+                    }
+                });
+            }
+
+            document.getElementById('score-display').textContent = `Score : ${score}/${TOTAL_QUESTIONS}`;
+            updateDashboardScore(score);
+        }
+
+        function updateDashboardScore(newScore) {
+            try {
+                let state = JSON.parse(localStorage.getItem('revision_state')) || {};
+                if (!state[SUBJECT_ID]) { state[SUBJECT_ID] = { fiche: true, maitrise: -1, score: '', notes: '' }; }
+                state[SUBJECT_ID].score = newScore;
+                state[SUBJECT_ID].fiche = true;
+                localStorage.setItem('revision_state', JSON.stringify(state));
+            } catch (e) { console.error("Erreur de sauvegarde", e); }
+        }
+
+        window.onload = initQuiz;
+    </script>
+</body>
+
+</html>

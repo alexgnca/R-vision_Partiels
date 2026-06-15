@@ -1082,7 +1082,7 @@
 
     // Countdown basé sur la date du 24 juin 2026
     function updateCountdown() {
-      const exam = new Date('2026-06-24T08:00:00');
+      const exam = new Date('2026-06-24T00:00:00');
       const now = new Date();
       const diff = Math.ceil((exam - now) / (1000 * 60 * 60 * 24));
       document.getElementById('days-left').textContent = Math.max(0, diff);
